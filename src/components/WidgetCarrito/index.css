@@ -1,0 +1,15 @@
+
+.div-widget {
+	display: inline;
+	position: relative;
+	background-color: rgb(148,117,16) !important;
+}
+
+.span-insignia {
+	position: absolute !important;
+	top: 0.8em !important;
+}
+
+.contador-menor10 { left: 1.4em; }
+
+.contador-mayor9 { left: 1.1em; }

@@ -1,0 +1,18 @@
+
+h4 {
+	color: rgb(192,140,57);
+}
+
+.container a {
+	text-decoration: none;
+}
+
+li {
+	line-height: 1.25em;
+	color: white;
+	list-style: none;
+}
+
+.small-copyright {
+	color: rgb(122,122,122);
+}

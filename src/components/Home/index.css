@@ -1,0 +1,15 @@
+
+.div-columnas {
+	display: inline-flex;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: center
+}
+
+h1 {
+	color: rgb(149, 127, 103);
+}
+
+p {
+	font-size: 20px;
+}
