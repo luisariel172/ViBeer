@@ -26,10 +26,10 @@ function NavBar() {
 						className='me-auto my-2 my-lg-0 nav-max-height text-white'
 						navbarScroll
 					>
-						<Nav.Link href='/'>Todas</Nav.Link>
-						<Nav.Link href='/'>Lager</Nav.Link>
-						<Nav.Link href='/'>Negras</Nav.Link>
-						<Nav.Link href='/'>Pale Ale</Nav.Link>
+						<Nav.Link href='/todas'>Todas</Nav.Link>
+						<Nav.Link href='/lager'>Lager</Nav.Link>
+						<Nav.Link href='/negras'>Negras</Nav.Link>
+						<Nav.Link href='/paleale'>Pale Ale</Nav.Link>
 						<Form className='d-flex'>
 							<Form.Control
 								type='search'

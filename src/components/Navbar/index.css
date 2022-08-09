@@ -6,3 +6,10 @@ div .nav-link {
 button {
 	background-color: white !important;
 }
+
+div .nav-link:hover {
+	transform: scale(1.2);
+	overflow: hidden;
+	transition: all 1s;
+	color: aqua;
+}

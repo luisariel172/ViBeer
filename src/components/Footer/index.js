@@ -4,36 +4,33 @@
 //
 
 import './index.css';
-import React from 'react';
-
-//	Navegación de bootstrap
-import Navbar from 'react-bootstrap/Navbar';
+import { ListGroupItem } from 'react-bootstrap';
 
 function Footer() {
 	return (
 		<>
-		<div className='footer container-fluid'>
+		<div className='footer container-fListGroupItemid'>
 			<div className='container'>
 				<div className='row'>
 
 					<div className='col'>
 						<h4>Información</h4>
-						<lu>
+						<ListGroupItem>
 							<a href='#!'><li>Aviso legal</li></a>
 							<a href='#!'><li>Términos y condiciones</li></a>
 							<a href='#!'><li>Contacto</li></a>
-						</lu>
+						</ListGroupItem>
 					</div>
 
 					<div className='col'>
 						<h4>Contacto</h4>
-						<lu>
-							<li>Lincoln 93</li>
+						<ListGroupItem>
+							<li>Lincoln 93 duplex 2</li>
 							<li>(4000) San miguel de tucumán</li>
 							<li>Argentina</li>
 							<li>+54 9 381 5 460 614</li>
 							<li>jorgepereyra751@gmail.com</li>
-						</lu>
+						</ListGroupItem>
 					</div>
 
 					<div className='col'>

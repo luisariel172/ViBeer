@@ -1,0 +1,323 @@
+{
+	"productos": [
+		{
+			"id": "1",
+			"nombre": "Cerveza Acelerado",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Lager"
+		},
+
+		{
+			"id": "2",
+			"nombre": "Cerveza Aerábica",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Negras"
+		},
+
+		{
+			"id": "3",
+			"nombre": "Cerveza Amaneceres",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Pale Ale"
+		},
+
+		{
+			"id": "4",
+			"nombre": "Cerveza Azúcar",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Pale Ale"
+		},
+
+		{
+			"id": "5",
+			"nombre": "Cerveza Bambini",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Negras"
+		},
+
+		{
+			"id": "6",
+			"nombre": "Cerveza Capacidades",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Lager"
+		},
+
+		{
+			"id": "7",
+			"nombre": "Cerveza Catálogos",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Negras"
+		},
+
+		{
+			"id": "8",
+			"nombre": "Cerveza Chiffon",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Pale Ale"
+		},
+
+		{
+			"id": "9",
+			"nombre": "Cerveza Chlorofila",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Lager"
+		},
+
+		{
+			"id": "10",
+			"nombre": "Cerveza Cubismo",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Lager"
+		},
+
+		{
+			"id": "11",
+			"nombre": "Cerveza Desconocidos",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Pale Ale"
+		},
+
+		{
+			"id": "12",
+			"nombre": "Cerveza Destructurada",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Lager"
+		},
+
+		{
+			"id": "13",
+			"nombre": "Cerveza Felicidad",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Negras"
+		},
+
+		{
+			"id": "14",
+			"nombre": "Cerveza Forchetta",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Negras"
+		},
+
+		{
+			"id": "15",
+			"nombre": "Cerveza Internos",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Lager"
+		},
+
+		{
+			"id": "16",
+			"nombre": "Cerveza Leña",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Negras"
+		},
+
+		{
+			"id": "17",
+			"nombre": "Cerveza Limpios",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Pale Ale"
+		},
+
+		{
+			"id": "18",
+			"nombre": "Cerveza Marinos",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Pale Ale"
+		},
+
+		{
+			"id": "19",
+			"nombre": "Cerveza Nucleolos",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Pale Ale"
+		},
+
+		{
+			"id": "20",
+			"nombre": "Cerveza Optik",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Pale Ale"
+		},
+
+		{
+			"id": "21",
+			"nombre": "Cerveza Partida",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Pale Ale"
+		},
+
+		{
+			"id": "22",
+			"nombre": "Cerveza Telones",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Pale Ale"
+		},
+
+		{
+			"id": "23",
+			"nombre": "Cerveza Web",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Negras"
+		},
+
+		{
+			"id": "24",
+			"nombre": "Cerveza Ángulo",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Negras"
+		},
+
+		{
+			"id": "25",
+			"nombre": "Cerveza Cinemas",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Negras"
+		},
+
+		{
+			"id": "26",
+			"nombre": "Cerveza Cipolla",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Lager"
+		},
+
+		{
+			"id": "27",
+			"nombre": "Cerveza Conferencias",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Negras"
+		},
+
+		{
+			"id": "28",
+			"nombre": "Cerveza Continuo",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Pale Ale"
+		},
+
+		{
+			"id": "29",
+			"nombre": "Cerveza Jardín",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Lager"
+		},
+
+		{
+			"id": "30",
+			"nombre": "Cerveza Nublados",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Pale Ale"
+		},
+
+		{
+			"id": "31",
+			"nombre": "Cerveza Olimpo",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Negras"
+		},
+
+		{
+			"id": "32",
+			"nombre": "Cerveza Panel",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Lager"
+		},
+
+		{
+			"id": "33",
+			"nombre": "Cerveza Recreativa",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Lager"
+		},
+
+		{
+			"id": "34",
+			"nombre": "Cerveza Reino",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Negras"
+		},
+
+		{
+			"id": "35",
+			"nombre": "Cerveza Segura",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Negras"
+		},
+
+		{
+			"id": "36",
+			"nombre": "Cerveza Tigres",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Negras"
+		},
+
+		{
+			"id": "37",
+			"nombre": "Cerveza Visión",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Negras"
+		},
+
+		{
+			"id": "38",
+			"nombre": "Cerveza Vistazo",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Negras"
+		},
+
+		{
+			"id": "39",
+			"nombre": "Cerveza Éxitos",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Pale Ale"
+		},
+
+		{
+			"id": "40",
+			"nombre": "Cerveza Integridad",
+			"precio": "150",
+			"stock": "100",
+			"categoria": "Pale Ale"
+		}
+	]
+}

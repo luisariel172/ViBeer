@@ -1,6 +1,6 @@
 
 //
-//	Botón-comprar que es renderizado en cata proyecto
+//	Botón-comprar que es renderizado en cada item
 //
 
 //	Botón bootstrap

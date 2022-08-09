@@ -7,13 +7,16 @@ import React, { useEffect } from 'react';
 import './App.css';
 
 //	Básicos
-import { About, Home, Navbar, Footer } from './components';
+import { Home, Navbar, Footer } from './components';
 
 //	Router
 import { Routes, Route } from 'react-router-dom';
 
 //	Contador de compra tipo Context
 import { ContadorCompra } from './components';
+
+//	Galería de todas
+import { ItemListContainer as Galeria, ItemDetailContainer} from './components';
 
 function App() {
 
@@ -28,8 +31,12 @@ function App() {
 				<ContadorCompra>
 					<Navbar />
 					<Routes>
-						<Route path='/about' element = {<About />} />
 						<Route path='/' element = {<Home />} />
+						<Route path='/todas' element = {<Galeria />} />
+						<Route path='/lager' element = {<Galeria categoria='Lager'/>} />
+						<Route path='/negras' element = {<Galeria categoria='Negras'/>} />
+						<Route path='/paleale' element = {<Galeria categoria='Pale Ale'/>} />
+						<Route path='/productos/:id' element = {<ItemDetailContainer />} />
 					</Routes>
 				</ContadorCompra>
 			</header>
@@ -41,31 +48,3 @@ function App() {
 }
 
 export default App;
-
-
-/*
-
-import './App.css';
-import logo from './assets/img/logo.png';
-
-function App() {
-  return (
-    <div className='App'>
-      <header className=''>
-        <img src={logo} alt='logo'></img>
-      </header>
-    </div>
-  );
-}
-
-export default App;
-*/
-
-/*
-						<Route path='/saas' element = {<SaasPage />} />
-						<Route path='/ventas' element = {<VentasPage />} />
-						<Route path='/facturacion' element = {<FacturacionPage />} />
-						<Route path='/colegio' element = {<ColegioPage />} />
-						<Route path='/clientes' element = {<ClientesPage />} />
-						<Route path='/web' element = {<WebPage />} />
-*/

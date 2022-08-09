@@ -13,3 +13,23 @@ h1 {
 p {
 	font-size: 20px;
 }
+
+/*==================================
+Animación vaso de cerveza
+==================================*/
+.beer-glass-img:hover {
+	transform: scale(1.2);
+	overflow: hidden;
+	transition: all 1s;
+}
+
+.color-dark-glass-animate .beer-glass-img {
+  overflow: hidden;
+  transition: all 1.2s;
+}
+
+.color-dark-glass-animate:hover .beer-glass-img {
+  transform: scale(1.2);
+  overflow: hidden;
+  transition: all 1s;
+}

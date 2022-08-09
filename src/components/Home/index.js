@@ -12,7 +12,7 @@ function Home() {
 		<main className='container px-3 py-5'>
 
 			<div className='row'>
-				<div className='col-8'>
+				<div className='col-7'>
 					<h1>
 						Delivery de cervezas para todos los gustos
 					</h1>
@@ -30,8 +30,8 @@ function Home() {
 						trago de un nuevo sabor.
 					</p>
 				</div>
-				<div className='col-3 px-0'>
-					<img src={brewtiful} width='370px'/>
+				<div className='col-3 px-2 color-dark-glass-animate'>
+					<img src={brewtiful} width='370px' className='beer-glass-img'/>
 				</div>
 			</div>
 

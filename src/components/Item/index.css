@@ -1,0 +1,23 @@
+
+.item-tarjeta {
+	width: 14rem;
+	margin: 10px 10px;
+	background-color: black !important;
+	border: 1px solid white !important;
+}
+
+button {
+	background-color: black !important;
+	border: 1px solid white !important;
+	color: rgb(192,140,57) !important;
+}
+
+.titulo-item {
+	color: white !important;
+	font-size: 1.5rem !important;
+}
+
+.texto-item {
+	color: white !important;
+	font-size: 1rem !important;
+}
