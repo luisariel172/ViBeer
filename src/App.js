@@ -27,7 +27,6 @@ function App() {
 
 	return (
 		<div className='App'>
-			<header>
 				<ContadorCompra>
 					<Navbar />
 					<Routes>
@@ -39,10 +38,7 @@ function App() {
 						<Route path='/productos/:id' element = {<ItemDetailContainer />} />
 					</Routes>
 				</ContadorCompra>
-			</header>
-			<footer>
 				<Footer />
-			</footer>
 		</div>
 	);
 }

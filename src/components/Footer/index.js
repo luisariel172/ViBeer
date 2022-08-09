@@ -9,7 +9,7 @@ import { ListGroupItem } from 'react-bootstrap';
 function Footer() {
 	return (
 		<>
-		<div className='footer container-fListGroupItemid'>
+		<div className='footer container-fListGroupItemid div-footer'>
 			<div className='container'>
 				<div className='row'>
 

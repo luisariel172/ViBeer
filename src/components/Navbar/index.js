@@ -15,7 +15,7 @@ import logo from './../../assets/img/logo.png';
 
 function NavBar() {
 	return (
-		<Navbar expand='lg' className='text-white'>
+		<Navbar id='header' expand='lg' className='text-white'>
 			<Container fluid>
 				<Navbar.Brand href='/'>
 					<img src={logo} width='150px'></img>

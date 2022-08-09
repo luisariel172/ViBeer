@@ -11,5 +11,9 @@ div .nav-link:hover {
 	transform: scale(1.2);
 	overflow: hidden;
 	transition: all 1s;
-	color: aqua;
+	color: rgb(192,140,57);
+}
+
+div .NavBar{
+	margin-bottom: 0px !important;
 }

@@ -3,6 +3,7 @@
 //	Lee array de items y lanza el Componente-listador
 //
 
+import './index.css'
 import { useState, useEffect} from 'react';
 import { ItemList } from "../index";
 
@@ -35,7 +36,9 @@ function ItemListContainer({ categoria }) {
 	}, []);
 
     return (
-		<ItemList itemList={items} />
+		<div className='div-item-list-container'>
+			<ItemList itemList={items} />
+		</div>
     );
 }
 

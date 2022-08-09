@@ -1,6 +1,6 @@
 
 .item-tarjeta {
-	width: 14rem;
+	width: 12rem !important;
 	margin: 10px 10px;
 	background-color: black !important;
 	border: 1px solid white !important;

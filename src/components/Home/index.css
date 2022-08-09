@@ -1,9 +1,8 @@
 
-.div-columnas {
-	display: inline-flex;
-	flex-flow: row wrap;
-	align-items: center;
-	justify-content: center
+.div-home {
+	margin-top: 100px;
+	background-color: black;
+	min-height: 900px;
 }
 
 h1 {

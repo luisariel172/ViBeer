@@ -12,9 +12,13 @@ code {
 	monospace;
 }
 
-header {
+#header{
+	top: 0;
+	position: fixed;
 	background-color: black;
-	min-height: 100px;
+	height: 100px;
+	width: 100%;
+  	z-index: 1000;
 }
 
 body {
@@ -24,7 +28,7 @@ body {
 		sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	height: 1000px;
+	min-height: 1000px;
 }
 
 main {
