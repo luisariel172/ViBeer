@@ -1,6 +1,6 @@
 
 //
-//	Renderiza un item
+//	Renderiza un item de la galería
 //
 
 import './index.css'
@@ -23,7 +23,7 @@ function Item({ id, nombre, precio, stock, imagen, categoria }) {
 				<Card.Text className='texto-item'>{'Precio: $' + precio}</Card.Text>
 				<Card.Text className='texto-item'>{'Stock: '+ stock}</Card.Text>
 				<Card.Text className='texto-item'>{'Categoría: '+ categoria}</Card.Text>
-				<Link to={'/productos/' + id}>
+				<Link to={'/item/' + id}>
 					<button className='btn btn-info'>
 						Ver detalle
 					</button>

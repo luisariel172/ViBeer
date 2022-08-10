@@ -4,11 +4,15 @@
 //
 
 import './index.css'
+import { useParams } from 'react-router-dom';
 import { useState, useEffect} from 'react';
 import { ItemList } from "../index";
 
 //	Principal
-function ItemListContainer({ categoria }) {
+function ItemListContainer() {
+
+	//	Captura parámetro categoría
+	const { categoriaId } = useParams();
 
 	//	Productos
 	const [items, setItems] = useState([]);
@@ -20,9 +24,9 @@ function ItemListContainer({ categoria }) {
 			const objJson = await respuesta.json();
 			let ret = objJson.productos;
 
-			//	Filtro por categoria
-			if (categoria) {
-				ret = ret.filter((e) => e.categoria === categoria);
+			//	Filtro por categoría
+			if (categoriaId) {
+				ret = ret.filter((e) => e.categoria === categoriaId);
 			}
 
 			return ret;

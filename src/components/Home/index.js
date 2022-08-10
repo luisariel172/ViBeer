@@ -5,11 +5,13 @@
 
 import './index.css'
 import brewtiful from '../../../src/assets/img/brewtiful.png'
+import Carrusel from './carrusel';
 
 function Home() {
 	return (
 		<div className='div-home'>
 			<div className='container px-3 py-5 div-home'>
+
 				<div className='row'>
 					<div className='col-7'>
 						<h1>
@@ -27,11 +29,24 @@ function Home() {
 							Estamos emocionados por compartir la euforia de ese primer
 							trago de un nuevo sabor.
 						</p>
+						<br/><br/>
+						<a href='/todas'>
+							<div className='col-6 btn div-ver-todas'>
+								Ver todas nuestras cervezas
+							</div>
+						</a>
 					</div>
 					<div className='col-3 px-2 color-dark-glass-animate'>
 						<img src={brewtiful} width='370px' className='beer-glass-img'/>
 					</div>
 				</div>
+
+				<div className='row'>
+					<div className='col mx-4 my-5'>
+						<Carrusel />
+					</div>
+				</div>
+
 			</div>
 		</div>
  	);

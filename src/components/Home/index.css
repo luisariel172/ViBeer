@@ -13,9 +13,9 @@ p {
 	font-size: 20px;
 }
 
-/*==================================
-Animación vaso de cerveza
-==================================*/
+/*==================================*/
+/*	Animación vaso de cerveza
+/*==================================*/
 .beer-glass-img:hover {
 	transform: scale(1.2);
 	overflow: hidden;
@@ -31,4 +31,16 @@ Animación vaso de cerveza
   transform: scale(1.2);
   overflow: hidden;
   transition: all 1s;
+}
+
+/*==================================*/
+/*	Ver catálogo
+/*==================================*/
+
+.div-ver-todas {
+	color: rgb(192,140,57) !important;
+	border: 1px solid white !important;
+	padding: 15px 15px !important;
+	font-size: large !important;
+	text-align: center !important;
 }

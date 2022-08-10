@@ -1,6 +1,6 @@
 
 //
-//	
+//	Renderiza los detalles de un producto
 //
 
 import './index.css'
@@ -15,9 +15,9 @@ import Card from 'react-bootstrap/Card';
 function ItemDetailContainer() {
 
 	//	Lee parámetro
-	const idParam = useParams().id;
+	const { itemId } = useParams();
 
-	//	Item
+	//	Lee item y su imagen
 	const [item, setItem] = useState({});
 	const [imagen, setImagen] = useState();
 	useEffect(() => {
@@ -28,7 +28,7 @@ function ItemDetailContainer() {
 			const objJson = await respuesta.json();
 			const ArrayDatos = objJson.productos;
 			const ret = ArrayDatos.find(
-				(objElem) => objElem.id === String(idParam))
+				(objElem) => objElem.id === String(itemId))
 			return ret || {};
 		};
 

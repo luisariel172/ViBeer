@@ -27,9 +27,9 @@ function NavBar() {
 						navbarScroll
 					>
 						<Nav.Link href='/todas'>Todas</Nav.Link>
-						<Nav.Link href='/lager'>Lager</Nav.Link>
-						<Nav.Link href='/negras'>Negras</Nav.Link>
-						<Nav.Link href='/paleale'>Pale Ale</Nav.Link>
+						<Nav.Link href='/categoria/Lager'>Lager</Nav.Link>
+						<Nav.Link href='/categoria/Negras'>Negras</Nav.Link>
+						<Nav.Link href='/categoria/Pale Ale'>Pale Ale</Nav.Link>
 						<Form className='d-flex'>
 							<Form.Control
 								type='search'
