@@ -9,14 +9,14 @@ import Button from 'react-bootstrap/Button';
 //	Contador-de-compra del widget de carrito
 import { useContCompraContext } from '../ContadorCompra';
 
-function BotonComprar({ caption }) {
+function BotonComprar({ valor }) {
 
 	//	Acción de suma del contador de compra
 	const { sumar } = useContCompraContext();
 
 	return (
-		<Button className='mx-2' variant='primary' onClick={() => sumar()}>
-			{caption || 'Comprar'}
+		<Button className='m-3' variant='primary' onClick={() => sumar(valor)}>
+			{'Comprar'}
 		</Button>
 	);
 }

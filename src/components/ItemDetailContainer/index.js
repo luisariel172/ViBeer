@@ -6,7 +6,7 @@
 import './index.css'
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { BotonComprar } from '../index';
+import { ItemDetailCounter } from '../';
 
 //	Tarjeta bootstrap
 import Card from 'react-bootstrap/Card';
@@ -56,15 +56,15 @@ function ItemDetailContainer() {
 							src={imagen}
 						/>
 					</div>
-					<div className='col mt-5 mx-5'>
+					<div className='col mt-5 m-5'>
 						<Card.Body>
 							<Card.Text>{'Precio: $' + item.precio}</Card.Text>
 							<Card.Text>{'Stock: '+ item.stock}</Card.Text>
 							<Card.Text>{'Categoría: '+ item.categoria}</Card.Text>
 						</Card.Body>
-						<div>
-							<BotonComprar />
-						</div>
+
+						<ItemDetailCounter stock={item.stock} inicial={1} />
+
 					</div>
 				</div>
 			</Card>

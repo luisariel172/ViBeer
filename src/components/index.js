@@ -15,6 +15,7 @@ import Home from './Home';
 import ItemListContainer from './ItemListContainer';
 import ItemList from './ItemList';
 import Item from './Item';
+import ItemDetailCounter from './ItemDetailCounter';
 import BotonComprar from './BotonComprar';
 
 //	Producto
@@ -26,7 +27,7 @@ import ContadorCompra from './ContadorCompra';
 export {
 	Navbar, WidgetCarrito, Footer,
 	Home,
-	ItemListContainer, ItemList, Item, BotonComprar,
+	ItemListContainer, ItemList, Item, ItemDetailCounter, BotonComprar,
 	ItemDetailContainer,
 	ContadorCompra
 };
