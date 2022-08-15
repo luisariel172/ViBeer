@@ -1,26 +1,36 @@
 
+//
+//	Widget de carrito de compra
+//
+
 import './index.css'
 import Imagen from '../../../src/assets/cart-fill.svg';
 
-import { useContCompraContext } from '../ContadorCompra';
+//	Contexto del carrito
+import { useContextCarrito } from '../';
+
+//	Navegación al carrito
+import { useNavigate } from 'react-router-dom';
 
 function WidgetCarrito() {
 
-	const { contador, restar } = useContCompraContext();
+	//	Ir al carrito
+	const navegar = useNavigate();
+
+	//	Cantidad de líneas del carrito
+	const { lineasCarrito } = useContextCarrito();
 
 	return (
 		<div
-			className = 'btn div-widget'
-			datatoggle = 'tooltip'
-			dataplacement = 'top'
-			title = 'Restar carrito'
-			onClick = { () => restar() }
+			title = 'Ir al carrito'
+			className='btn div-widget'
+			onClick={()=>{navegar('/carrito')}}
 		>
 			<img src={Imagen} alt='badge' />
 			<span className={'badge span-insignia ' +
-				'contador-' + (contador < 10 ? 'menor10' : 'mayor9')}
+				'contador-' + (lineasCarrito.length < 10 ? 'menor10' : 'mayor9')}
 			>
-				{contador}
+				{lineasCarrito.length}
 			</span>
 		</div>
 	);

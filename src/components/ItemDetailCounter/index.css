@@ -7,13 +7,10 @@
 
  .boton-accion {
 	color: wheat;
-	
- 	/*hover:bg-red-600 bg-slate-900 text-white hover:text-black hover:shadow-lg hover:shadow-red-500*/
  }
 
  .boton-accion:hover {
 	background-color: white !important;
 	color: black !important;
- 	/*hover:bg-red-600 bg-slate-900 text-white hover:text-black hover:shadow-lg hover:shadow-red-500*/
  }
  

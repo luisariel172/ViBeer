@@ -5,20 +5,25 @@
 
 import './index.css';
 import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 
-//  Botón comprar
-import { BotonComprar } from '../'
+//  Botón agregar al carrito
+import { AgregarAlCarrito } from '../'
 
-const ItemDetailCounter = ({ stock, inicial }) => {
+const ItemDetailCounter = ({ item, inicial = 1 }) => {
+
+    //  Bandera de agregado al carrito
+    const [agregado, setAgregado] = useState(false);
+    const onAdd = () => setAgregado(true);
 
     //  valor del contador
     const [valor, setValor] = useState(inicial);
 
     //  Acción suma
     const sumar = () => {
-        if (valor < stock) setValor(valor + 1);
+        if (valor < item.stock) setValor(valor + 1);
     };
 
     //  Acción resta
@@ -29,41 +34,52 @@ const ItemDetailCounter = ({ stock, inicial }) => {
     //  Valor inicial
     useEffect(() => {
         setValor(inicial);
-    }, [inicial]);
+    }, []);
 
     //  Renderiza
     return (
         <>
         <div className='col-5 m-3 p-3 div-item-detail-counter'>
+            {!agregado ? (
+                <div>
+                    <button
+                        className='boton-accion'
+                        datatoggle = 'tooltip'
+                        dataplacement = 'top'
+                        title = 'Restar 1'
+                        onClick={restar}
+                        disabled={valor <= 1 || item.stock <= 0}
+                    >
+                    <i className='fas fa-arrow-down'></i>
+                    </button>
 
-            <button
-                className='boton-accion'
-                datatoggle = 'tooltip'
-                dataplacement = 'top'
-                title = 'Restar 1'
-                onClick={restar}
-                disabled={valor <= 1 || stock <= 0}
-            >
-               <i className='fas fa-arrow-down'></i>
-            </button>
+                    <span className='p-2 text-white text-2xl'>{valor}</span>
 
-            <span className='p-2 text-white text-2xl'>{valor}</span>
-
-            <button
-                className='boton-accion'
-                datatoggle = 'tooltip'
-                dataplacement = 'top'
-                title = 'Sumar 1'
-                onClick={sumar}
-                disabled={valor === stock ? true : null || stock <= 0}
-            >
-               <i className='fas fa-arrow-up'></i>
-            </button>
-
+                    <button
+                        className='boton-accion'
+                        datatoggle = 'tooltip'
+                        dataplacement = 'top'
+                        title = 'Sumar 1'
+                        onClick={sumar}
+                        disabled={valor === item.stock ? true : null || item.stock <= 0}
+                    >
+                    <i className='fas fa-arrow-up'></i>
+                    </button>
+                </div>
+            ) : (
+                <span className='text-white'>Se agregaron {valor} unidad(es).</span>
+            )}
         </div>
 
         <div>
-            <BotonComprar valor={valor}/>
+            <AgregarAlCarrito
+                item={item}
+                cantidad={valor}
+                onAdd={onAdd}
+            />
+            <Link to={`/categoria/${item.categoria}`}>
+                <Button>Ir a cervezas {item.categoria}</Button>
+            </Link>
         </div>
         </>
     );

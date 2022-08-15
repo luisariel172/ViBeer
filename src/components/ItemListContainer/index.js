@@ -41,6 +41,11 @@ function ItemListContainer() {
 
     return (
 		<div className='div-item-list-container'>
+			<div className='container'>
+				<h2>
+					{categoriaId ? categoriaId : 'Todas'}
+				</h2>
+			</div>
 			<ItemList itemList={items} />
 		</div>
     );

@@ -10,9 +10,8 @@ function ItemList({ itemList }) {
 	return (
 		<div className='div-item-list'>
 			{itemList.map((objItem) => {
-				objItem['key'] = objItem.id;
 				objItem['imagen'] = '/img/imagen' + objItem.id + '.png';
-				return <Item {...objItem} />;
+				return <Item key={objItem.id} {...objItem} />;
 			})};
 		</div>
 	);

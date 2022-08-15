@@ -48,7 +48,7 @@ function ItemDetailContainer() {
 				className='col-4 card-item p-3 mx-5 my-5 rounded strong'
 			>
 				<div className='row'>
-					<div className='col'>
+					<div className='col-4'>
 						<Card.Title className='titulo'>{item.nombre}</Card.Title>
 						<Card.Img
 							className='shadow-lg p-3 mb-2 bg-white rounded strong'
@@ -56,14 +56,17 @@ function ItemDetailContainer() {
 							src={imagen}
 						/>
 					</div>
-					<div className='col mt-5 m-5'>
+					<div className='col-6 mt-5 m-5'>
 						<Card.Body>
 							<Card.Text>{'Precio: $' + item.precio}</Card.Text>
 							<Card.Text>{'Stock: '+ item.stock}</Card.Text>
 							<Card.Text>{'Categoría: '+ item.categoria}</Card.Text>
 						</Card.Body>
 
-						<ItemDetailCounter stock={item.stock} inicial={1} />
+						<ItemDetailCounter
+							item={item}
+							inicial={1}
+						/>
 
 					</div>
 				</div>

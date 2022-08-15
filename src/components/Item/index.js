@@ -1,6 +1,6 @@
 
 //
-//	Renderiza un item de galería
+//	Renderiza item de galería
 //
 
 import './index.css'

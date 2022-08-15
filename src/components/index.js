@@ -16,18 +16,19 @@ import ItemListContainer from './ItemListContainer';
 import ItemList from './ItemList';
 import Item from './Item';
 import ItemDetailCounter from './ItemDetailCounter';
-import BotonComprar from './BotonComprar';
+import AgregarAlCarrito from './AgregarAlCarrito';
 
 //	Producto
 import ItemDetailContainer from './ItemDetailContainer';
 
-//	Contador de compra tipo context
-import ContadorCompra from './ContadorCompra';
+//	Carrito de compra
+import ContextCarrito, { useContextCarrito } from './ContextCarrito';
+import Carrito from './Carrito';
 
 export {
 	Navbar, WidgetCarrito, Footer,
 	Home,
-	ItemListContainer, ItemList, Item, ItemDetailCounter, BotonComprar,
+	ItemListContainer, ItemList, Item, ItemDetailCounter, AgregarAlCarrito,
 	ItemDetailContainer,
-	ContadorCompra
+	ContextCarrito, useContextCarrito, Carrito
 };

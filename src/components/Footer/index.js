@@ -25,11 +25,17 @@ function Footer() {
 					<div className='col'>
 						<h4>Contacto</h4>
 						<ListGroupItem>
-							<li>Lincoln 93 duplex 2</li>
-							<li>(4000) San miguel de tucumán</li>
+							<li>Lincoln 93 dúplex 2</li>
+							<li>(4000) San Miguel de Tucumán</li>
 							<li>Argentina</li>
-							<li>+54 9 381 5 460 614</li>
-							<li>jorgepereyra751@gmail.com</li>
+							<li>
+								<i className='fas fa-phone' aria-hidden='true'/>
+								{' '}+54 9 381 5 460 614
+							</li>
+							<li>
+								<i className='fas fa-envelope' aria-hidden='true'/>
+								{' '}jorgepereyra751@gmail.com
+							</li>
 						</ListGroupItem>
 					</div>
 
