@@ -21,3 +21,19 @@ button {
 	color: white !important;
 	font-size: 1rem !important;
 }
+
+
+.div-widget-cantidad {
+	position: relative;
+	top: -35px;
+	left: 120px;
+	display: inline-block;
+}
+
+.span-insignia-cantidad {
+	position: absolute;
+	background: red;
+	text-align: center;
+	border-radius: 20px 20px 20px 20px !important;
+	color: white;
+}

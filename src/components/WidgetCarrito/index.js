@@ -17,20 +17,20 @@ function WidgetCarrito() {
 	//	Ir al carrito
 	const navegar = useNavigate();
 
-	//	Cantidad de líneas del carrito
-	const { lineasCarrito } = useContextCarrito();
+	//	Cantidad total de artículos del carrito
+	const { getCantidadTotal } = useContextCarrito();
+	const articulos = getCantidadTotal();
 
 	return (
 		<div
-			title = 'Ir al carrito'
-			className='btn div-widget'
+			className='btn button1 div-widget-carrito'
 			onClick={()=>{navegar('/carrito')}}
+			title='Ir al carrito'
 		>
 			<img src={Imagen} alt='badge' />
-			<span className={'badge span-insignia ' +
-				'contador-' + (lineasCarrito.length < 10 ? 'menor10' : 'mayor9')}
+			<span className={'badge span-insignia-carrito'}
 			>
-				{lineasCarrito.length}
+				{articulos}
 			</span>
 		</div>
 	);

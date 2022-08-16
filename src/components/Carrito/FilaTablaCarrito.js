@@ -17,7 +17,7 @@ function FilaTablaCarrito({ linea }) {
 				{linea.nombre}
 			</td>
 			<td>
-				<img src={'/img/imagen' + linea.id + '.png'} width={'70px'}></img>
+				<img src={'/img/imagen' + linea.id + '.png'} width={'70px'} />
 			</td>
 			<td className='text-center'>
 				{linea.cantidad}

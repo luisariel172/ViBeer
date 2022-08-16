@@ -1,9 +1,12 @@
 
 //
-//	Renderiza carrito en forma de tabla
+//	Renderiza tabla de productos de carrito de compra
 //
 
 import './index.css';
+
+//	Context de carrito
+import { useContextCarrito } from '../ContextCarrito';
 
 //	Tabla de bootstrap
 import Table from 'react-bootstrap/Table';
@@ -13,16 +16,8 @@ import FilaTablaCarrito from './FilaTablaCarrito';
 
 function TablaCarrito({ lineas }) {
 
-	//  Calcula cantidad total de artículos
-	const totalArticulos = () =>
-		lineas.reduce((total, linea) => total + linea.cantidad, 0);
-
-	//  Calcula total del carrito
-	const totalCarrito = () => {
-		return lineas.reduce(
-			(total, linea) => total + linea.cantidad * linea.precio, 0
-		);
-	};
+	//	Obtiene funciones del carrito
+	const { getCantidadTotal, getTotalCarrito } = useContextCarrito();
 
 	return (
 		<Table responsive className='text-white tamaño-fuente-tabla'>
@@ -48,9 +43,9 @@ function TablaCarrito({ lineas }) {
 				<tr className='text-center'>
 					<th/>
 					<th>Totales</th>
-					<th>{totalArticulos()}</th>
+					<th>{getCantidadTotal()}</th>
 					<th/>
-					<th>$ {totalCarrito()}</th>
+					<th>$ {getTotalCarrito()}</th>
 					<th/>
 				</tr>
 			</tfoot>

@@ -9,11 +9,17 @@ import { Link } from 'react-router-dom';
 //	Tarjeta bootstrap
 import Card from 'react-bootstrap/Card';
 
+//	Widget de catidad en carrito
+import WidgetCantidad from './WidgetCantidad';
+
 function Item({ id, nombre, precio, stock, imagen, categoria }) {
+
 	return (
-		<Card id={id}
-				className='shadow-lg p-3 mb-5 rounded strong item-tarjeta'>
-			<div className='titulo-item'>{nombre}</div>
+		<Card className='shadow-lg p-3 mb-5 rounded strong item-tarjeta'>
+			<div className='titulo-item'>
+				<WidgetCantidad id={id}/>
+				{nombre}
+			</div>
 			<Card.Img
 				className='shadow-lg p-3 mb-2 bg-white rounded strong'
 				variant='top'

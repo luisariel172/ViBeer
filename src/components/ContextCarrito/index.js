@@ -46,6 +46,23 @@ function Proveedor({ children }) {
 		setLineasCarrito(lineasCarrito.filter(linea => linea.id !== id))
 	};
 
+	//	Devuelve la cantidad de artículos de un id
+	const getCantidadById = (id) => {
+		const linea = lineasCarrito.find(linea => linea.id === id);
+		return linea ? linea.cantidad : 0;
+	};
+
+	//  Calcula cantidad total de artículos
+	const getCantidadTotal = () =>
+		lineasCarrito.reduce((total, linea) => total + linea.cantidad, 0);
+
+	//  Calcula importe total del carrito
+	const getTotalCarrito = () => {
+		return lineasCarrito.reduce(
+			(total, linea) => total + linea.cantidad * linea.precio, 0
+		);
+	};
+
 	//	Acción reset
 	const reset = () => setLineasCarrito([]);
 
@@ -55,6 +72,9 @@ function Proveedor({ children }) {
 				lineasCarrito,
 				agregarLinea,
 				borrarLinea,
+				getCantidadById,
+				getCantidadTotal,
+				getTotalCarrito,
                 reset
             }}
         >

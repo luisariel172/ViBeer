@@ -1,15 +1,11 @@
 
-.div-widget {
-	display: inline;
-	position: relative;
+.div-widget-carrito {
 	background-color: rgb(148,117,16) !important;
+	width: 60px;
+	height: 45px;
 }
 
-.span-insignia {
-	position: absolute !important;
-	top: 0.8em !important;
+.span-insignia-carrito {
+	position: relative !important;
+	top: -2.5em !important;
 }
-
-.contador-menor10 { left: 1.4em; }
-
-.contador-mayor9 { left: 1.1em; }
