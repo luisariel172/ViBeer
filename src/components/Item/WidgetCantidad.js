@@ -1,6 +1,6 @@
 
 //
-//	Widget de cantidad de articulos del item en carrito de compra
+//	Widget de cantidad de articulos del item en galería
 //
 
 import './index.css'
