@@ -57,6 +57,7 @@ function ItemDetailContainer() {
 						/>
 					</div>
 					<div className='col-6 mt-5 m-5'>
+
 						<Card.Body>
 							<Card.Text>{'Precio: $' + item.precio}</Card.Text>
 							<Card.Text>{'Stock: '+ item.stock}</Card.Text>

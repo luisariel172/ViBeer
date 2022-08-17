@@ -16,7 +16,6 @@ import ItemListContainer from './ItemListContainer';
 import ItemList from './ItemList';
 import Item from './Item';
 import ItemDetailCounter from './ItemDetailCounter';
-import AgregarAlCarrito from './AgregarAlCarrito';
 
 //	Producto
 import ItemDetailContainer from './ItemDetailContainer';
@@ -28,7 +27,7 @@ import Carrito from './Carrito';
 export {
 	Navbar, WidgetCarrito, Footer,
 	Home,
-	ItemListContainer, ItemList, Item, ItemDetailCounter, AgregarAlCarrito,
+	ItemListContainer, ItemList, Item, ItemDetailCounter,
 	ItemDetailContainer,
 	ContextCarrito, useContextCarrito, Carrito
 };

@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 
 //  Botón agregar al carrito
-import { AgregarAlCarrito } from '../'
+import AgregarAlCarrito from './AgregarAlCarrito'
 
 const ItemDetailCounter = ({ item, inicial = 1 }) => {
 
@@ -44,30 +44,28 @@ const ItemDetailCounter = ({ item, inicial = 1 }) => {
                 <div>
                     <button
                         className='boton-accion'
-                        datatoggle = 'tooltip'
-                        dataplacement = 'top'
                         title = 'Restar 1'
                         onClick={restar}
                         disabled={valor <= 1 || item.stock <= 0}
                     >
-                    <i className='fas fa-arrow-down'></i>
+                        <i className='fas fa-arrow-down'></i>
                     </button>
 
                     <span className='p-2 text-white text-2xl'>{valor}</span>
 
                     <button
                         className='boton-accion'
-                        datatoggle = 'tooltip'
-                        dataplacement = 'top'
                         title = 'Sumar 1'
                         onClick={sumar}
                         disabled={valor === item.stock ? true : null || item.stock <= 0}
                     >
-                    <i className='fas fa-arrow-up'></i>
+                        <i className='fas fa-arrow-up'></i>
                     </button>
                 </div>
             ) : (
-                <span className='text-white'>Se agregaron {valor} unidad(es).</span>
+                <span className='text-white'>
+                    Se agregaron {valor} unidad(es).
+                </span>
             )}
         </div>
 
@@ -78,7 +76,9 @@ const ItemDetailCounter = ({ item, inicial = 1 }) => {
                 onAdd={onAdd}
             />
             <Link to={`/categoria/${item.categoria}`}>
-                <Button>Ir a cervezas {item.categoria}</Button>
+                <Button>
+                    Ir a cervezas {item.categoria}
+                </Button>
             </Link>
         </div>
         </>

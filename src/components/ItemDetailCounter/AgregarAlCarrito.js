@@ -1,6 +1,6 @@
 
 //
-//	Botón-agregar-al-carrito de item de galería
+//	Botón Agregar-al-carrito de detalle de item
 //
 
 import { useState } from 'react';
