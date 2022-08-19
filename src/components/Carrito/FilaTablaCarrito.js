@@ -3,13 +3,16 @@
 //	Renderiza fila de tabla de carrito
 //
 
-//	Importa context de carrito
-import { useContextCarrito } from '../';
+//	Importa context de carrito e imagen del item
+import { useContextCarrito, ImagenDesdeGithub } from '../';
 
 function FilaTablaCarrito({ linea }) {
 
 	//	Acción borrar línea
 	const { borrarLinea } = useContextCarrito();
+
+	//	Lee imagen
+	const imagen = ImagenDesdeGithub(linea.id);
 
 	return (
 		<tr className='text-white overflow-hidden'>
@@ -17,7 +20,7 @@ function FilaTablaCarrito({ linea }) {
 				{linea.nombre}
 			</td>
 			<td>
-				<img src={'/img/imagen' + linea.id + '.png'} width={'70px'} />
+				<img src={imagen} width={'70px'} />
 			</td>
 			<td className='text-center'>
 				{linea.cantidad}

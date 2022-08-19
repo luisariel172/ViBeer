@@ -8,6 +8,9 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { ItemDetailCounter } from '../';
 
+//	Imagen
+import { ImagenDesdeGithub } from '../';
+
 //	Tarjeta bootstrap
 import Card from 'react-bootstrap/Card';
 
@@ -17,12 +20,14 @@ function ItemDetailContainer() {
 	//	Lee parámetro
 	const { itemId } = useParams();
 
-	//	Lee item y su imagen
+	//	Lee imagen
+	const imagen = ImagenDesdeGithub(itemId);
+
+	//	Lee item
 	const [item, setItem] = useState({});
-	const [imagen, setImagen] = useState();
 	useEffect(() => {
 
-		//	Lee objeto
+		//	Lee datos desde json
 		const getItem = async () => {
 			const respuesta = await fetch(`/datos.json`,)
 			const objJson = await respuesta.json();
@@ -31,13 +36,7 @@ function ItemDetailContainer() {
 				(objElem) => objElem.id === String(itemId))
 			return ret || {};
 		};
-
-		getItem()
-			.then((item) => {
-				setItem(item);
-				const imagen = '../img/imagen' + item.id + '.png';
-				setImagen(imagen);
-			})
+		getItem().then((item) => setItem(item));
 
 	}, []);
 

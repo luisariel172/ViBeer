@@ -4,7 +4,8 @@
 //
 
 import './index.css'
-import Imagen from '../../../src/assets/cart-fill.svg';
+import carritoVacio from '../../../src/assets/cart-empty.svg';
+import carritoLleno from '../../../src/assets/cart-fill.svg';
 
 //	Contexto del carrito
 import { useContextCarrito } from '../';
@@ -27,10 +28,13 @@ function WidgetCarrito() {
 			onClick={()=>{navegar('/carrito')}}
 			title='Ir al carrito'
 		>
-			<img src={Imagen} alt='badge' />
+			<img
+				src={articulos ? carritoLleno : carritoVacio}
+				alt='badge'
+			/>
 			<span className={'badge span-insignia-carrito'}
 			>
-				{articulos}
+				{articulos ? articulos : ''}
 			</span>
 		</div>
 	);

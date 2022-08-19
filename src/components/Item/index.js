@@ -6,13 +6,18 @@
 import './index.css'
 import { Link } from 'react-router-dom';
 
+//	Imagen
+import { ImagenDesdeGithub } from '../';
+
 //	Tarjeta bootstrap
 import Card from 'react-bootstrap/Card';
 
 //	Widget de catidad en carrito
 import WidgetCantidad from './WidgetCantidad';
 
-function Item({ id, nombre, precio, stock, imagen, categoria }) {
+function Item({ id, nombre, precio, stock, categoria }) {
+
+	const imagen = ImagenDesdeGithub(id);
 
 	return (
 		<Card className='shadow-lg p-3 mb-5 rounded strong item-tarjeta'>

@@ -17,6 +17,9 @@ import ItemList from './ItemList';
 import Item from './Item';
 import ItemDetailCounter from './ItemDetailCounter';
 
+//	Descarga imagen de producto
+import ImagenDesdeGithub from './ImagenDesdeGithub';
+
 //	Producto
 import ItemDetailContainer from './ItemDetailContainer';
 
@@ -29,5 +32,6 @@ export {
 	Home,
 	ItemListContainer, ItemList, Item, ItemDetailCounter,
 	ItemDetailContainer,
-	ContextCarrito, useContextCarrito, Carrito
+	ImagenDesdeGithub,
+	ContextCarrito, useContextCarrito, Carrito,
 };
