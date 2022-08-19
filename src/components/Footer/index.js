@@ -16,9 +16,9 @@ function Footer() {
 					<div className='col'>
 						<h4>Información</h4>
 						<ListGroupItem>
+							<a href='#!'><li>Preguntas frecuentes</li></a>
 							<a href='#!'><li>Aviso legal</li></a>
 							<a href='#!'><li>Términos y condiciones</li></a>
-							<a href='#!'><li>Contacto</li></a>
 						</ListGroupItem>
 					</div>
 

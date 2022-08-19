@@ -4,7 +4,10 @@
 //
 
 import { useEffect, useState } from 'react';
+
+//	Carrusel de bootstrap
 import Carousel from 'react-bootstrap/Carousel';
+import ImagenCarrusel from './ImagenCarrusel';
 
 function Carrusel() {
 
@@ -28,12 +31,7 @@ function Carrusel() {
 			{items.map((item) => {
 				return (
 					<Carousel.Item key={item}>
-						<img
-							className = 'd-block mx-auto my-5'
-							src = {`img/imagen${item}.png`}
-							width = '300px'
-							alt = 'xxx'
-						/>
+						<ImagenCarrusel id={item} />
 					</Carousel.Item>
 				);
 			})};
