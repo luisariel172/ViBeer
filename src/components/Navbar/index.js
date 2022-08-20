@@ -17,7 +17,7 @@ function NavBar() {
 	return (
 		<Navbar id='header' expand='lg' className='text-white'>
 			<Container fluid>
-				<Navbar.Brand href='/'>
+				<Navbar.Brand href='/' className='px-5'>
 					<img src={logo} width='150px'></img>
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls='navbarScroll' />
@@ -45,7 +45,9 @@ function NavBar() {
 						<Nav.Link href='/login'>Ingresá</Nav.Link>
 					</Nav>
 
-					<WidgetCarrito />
+					<div className='px-5'>
+						<WidgetCarrito />
+					</div>
 
 				</Navbar.Collapse>
 			</Container>

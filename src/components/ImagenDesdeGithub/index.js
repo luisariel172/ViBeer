@@ -3,7 +3,7 @@
 //	Devuelve URL de imagen de producto de repositorio de Github
 //
 
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const ImagenDesdeGithub = (id) => {
 
