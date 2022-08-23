@@ -1,0 +1,35 @@
+
+div .nav-link {
+	color: white;
+}
+
+button {
+	background-color: white !important;
+}
+
+div .nav-link:hover {
+	color: rgb(192,140,57);
+}
+
+div .NavBar{
+	margin-bottom: 0px !important;
+}
+
+#navbarScrollingDropdown {
+    color: white;
+}
+
+#navbarScrollingDropdown:hover {
+	color: rgb(192,140,57);
+}
+
+.dropdown-menu, .dropdown-item {
+	background-color: wheat !important;
+	color: black !important;
+}
+
+.dropdown-item:hover {
+	background-color: white !important;
+	color: rgb(192,140,57) !important;
+	font-weight: bold;
+}
