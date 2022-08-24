@@ -1,6 +1,6 @@
 
 //
-//	Carga productos iniciales
+//	Carga usuarios iniciales
 //
 
 import React, { useEffect } from 'react';
@@ -10,13 +10,13 @@ import '../index.css';
 import { db, collection, addDoc } from '../../api/conexion';
 import { borrarColeccion } from '../../api/db';
 
-//	Tabla de productos
+//	Tabla de categorías
 import Tabla from './Tabla';
 
 function Carga() {
 
 	//	Nombre de colección
-	const coleccion = 'productos';
+	const coleccion = 'usuarios';
 
 	//	Borra colección
 	borrarColeccion(coleccion);
@@ -24,7 +24,7 @@ function Carga() {
 	//	Items iniciales
 	useEffect(() => {
 
-		//	Crea un producto en la colección
+		//	Crea una categoría en la colección
 		const creaItem = async (item) => {
 			await addDoc(collection(db, coleccion), item);
 		};
@@ -38,9 +38,6 @@ function Carga() {
 		};
 		getDatosJson().then(items => {
 			items.forEach(item => {
-				item['imagen'] =
-					'https://raw.githubusercontent.com/jorge751/' +
-					`ViBeer/master/public/img/imagen${item.id}.png`
 				delete item.id;
 				creaItem(item);
 			});

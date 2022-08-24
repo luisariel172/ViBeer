@@ -1,6 +1,6 @@
 
 //
-//	Renderiza fila de tabla de producto
+//	Renderiza fila de tabla de categoría
 //
 
 import React from 'react';
@@ -16,21 +16,7 @@ function TablaFila({ item, borrarItem }) {
 			<td>
 				{item.nombre}
 			</td>
-			<td className='text-end'>
-				$ {item.precio}
-			</td>
-			<td className='text-end'>
-				{item.stock}
-			</td>
-			<td>
-				{item.id_categoria}
-			</td>
-			<td>
-				{item.categoria}
-			</td>
-			<td title={item.imagen}>
-				{item.imagen}
-			</td>
+
 			<td className='text-end'>
 				<button
 					title = 'Editar'
@@ -42,6 +28,7 @@ function TablaFila({ item, borrarItem }) {
 					onClick = {() => {borrarItem(item.id)}}
 				><i className='fas fa-trash'></i></button>
 			</td>
+
 		</tr>
 	);
 };

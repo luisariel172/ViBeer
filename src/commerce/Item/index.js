@@ -17,9 +17,9 @@ import './index.css'
 //	Widget de catidad en carrito
 import WidgetCantidad from './WidgetCantidad';
 
-function Item({ id, nombre, precio, stock, categoria }) {
+function Item({ id, nombre, precio, stock, categoria, imagen }) {
 
-	const imagen = ImagenDesdeGithub(id);
+	const imagenGH = ImagenDesdeGithub(imagen);
 
 	return (
 		<Card className='p-3 mb-5 rounded strong item-tarjeta'>
@@ -30,13 +30,13 @@ function Item({ id, nombre, precio, stock, categoria }) {
 			<Card.Img
 				className='shadow-lg p-3 mb-2 bg-white rounded strong'
 				variant='top'
-				src={imagen}
+				src={imagenGH}
 			/>
 			<Card.Body>
 				<Card.Text className='texto-item'>{'Precio: $' + precio}</Card.Text>
 				<Card.Text className='texto-item'>{'Stock: '+ stock}</Card.Text>
 				<Card.Text className='texto-item'>{'Categoría: '+ categoria}</Card.Text>
-				<Link to={'/item/' + id}>
+				<Link to={'/item_detalle/' + id}>
 					<button className='btn btn-info'>
 						Ver detalle
 					</button>

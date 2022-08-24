@@ -52,10 +52,10 @@ function NavBar() {
 					</Nav>
 					<Nav>
 						<NavDropdown title='Administración' id='navbarScrollingDropdown'>
-							<NavDropdown.Item href='/admin/lista_productos'>Productos</NavDropdown.Item>
-							<NavDropdown.Item href='/admin/lista_categorias'>Categorías</NavDropdown.Item>
+							<NavDropdown.Item href='/admin_lista_productos'>Productos</NavDropdown.Item>
+							<NavDropdown.Item href='/admin_lista_categorias'>Categorías</NavDropdown.Item>
 							<NavDropdown.Divider />
-							<NavDropdown.Item href='/admin/lista_usuarios'>Usuarios</NavDropdown.Item>
+							<NavDropdown.Item href='/admin_lista_usuarios'>Usuarios</NavDropdown.Item>
 						</NavDropdown>
 					</Nav>
 

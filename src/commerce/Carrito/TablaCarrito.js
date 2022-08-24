@@ -13,7 +13,7 @@ import Table from 'react-bootstrap/Table';
 import './index.css';
 
 //  Fila de la tabla
-import FilaTablaCarrito from './FilaTablaCarrito';
+import TablaCarritoFila from './TablaCarritoFila';
 
 function TablaCarrito({ lineas }) {
 
@@ -36,7 +36,7 @@ function TablaCarrito({ lineas }) {
 
 			<tbody>
 				{lineas.map((linea) => 
-					<FilaTablaCarrito key={linea.id} linea={linea} />
+					<TablaCarritoFila key={linea.id} linea={linea} />
 				)}
 			</tbody>
 

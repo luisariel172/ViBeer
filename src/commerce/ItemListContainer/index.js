@@ -4,6 +4,7 @@
 //
 
 import React from 'react';
+import { getCollection, getCollectionWithQuery } from '../../api/db'
 
 import { useParams } from 'react-router-dom';
 import { useState, useEffect} from 'react';
@@ -15,30 +16,29 @@ import './index.css'
 function ItemListContainer() {
 
 	//	Captura parámetro categoría
-	const { categoriaId } = useParams();
+	const { categoria } = useParams();
 
 	//	Productos
 	const [items, setItems] = useState([]);
 	useEffect(() => {
 
-		//	Carga datos JSON en ./public
-		const getDatosJson = async () => {
-			const respuesta = await fetch(`/datos.json`,)
-			const objJson = await respuesta.json();
-			let ret = objJson.productos;
+		//	Carga datos desde Firestore
+		const getDatosFirestore = async () => {
+
+			let ret;
 
 			//	Filtro por categoría
-			if (categoriaId) {
-				ret = ret.filter((e) => e.categoria === categoriaId);
+			if (categoria) {
+				ret = await getCollectionWithQuery(
+					'productos', ['categoria', '==', categoria]);
+			} else {
+				ret = await getCollection('productos');
 			}
+			//ret = ret.filter((e) => e.categoria === categoria);
 
 			return ret;
 		};
-
-		getDatosJson()
-			.then((items) => {
-				setItems(items);
-			})
+		getDatosFirestore().then(items => setItems(items));
 
 	}, []);
 
@@ -46,7 +46,7 @@ function ItemListContainer() {
 		<div className='div-item-list-container'>
 			<div className='container'>
 				<h2>
-					{categoriaId ? categoriaId : 'Todas'}
+					{categoria ? categoria : 'Todas'}
 				</h2>
 			</div>
 			<ItemList itemList={items} />

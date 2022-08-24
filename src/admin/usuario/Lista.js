@@ -1,6 +1,6 @@
 
 //
-//	Renderiza lista de productos con tabla
+//	Renderiza lista de categorías con tabla
 //
 
 import React, { useState, useEffect } from 'react';
@@ -16,9 +16,9 @@ import Tabla from './Tabla';
 function Lista() {
 
 	//	Nombre de colección
-	const coleccion = 'productos';
+	const coleccion = 'usuarios';
 
-	//	Lee productos
+	//	Lee items
 	const [items, setItems] = useState([]);
 	useEffect(() => {
 		async function getItems() {
@@ -36,18 +36,18 @@ function Lista() {
 
 					{/*	Título */}
 					<div className='col-4'>
-						<h2>Productos</h2>
+						<h2>Usuarios</h2>
 						<br />
 					</div>
 
 					{/*	Botones	de acción */}
 					<div className='col d-flex justify-content-end'>
-						<Link to={'/admin_agregar_producto'} className='mx-5'>
+						<Link to={'/admin_agregar_usuario'} className='mx-5'>
 							<button className='btn'>
-								Agregar producto
+								Agregar usuario
 							</button>
 						</Link>
-						<Link to={'/admin_carga_productos'}>
+						<Link to={'/admin_carga_' + coleccion}>
 							<button className='btn'>
 								Cargar datos iniciales
 							</button>

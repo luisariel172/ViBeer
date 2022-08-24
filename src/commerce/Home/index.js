@@ -5,7 +5,7 @@
 
 import React from 'react';
 import brewtiful from '../../../src/assets/img/brewtiful.png'
-import Carrusel from './carrusel';
+import Carrusel from './Carrusel';
 import './index.css'
 
 function Home() {

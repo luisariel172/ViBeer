@@ -1,6 +1,6 @@
 
 //
-//	Renderiza tabla de productos
+//	Renderiza tabla de categorías
 //
 
 import React from 'react';
@@ -21,7 +21,7 @@ import TablaFila from './TablaFila';
 
 function Tabla() {
 
-	const coleccion = 'productos';
+	const coleccion = 'categorias';
 	const query = collection(db, coleccion);
 	const [items] = useCollection(query);
 
@@ -37,11 +37,6 @@ function Tabla() {
 				<tr>
 					<th>Id</th>
 					<th>Nombre</th>
-					<th>Precio</th>
-					<th>Stock</th>
-					<th>Id categoría</th>
-					<th>Categoría</th>
-					<th>URL imagen</th>
 				</tr>
 			</thead>
 
@@ -49,7 +44,7 @@ function Tabla() {
 				{items && items.docs
 					.map((i) => ({ id: i.id, ...i.data() }))
                 	.map((i) => (				
-						<TablaFila key={i.id} item={i} borrarItem={borrarItem} />
+						<TablaFila key={i.id} item={i} borrarItem={borrarItem}/>
 					)
 				)}
 			</tbody>

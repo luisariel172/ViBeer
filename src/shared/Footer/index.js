@@ -10,7 +10,7 @@ import './index.css';
 function Footer() {
 	return (
 		<>
-		<div className='footer container-fListGroupItemid div-footer'>
+		<div className='div-footer py-5'>
 			<div className='container'>
 				<div className='row'>
 

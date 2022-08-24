@@ -6,15 +6,12 @@
 import React from 'react';
 
 //	Importa context de carrito e imagen del item
-import { useContextCarrito, ImagenDesdeGithub } from '..';
+import { useContextCarrito } from '..';
 
 function FilaTablaCarrito({ linea }) {
 
 	//	Acción borrar línea
 	const { borrarLinea } = useContextCarrito();
-
-	//	Lee imagen
-	const imagen = ImagenDesdeGithub(linea.id);
 
 	return (
 		<tr className='text-white overflow-hidden'>
@@ -22,7 +19,7 @@ function FilaTablaCarrito({ linea }) {
 				{linea.nombre}
 			</td>
 			<td>
-				<img src={imagen} width={'70px'} alt={'xxx'}/>
+				<img src={linea.imagen} width={'70px'} alt={'xxx'}/>
 			</td>
 			<td className='text-center'>
 				{linea.cantidad}

@@ -5,13 +5,7 @@
 
 import React from 'react';
 
-//	Imágenes de Github
-import { ImagenDesdeGithub } from '..';
-
-function ImagenCarrusel({ id })	{
-	
-	//	Descarga imagen
-	const imagen = ImagenDesdeGithub(id);
+function ImagenCarrusel({ imagen })	{
 	
 	return (
 		<img
@@ -24,5 +18,3 @@ function ImagenCarrusel({ id })	{
 };
 
 export default ImagenCarrusel;
-
-//		className='p-3 mb-5 rounded strong item-tarjeta'

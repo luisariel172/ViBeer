@@ -8,6 +8,7 @@ import {
 	doc,
 	getDocs,
 	getDoc,
+	deleteDoc,
 	collection,
 	query,
 	where,
@@ -30,7 +31,7 @@ export async function getCollection(col) {
 //	Devuelve colección con query
 export async function getCollectionWithQuery(col, q) {
 
-	const queryCollection = query(collection(db, col), where(...q), limit(1));
+	const queryCollection = query(collection(db, col), where(...q), limit(40));
 	const snapshot = await getDocs(queryCollection);
 
 	if (snapshot.size === 0) {
@@ -55,4 +56,22 @@ export async function getDocument(col, id) {
 		return { id: snapshot.id, ...snapshot.data() };
 	}
 	return null;
+}
+
+
+ //	Borra colección
+export async function borrarColeccion(col) {
+
+	const snapshot = await getDocs(collection(db, col));
+
+	snapshot.docs.forEach((snapshotDoc) => {
+		deleteDoc(doc(db, col, snapshotDoc.id));
+	});
+}
+
+ //	Borra un documento con colección y id
+export async function borrarDoc(col, id) {
+
+	await deleteDoc(doc(db, col, id));
+
 }

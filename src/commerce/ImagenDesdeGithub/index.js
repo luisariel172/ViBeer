@@ -5,18 +5,17 @@
 
 import { useState, useEffect } from 'react';
 
-const ImagenDesdeGithub = (id) => {
+const ImagenDesdeGithub = (url) => {
 
 	//	Descarga imagen desde github
 	const [imagen, setImagen] = useState();
 	useEffect(() => {
-		const getImagen = async (id) => {
-			const url = `https://raw.githubusercontent.com/jorge751/ViBeer/master/public/img/imagen${id}.png`
+		const getImagen = async () => {
 			const respuesta = await fetch(url);
 			const imagenBlob = await respuesta.blob();
 			return URL.createObjectURL(imagenBlob);
 		};
-		getImagen(id).then((imagen) => setImagen(imagen));
+		getImagen().then((imagen) => setImagen(imagen));
 	}, [])
 
 	return imagen;
