@@ -23,7 +23,7 @@ function Carrusel() {
 					for (let i=1; i<=100; i++) {
 						if (final.length > 9) break;
 						const random = Math.floor(Math.random() * 40);
-						if (!final.find(i => i.id === productos[random].id)) {
+						if (productos[random] && !final.find(i => i.id === productos[random].id)) {
 							final.push(productos[random]);
 						}
 					}

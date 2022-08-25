@@ -2,4 +2,9 @@
 .div-item-list-container {
 	margin-top: 100px;
 	background-color: black;
+	display:flex;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: center;
+	min-height: 900px;
 }

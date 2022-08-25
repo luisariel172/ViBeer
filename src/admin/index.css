@@ -25,6 +25,6 @@ td {
 	overflow: clip;
 }
 
-i:hover {
-	color: white;
+button:hover, i:hover {
+	color: white !important;
 }
