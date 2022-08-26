@@ -8,7 +8,7 @@ import '../index.css';
 
 //	Acceso a DB
 import { db, collection, addDoc } from '../../api/conexion';
-import { borrarColeccion } from '../../api/db';
+import { borrarColeccion, getCollectionWithQuery } from '../../api/db';
 
 //	Tabla de productos
 import Tabla from './Tabla';
@@ -23,6 +23,13 @@ function Carga() {
 
 	//	Items iniciales
 	useEffect(() => {
+
+		//	Devuelve el id de una categoría con nombre
+		const getIdCategoriaByName = async (nombre) => {
+			const ret = await getCollectionWithQuery(
+				'categorias', ['nombre', '==', nombre]);
+			return ret[0] ? ret[0].id : '';
+		}
 
 		//	Crea un producto en la colección
 		const creaItem = async (item) => {
@@ -42,7 +49,11 @@ function Carga() {
 					'https://raw.githubusercontent.com/jorge751/' +
 					`ViBeer/master/public/img/imagen${item.id}.png`
 				delete item.id;
-				creaItem(item);
+				getIdCategoriaByName(item.categoria)
+					.then((id_categoria) => {
+						item.id_categoria = id_categoria;
+						creaItem(item);
+					});
 			});
 		});
 

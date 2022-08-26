@@ -75,7 +75,7 @@ const ItemDetailCounter = ({ item, inicial = 1 }) => {
                 cantidad={valor}
                 onAdd={onAdd}
             />
-            <Link to={`/categoria/${item.categoria}`}>
+            <Link to={`/categoria/${item.id_categoria}`}>
                 <Button>
                     Ir a cervezas {item.categoria}
                 </Button>

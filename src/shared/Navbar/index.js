@@ -3,8 +3,9 @@
 //	Navegación de bootstrap
 //
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
+//	Bootstrap !!!
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -13,10 +14,34 @@ import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import './index.css'
 
+//	Acceso a base de datos
+import { getCollectionWithQuery } from '../../api/db';
+
+//	Carrito
 import { WidgetCarrito } from '../index';
+
+//	Logo del sitio
 import logo from './../../assets/img/logo.png';
 
+//	Principal
 function NavBar() {
+
+	//	Categorías preferidas
+	const [idLager, setIdLager] = useState();
+	const [idNegras, setIdNegras] = useState();
+	const [idPaleAle, setIdPaleAle] = useState();
+	useEffect(() => {
+
+		//	Lee categoría por cnombre
+		const getId = async (nombre) => {
+			return await getCollectionWithQuery(
+				'categorias', ['nombre', '==', nombre])
+			}
+		getId('Lager').then(cats => {setIdLager(cats[0].id)});
+		getId('Negras').then(cats => {setIdNegras(cats[0].id)});
+		getId('Pale Ale').then(cats => {setIdPaleAle(cats[0].id)});
+
+	});
 
 	return (
 		<Navbar id='header' expand='lg' className='text-white'>
@@ -31,9 +56,9 @@ function NavBar() {
 						navbarScroll
 					>
 						<Nav.Link href='/todas'>Todas</Nav.Link>
-						<Nav.Link href='/categoria/Lager'>Lager</Nav.Link>
-						<Nav.Link href='/categoria/Negras'>Negras</Nav.Link>
-						<Nav.Link href='/categoria/Pale Ale'>Pale Ale</Nav.Link>
+						<Nav.Link href={'/categoria/' + idLager}>Lager</Nav.Link>
+						<Nav.Link href={'/categoria/' + idNegras}>Negras</Nav.Link>
+						<Nav.Link href={'/categoria/' + idPaleAle}>Pale Ale</Nav.Link>
 						<Form className='d-flex'>
 							<Form.Control
 								type='search'

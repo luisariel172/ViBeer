@@ -21,9 +21,11 @@ import TablaFila from './TablaFila';
 
 function Tabla() {
 
+	//	Nombre de colección
 	const coleccion = 'productos';
-	const query = collection(db, coleccion);
-	const [items] = useCollection(query);
+
+	//	Hoock de actualización
+	const [items] = useCollection(collection(db, coleccion));
 
 	//	Función de borrado
 	const borrarItem = (id) => {
@@ -49,7 +51,11 @@ function Tabla() {
 				{items && items.docs
 					.map((i) => ({ id: i.id, ...i.data() }))
                 	.map((i) => (				
-						<TablaFila key={i.id} item={i} borrarItem={borrarItem} />
+						<TablaFila
+							key={i.id}
+							item={i}
+							borrarItem={borrarItem}
+						/>
 					)
 				)}
 			</tbody>

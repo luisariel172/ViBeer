@@ -1,6 +1,6 @@
 
 //
-//	Lee array de items y lanza el Componente-listador
+//	Lee items de la base y lanza el Componente-listador
 //
 
 import React from 'react';
@@ -16,29 +16,28 @@ import './index.css'
 function ItemListContainer() {
 
 	//	Captura parámetro categoría
-	const { categoria } = useParams();
+	const { id_categoria } = useParams();
 
-	//	Productos
+	//	Productos y nombre de categoría
 	const [items, setItems] = useState([]);
+	const [categoria, setCategoria] = useState('');
 	useEffect(() => {
 
-		//	Carga datos desde Firestore
-		const getDatosFirestore = async () => {
-
+		//	Lee items
+		const getItems = async () => {
 			let ret;
-
 			//	Filtro por categoría
-			if (categoria) {
+			if (id_categoria) {
 				ret = await getCollectionWithQuery(
-					'productos', ['categoria', '==', categoria]);
+					'productos', ['id_categoria', '==', id_categoria]);
+				setCategoria(ret[0].categoria);
 			} else {
 				ret = await getCollection('productos');
+				setCategoria('Todas');
 			}
-			//ret = ret.filter((e) => e.categoria === categoria);
-
 			return ret;
 		};
-		getDatosFirestore().then(items => setItems(items));
+		getItems().then(items => setItems(items));
 
 	}, []);
 
@@ -46,7 +45,7 @@ function ItemListContainer() {
 		<div className='div-item-list-container'>
 			<div className='container'>
 				<h2>
-					{categoria ? categoria : 'Todas'}
+					{categoria}
 				</h2>
 			</div>
 			<ItemList itemList={items} />

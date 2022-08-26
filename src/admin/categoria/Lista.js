@@ -10,7 +10,7 @@ import '../index.css';
 //	Acceso a DB
 import { getCollection } from '../../api/db';
 
-//	Tabla de productos
+//	Tabla
 import Tabla from './Tabla';
 
 function Lista() {

@@ -37,7 +37,7 @@ function App() {
 
 					<Route path='/' element = {<Home />} />
 					<Route path='/todas' element = {<Categoria />} />
-					<Route path='/categoria/:categoria' element = {<Categoria />} />
+					<Route path='/categoria/:id_categoria' element = {<Categoria />} />
 					<Route path='/item_detalle/:itemId' element = {<Detalle />} />
 					<Route path='/carrito' element = {<Carrito />} />
 
