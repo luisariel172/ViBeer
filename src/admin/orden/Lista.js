@@ -1,6 +1,6 @@
 
 //
-//	Renderiza lista de categorías con tabla
+//	Renderiza lista de órdenes con tabla
 //
 
 import React, { useState, useEffect } from 'react';
@@ -16,7 +16,7 @@ import Tabla from './Tabla';
 function Lista() {
 
 	//	Nombre de colección
-	const coleccion = 'categorias';
+	const coleccion = 'ordenes';
 
 	//	Lee items
 	const [items, setItems] = useState([]);
@@ -36,13 +36,13 @@ function Lista() {
 
 					{/*	Título */}
 					<div className='col-4'>
-						<h2>Categorías</h2>
+						<h2>Órdenes</h2>
 						<br />
 					</div>
 
 					{/*	Botones	de acción */}
 					<div className='col d-flex justify-content-end'>
-						<Link to={'/admin_agregar_categoria'} className='mx-5'>
+						<Link to={'/admin_agregar_orden'} className='mx-5'>
 							<button className='btn'>
 								Agregar categoría
 							</button>

@@ -1,14 +1,13 @@
 
 //
-//	Carga categorías iniciales
+//	Carga órdenes iniciales
 //
 
 import React, { useEffect } from 'react';
 import '../index.css';
 
 //	Acceso a DB
-import { db, collection, addDoc } from '../../api/conexion';
-import { borrarColeccion } from '../../api/db';
+import { borrarColeccion, creaItem } from '../../api/db';
 
 //	Tabla
 import Tabla from './Tabla';
@@ -16,18 +15,13 @@ import Tabla from './Tabla';
 function Carga() {
 
 	//	Nombre de colección
-	const coleccion = 'categorias';
+	const coleccion = 'ordenes';
 
 	//	Borra colección
 	borrarColeccion(coleccion);
 
 	//	Items iniciales
 	useEffect(() => {
-
-		//	Crea una categoría en la colección
-		const creaItem = async (item) => {
-			await addDoc(collection(db, coleccion), item);
-		};
 
 		//	Carga datos JSON desde ./public
 		const getDatosJson = async () => {
@@ -39,7 +33,7 @@ function Carga() {
 		getDatosJson().then(items => {
 			items.forEach(item => {
 				delete item.id;
-				creaItem(item);
+				creaItem(coleccion, item);
 			});
 		});
 

@@ -4,10 +4,13 @@
 //
 
 import React from 'react';
-import { getCollection, getCollectionWithQuery } from '../../api/db'
-
 import { useParams } from 'react-router-dom';
 import { useState, useEffect} from 'react';
+
+//	Acceso a base de datos
+import { getCollection, getCollectionWithQuery } from '../../api/db'
+
+//	Lista de items
 import { ItemList } from "../index";
 
 import './index.css'

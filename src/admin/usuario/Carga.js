@@ -10,7 +10,7 @@ import '../index.css';
 import { db, collection, addDoc } from '../../api/conexion';
 import { borrarColeccion } from '../../api/db';
 
-//	Tabla de categorías
+//	Tabla
 import Tabla from './Tabla';
 
 function Carga() {

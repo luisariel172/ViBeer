@@ -4,7 +4,10 @@
 //
 
 import React from 'react';
+
+//	Item
 import { Item } from "..";
+
 import './index.css';
 
 function ItemList({ itemList }) {

@@ -22,14 +22,14 @@ function ItemDetailContainer() {
 	//	Lee parámetro
 	const { itemId } = useParams();
 
-	//	Lee item desde Firestore
+	//	Lee item
 	const [item, setItem] = useState({});
 	useEffect(() => {
-		const getDocFirestore = async () => {
+		const getItem = async () => {
 			const ret = await getDocument('productos', itemId);
 			return ret || {};
 		};
-		getDocFirestore().then(item => setItem(item));
+		getItem().then(item => setItem(item));
 	}, []);
 
     return (

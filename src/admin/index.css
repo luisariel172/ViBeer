@@ -5,6 +5,10 @@
 	min-height: 900px;
 }
 
+.consulta {
+	border: thin solid dimgray;
+}
+
 th {
 	border: thin solid !important;
 	border-color: gray !important;
@@ -27,4 +31,23 @@ td {
 
 button:hover, i:hover {
 	color: white !important;
+}
+
+.grupo-form {
+	background-color: rgba(180, 180, 180, 0.323);
+	height: 40px;
+}
+
+.etiqueta-form, .control-form {
+	height: 30px;
+}
+
+.control-form {
+	background-color: black !important;
+	color: white !important;
+	border: 0 !important;
+}
+
+.consulta-tabla th {
+	background-color: rgba(180, 180, 180, 0.323) !important;
 }

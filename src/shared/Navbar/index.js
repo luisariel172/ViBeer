@@ -27,9 +27,9 @@ import logo from './../../assets/img/logo.png';
 function NavBar() {
 
 	//	Categorías preferidas
-	const [idLager, setIdLager] = useState();
-	const [idNegras, setIdNegras] = useState();
-	const [idPaleAle, setIdPaleAle] = useState();
+	const [idLager, setIdLager] = useState('');
+	const [idNegras, setIdNegras] = useState('');
+	const [idPaleAle, setIdPaleAle] = useState('');
 	useEffect(() => {
 
 		//	Lee categoría por cnombre
@@ -37,9 +37,14 @@ function NavBar() {
 			return await getCollectionWithQuery(
 				'categorias', ['nombre', '==', nombre])
 			}
-		getId('Lager').then(cats => {setIdLager(cats[0].id)});
-		getId('Negras').then(cats => {setIdNegras(cats[0].id)});
-		getId('Pale Ale').then(cats => {setIdPaleAle(cats[0].id)});
+		getId('Lager')
+			.then(cats => {setIdLager(cats[0].id)})
+			.catch(() => setIdLager(''))
+		getId('Negras')
+			.then(cats => {setIdNegras(cats[0].id)})
+			.catch(() => setIdNegras(''))
+		getId('Pale Ale').then(cats => {setIdPaleAle(cats[0].id)})
+			.catch(() => setIdPaleAle(''))
 
 	});
 
@@ -79,6 +84,7 @@ function NavBar() {
 						<NavDropdown title='Administración' id='navbarScrollingDropdown'>
 							<NavDropdown.Item href='/admin_lista_productos'>Productos</NavDropdown.Item>
 							<NavDropdown.Item href='/admin_lista_categorias'>Categorías</NavDropdown.Item>
+							<NavDropdown.Item href='/admin_lista_ordenes'>Órdenes</NavDropdown.Item>
 							<NavDropdown.Divider />
 							<NavDropdown.Item href='/admin_lista_usuarios'>Usuarios</NavDropdown.Item>
 						</NavDropdown>

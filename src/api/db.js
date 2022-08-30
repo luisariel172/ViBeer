@@ -8,11 +8,12 @@ import {
 	doc,
 	getDocs,
 	getDoc,
+	addDoc,
 	deleteDoc,
 	collection,
 	query,
 	where,
-	limit,
+	limit
 } from './conexion';
 
 //	Devuelve array de colección
@@ -71,7 +72,14 @@ export async function borrarColeccion(col) {
 
  //	Borra un documento con colección y id
 export async function borrarDoc(col, id) {
-
 	await deleteDoc(doc(db, col, id));
+}
 
+//	Crea un item en la colección
+export async function creaItem(col, item) {
+	return await addDoc(collection(db, col), item);
+};
+
+export function getRefDoc(col, id) {
+	return doc(db, col, id);
 }
