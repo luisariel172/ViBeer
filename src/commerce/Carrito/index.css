@@ -9,3 +9,24 @@
 .tamaño-fuente-tabla {
 	font-size: 1.1rem;
 }
+
+/*************************************************/
+
+.grupo-form {
+	background-color: rgba(180, 180, 180, 0.323);
+	height: 40px;
+}
+
+.etiqueta-form, .control-form {
+	height: 30px;
+}
+
+.control-form {
+	background-color: black !important;
+	color: white !important;
+	border: 0 !important;
+}
+
+th {
+	background-color: rgba(180, 180, 180, 0.323) !important;
+}

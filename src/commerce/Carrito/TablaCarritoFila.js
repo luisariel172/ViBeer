@@ -21,13 +21,13 @@ function FilaTablaCarrito({ linea }) {
 			<td>
 				<img src={linea.imagen} width={'70px'} alt={'xxx'}/>
 			</td>
-			<td className='text-center'>
+			<td className='text-end'>
 				{linea.cantidad}
 			</td>
-			<td className='text-center'>
+			<td className='text-end'>
 				$ {linea.precio}
 			</td>
-			<td className='text-center'>
+			<td className='text-end'>
 				$ {linea.cantidad * linea.precio}
 			</td>
 			<td className='text-center'>

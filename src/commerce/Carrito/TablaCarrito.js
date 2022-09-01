@@ -41,12 +41,12 @@ function TablaCarrito({ lineas }) {
 			</tbody>
 
 			<tfoot>
-				<tr className='text-center'>
+				<tr>
 					<th/>
 					<th>Totales</th>
-					<th>{getCantidadTotal()}</th>
+					<th className='text-end'>{getCantidadTotal()}</th>
 					<th/>
-					<th>$ {getTotalCarrito()}</th>
+					<th className='text-end'>$ {getTotalCarrito()}</th>
 					<th/>
 				</tr>
 			</tfoot>

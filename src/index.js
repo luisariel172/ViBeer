@@ -7,6 +7,9 @@ import reportWebVitals from './reportWebVitals';
 //	CSS de bootsrap
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+//	CSS de Toastify
+import 'react-toastify/dist/ReactToastify.css';
+
 //	Ruteador
 import { BrowserRouter } from "react-router-dom";
 

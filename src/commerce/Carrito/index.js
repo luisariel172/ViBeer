@@ -4,29 +4,21 @@
 //
 
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useContextCarrito } from '..';
-import { fechaAMD } from '../../funciones';
-
-//	Acceso a base de datos
-import { creaItem, getRefDoc } from '../../api/db';
+import { Link } from 'react-router-dom';
+import { useContextCarrito } from '../';
 
 //	Tabla
 import TablaCarrito from './TablaCarrito';
 
+//	Formulario de comprador
+import Compra from './Compra';
+
 import './index.css';
-import { increment, updateDoc } from 'firebase/firestore';
 
 function Carrito() {
 
-	//	Obtiene funciones del carrito
-	const { getTotalCarrito } = useContextCarrito();
-
-	//	Navegador para ir a la orden
-	const navegar = useNavigate();
-
     //	Acceso a contexto de carrito
-	const { lineasCarrito, reset } = useContextCarrito();
+	const { lineasCarrito } = useContextCarrito();
 
     if (lineasCarrito.length === 0) {
         return (
@@ -46,51 +38,6 @@ function Carrito() {
         );
     }
 
-	//	Ejecuta la compra
-	const comprar = () => {
-
-		//	Orden a grabar
-		const orden = {
-			fecha: fechaAMD(),
-			comprador: 
-				{
-					nombre: 'Fabricio Pereyra',
-					telefono: '3815123456',
-					email: 'fabry@server.com'
-				}
-			,
-			items:
-				lineasCarrito.map(lc => {
-					return {
-						id: lc.id,
-						nombre: lc.nombre,
-						precio: lc.precio,
-						cantidad: lc.cantidad
-					}
-				}),
-			total: getTotalCarrito()
-		}
-
-		//	Actualiza stock
-		const updateStock = () => {
-			lineasCarrito.forEach( async lc => {
-				const itemRef = getRefDoc('productos', lc.id)
-				await updateDoc(itemRef, {
-					stock: increment(-lc.cantidad)
-				})
-			});
-		};
-
-		//	Crea orden, actualiza stock, resetea carrito y dirije a consulta
-		creaItem('ordenes', orden)
-			.then((item) => {
-				updateStock()
-				reset();
-				navegar('/admin_consulta_orden/' + item.id + '/todas');
-			});
-
-	};
-
     return (
 		<div className='div-carrito'>
 
@@ -98,23 +45,15 @@ function Carrito() {
 				<h2>Carrito de compra</h2>
 			</div>
 
-			<div className='d-flex justify-content-center'>
+			<div className='container'>
 				<div className='row mt-5'>
 
-					<div className='col-8 mx-2'>
-						<h4>Lista</h4><br/>
+					<div className='col me-5'>
+						<h4>Items</h4><br/>
 						<TablaCarrito lineas={lineasCarrito} />
 					</div>
 
-					<div className='col px-5'>
-						<h4>Confirme la operación</h4><br/>
-						<button
-							className='btn mt-3'
-							onClick={() => comprar()}
-						>
-							Comprar
-						</button>
-					</div>
+					<Compra lineas={lineasCarrito}/>
 
 				</div>
 			</div>

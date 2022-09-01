@@ -42,11 +42,6 @@ function Lista() {
 
 					{/*	Botones	de acción */}
 					<div className='col d-flex justify-content-end'>
-						<Link to={'/admin_agregar_orden'} className='mx-5'>
-							<button className='btn'>
-								Agregar categoría
-							</button>
-						</Link>
 						<Link to={'/admin_carga_' + coleccion}>
 							<button className='btn'>
 								Cargar datos iniciales
