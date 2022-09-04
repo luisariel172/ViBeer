@@ -3,17 +3,20 @@
 //	Renderiza lista de productos con tabla
 //
 
+//	Framework
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import '../index.css';
 
 //	Acceso a DB
 import { getCollection } from '../../api/db';
 
 //	Tabla
-import Tabla from './Tabla';
+import ListaTabla from './ListaTabla';
 
-function Lista() {
+//	CSS
+import '../index.css';
+
+export default function Lista() {
 
 	//	Nombre de colección
 	const coleccion = 'productos';
@@ -29,7 +32,7 @@ function Lista() {
 	}, []);
 
 	return (
-		<div className='div-items'>
+		<div className='div-lista'>
 			<div className='container'>
 
 				<div className='row py-3 justify-content-between'>
@@ -58,13 +61,11 @@ function Lista() {
 
 				{/*	Tabla con los datos */}
 				<div className='row mx-1'>
-					<Tabla items={items} />
+					<ListaTabla items={items} />
 				</div>
 
 			</div>
 		</div>
 	)
 
-}
-
-export default Lista;
+};

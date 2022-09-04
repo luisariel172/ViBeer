@@ -3,7 +3,7 @@
 	width: 12rem !important;
 	margin: 10px 10px;
 	background-color: black !important;
-	border: 1px solid wheat !important;
+	border: 1px solid gray !important;
 }
 
 button {
@@ -36,4 +36,12 @@ button {
 	text-align: center;
 	border-radius: 20px 20px 20px 20px !important;
 	color: white;
+}
+
+/**********************************/
+
+.sombra-item:hover {
+	box-shadow:
+		5px 5px 5px 5px gray;
+	border-color: wheat !important;
 }

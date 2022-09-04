@@ -1,4 +1,8 @@
 
+th {
+	background-color: rgba(180, 180, 180, 0.323) !important;
+}
+
 .div-carrito {
 	margin-top: 100px !important;
 	background-color: black;
@@ -25,8 +29,4 @@
 	background-color: black !important;
 	color: white !important;
 	border: 0 !important;
-}
-
-th {
-	background-color: rgba(180, 180, 180, 0.323) !important;
 }

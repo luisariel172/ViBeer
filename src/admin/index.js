@@ -10,6 +10,7 @@ import CargaProductos from './producto/Carga';
 //	Categorías
 import ListaCategorias from './categoria/Lista';
 import CargaCategorias from './categoria/Carga';
+import ConsultaCategoria from './categoria/Consulta';
 
 //	Órdenes
 import ListaOrdenes from './orden/Lista';
@@ -22,7 +23,7 @@ import CargaUsuarios from './usuario/Carga';
 
 export {
 	ListaProductos, CargaProductos,
-	ListaCategorias, CargaCategorias,
+	ListaCategorias, CargaCategorias, ConsultaCategoria,
 	ListaOrdenes, CargaOrdenes, ConsultaOrden,
 	ListaUsuarios, CargaUsuarios
 };

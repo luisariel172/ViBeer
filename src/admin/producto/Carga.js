@@ -3,17 +3,21 @@
 //	Carga productos iniciales
 //
 
+//	Framework
 import React, { useEffect } from 'react';
-import '../index.css';
 
 //	Acceso a DB
 import { db, collection, addDoc } from '../../api/conexion';
 import { borrarColeccion, getCollectionWithQuery } from '../../api/db';
 
 //	Tabla
-import Tabla from './Tabla';
+import ListaTabla from './ListaTabla';
 
-function Carga() {
+//	CSS
+import '../index.css';
+
+//	Default !!!
+export default function Carga() {
 
 	//	Nombre de colección
 	const coleccion = 'productos';
@@ -60,7 +64,7 @@ function Carga() {
 	}, []);
 
 	return (
-		<div className='div-items'>
+		<div className='div-lista'>
 			<div className='container'>
 
 				<div className='row py-3'>
@@ -73,13 +77,11 @@ function Carga() {
 
 				{/*	Tabla con los datos */}
 				<div className='row mx-1'>
-					<Tabla />
+					<ListaTabla />
 				</div>
 
 			</div>
 		</div>
-	)
+	);
 
-}
-
-export default Carga;
+};

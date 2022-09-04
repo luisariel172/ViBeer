@@ -23,7 +23,7 @@ import { ItemListContainer as Categoria, ItemDetailContainer as Detalle }
 //	Administración
 import {
 	ListaProductos, CargaProductos,
-	ListaCategorias, CargaCategorias,
+	ListaCategorias, CargaCategorias, ConsultaCategoria,
 	ListaOrdenes, CargaOrdenes, ConsultaOrden,
 	ListaUsuarios, CargaUsuarios
 } from '../src/admin';
@@ -47,6 +47,7 @@ function App() {
 
 					<Route path='/admin_lista_categorias' element = {<ListaCategorias />} />
 					<Route path='/admin_carga_categorias' element = {<CargaCategorias />} />
+					<Route path='/admin_consulta_categoria/:id' element = {<ConsultaCategoria />} />
 
 					<Route path='/admin_lista_ordenes' element = {<ListaOrdenes />} />
 					<Route path='/admin_carga_ordenes' element = {<CargaOrdenes />} />

@@ -3,10 +3,13 @@
 //	Renderiza fila de tabla de producto
 //
 
+//	Framework
 import React from 'react';
+
+//	CSS
 import '../index.css';
 
-function TablaFila({ item, borrarItem }) {
+export default function ListaTablaFila({ item, borrarItem }) {
 
 	return (
 		<tr className='text-white'>
@@ -45,5 +48,3 @@ function TablaFila({ item, borrarItem }) {
 		</tr>
 	);
 };
-
-export default TablaFila;

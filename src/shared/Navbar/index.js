@@ -49,8 +49,8 @@ function NavBar() {
 	});
 
 	return (
-		<Navbar id='header' expand='lg' className='text-white'>
-			<Container fluid>
+		<Navbar id='header' expand='lg'>
+			<Container fluid className='sombra'>
 				<Navbar.Brand href='/' className='px-5'>
 					<img src={logo} width='150px' alt={'xxx'} />
 				</Navbar.Brand>

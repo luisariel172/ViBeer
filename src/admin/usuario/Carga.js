@@ -46,7 +46,7 @@ function Carga() {
 	}, []);
 
 	return (
-		<div className='div-items'>
+		<div className='div-lista'>
 			<div className='container'>
 
 				<div className='row py-3'>

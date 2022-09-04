@@ -1,35 +1,30 @@
 
 //
-//	Renderiza fila de tabla de orden
+//	Renderiza fila de tabla de categoría
 //
 
+//	Framework
 import React from 'react';
-import '../index.css';
-
 import { Link } from 'react-router-dom';
 
-function TablaFila({ item, borrarItem }) {
+//	CSS
+import '../index.css';
 
+//	Default !!!
+export default function TablaFila({ item, borrarItem }) {
+	
+	// Render
 	return (
 		<tr className='text-white'>
 			<td title={item.id}>
 				{item.id}
 			</td>
 			<td>
-				{item.fecha}
-			</td>
-			<td>
-				{item.comprador.nombre}
-			</td>
-			<td>
-				{item.items[0].nombre + '...'}
-			</td>
-			<td className='text-end'>
-				{item.total}
+				{item.nombre}
 			</td>
 
 			<td className='text-end'>
-				<Link to={'/admin_consulta_orden/'+ item.id}>
+				<Link to={'/admin_consulta_categoria/'+ item.id}>
 					<button title = 'Consultar'>
 						<i className='fas fa-binoculars'></i>
 					</button>
@@ -48,6 +43,5 @@ function TablaFila({ item, borrarItem }) {
 
 		</tr>
 	);
-};
 
-export default TablaFila;
+};

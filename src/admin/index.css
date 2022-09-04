@@ -1,23 +1,9 @@
 
-.div-items {
+.div-lista {
 	margin-top: 100px !important;
 	background-color: black;
 	min-height: 900px;
 }
-
-.consulta {
-	border: thin solid dimgray;
-}
-
-th {
-	border: thin solid !important;
-	border-color: gray !important;
-}
-
-td {
-	border-color: gray !important;
-}
-
 
 /***********************************/
 
@@ -33,21 +19,12 @@ button:hover, i:hover {
 	color: white !important;
 }
 
-.grupo-form {
-	background-color: rgba(180, 180, 180, 0.323);
-	height: 40px;
-}
-
-.etiqueta-form, .control-form {
-	height: 30px;
-}
-
-.control-form {
-	background-color: black !important;
-	color: white !important;
-	border: 0 !important;
-}
-
-.consulta-tabla th {
+.formulario-tabla th {
 	background-color: rgba(180, 180, 180, 0.323) !important;
+	border: thin solid !important;
+	border-color: gray !important;
+}
+
+.formulario-tabla td {
+	border-color: gray !important;
 }

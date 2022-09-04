@@ -21,8 +21,7 @@ import ConsultaTabla from './ConsultaTabla';
 function Consulta() {
 
 	//	Captura parámetros
-	const { id } = useParams();
-	const { todas } = useParams();
+	const { id, todas } = useParams();
 
 	//	Resuelve ruteo de vuelta
 	const pathAceptar = todas ? '/todas' : '/admin_lista_ordenes';
@@ -40,15 +39,17 @@ function Consulta() {
 
 	return (
 		<>
-		<div className='div-items'>
+		<div className='div-lista'>
 		<div className='container'>
 			<div className='my-5'>
 				<h2>Orden</h2>
 			</div>
 		<div className='row align-items-center justify-content-center'>
-		<div className='col-8 px-5 consulta'>
+		<div className='col-8 p-5 border rounded'>
 
-		<h5 className='text-white py-3 text-center'>Datos generales</h5>
+		<h5 className='text-white py-3 text-start'>
+			Datos generales
+		</h5>
 
 		<Form className='text-white'>
 
@@ -116,7 +117,9 @@ function Consulta() {
 				</Col>
 			</Form.Group>
 
-			<h5 className='text-white py-3 text-center'>Items</h5>
+			<h5 className='text-white py-3 text-start'>
+				Items
+			</h5>
 
 			<ConsultaTabla items={itemDoc.items} total={itemDoc.total} />
 

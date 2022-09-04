@@ -1,9 +1,13 @@
 
 //
-//	Renderiza fila de tabla de categoría
+//	Renderiza fila de tabla de orden
 //
 
+//	Framework
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+//	CSS
 import '../index.css';
 
 function TablaFila({ item, borrarItem }) {
@@ -14,10 +18,25 @@ function TablaFila({ item, borrarItem }) {
 				{item.id}
 			</td>
 			<td>
-				{item.nombre}
+				{item.fecha}
+			</td>
+			<td>
+				{item.comprador.nombre}
+			</td>
+			<td>
+				{item.items[0].nombre + '...'}
+			</td>
+			<td className='text-end'>
+				{item.total}
 			</td>
 
 			<td className='text-end'>
+				<Link to={'/admin_consulta_orden/'+ item.id}>
+					<button title = 'Consultar'>
+						<i className='fas fa-binoculars'></i>
+					</button>
+				</Link>
+				{' '}
 				<button
 					title = 'Editar'
 					onClick = {() => {}}

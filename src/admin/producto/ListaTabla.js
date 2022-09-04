@@ -3,6 +3,7 @@
 //	Renderiza tabla de productos
 //
 
+//	Framework
 import React from 'react';
 
 //	Hoock q actualiza la lista desde el servidor
@@ -12,14 +13,17 @@ import { useCollection } from 'react-firebase-hooks/firestore';
 import { db, collection } from '../../api/conexion';
 import { borrarDoc } from '../../api/db'
 
-//	Tabla de bootstrap
+//  Fila de la tabla
+import ListaTablaFila from './ListaTablaFila';
+
+//	Bootstrap !!!
 import Table from 'react-bootstrap/Table';
+
+//	CSS
 import '../index.css';
 
-//  Fila de la tabla
-import TablaFila from './TablaFila';
-
-function Tabla() {
+//	Defaukt !!!
+export default function ListaTabla() {
 
 	//	Nombre de colección
 	const coleccion = 'productos';
@@ -44,6 +48,7 @@ function Tabla() {
 					<th>Id categoría</th>
 					<th>Categoría</th>
 					<th>URL imagen</th>
+					<th>Acciones</th>
 				</tr>
 			</thead>
 
@@ -51,7 +56,7 @@ function Tabla() {
 				{items && items.docs
 					.map((i) => ({ id: i.id, ...i.data() }))
                 	.map((i) => (				
-						<TablaFila
+						<ListaTablaFila
 							key={i.id}
 							item={i}
 							borrarItem={borrarItem}
@@ -63,5 +68,3 @@ function Tabla() {
 		</Table>
 	);
 };
-
-export default Tabla;

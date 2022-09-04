@@ -1,8 +1,9 @@
 
 //
-//	Renderiza tabla de categorías
+//	Renderiza tabla de órdenes
 //
 
+//	Framework !!!
 import React from 'react';
 
 //	Hoock q actualiza la lista desde el servidor
@@ -12,23 +13,23 @@ import { useCollection } from 'react-firebase-hooks/firestore';
 import { db, collection } from '../../api/conexion';
 import { borrarDoc } from '../../api/db'
 
-//	Tabla de bootstrap
+//	Bootstrap !!!
 import Table from 'react-bootstrap/Table';
-import '../index.css';
 
 //  Fila de la tabla
-import TablaFila from './TablaFila';
+import ListaTablaFila from './ListaTablaFila';
 
-function Tabla() {
+//	CSS
+import '../index.css';
 
-	const coleccion = 'categorias';
+export default function ListaTabla() {
+
+	const coleccion = 'ordenes';
 	const query = collection(db, coleccion);
 	const [items] = useCollection(query);
 
 	//	Función de borrado
-	const borrarItem = (id) => {
-		borrarDoc(coleccion, id)
-	}
+	const borrarItem = (id) => {borrarDoc(coleccion, id)};
 
 	return (
 		<Table id='tabla-items' className='text-white'>
@@ -36,7 +37,10 @@ function Tabla() {
 			<thead>
 				<tr>
 					<th>Id</th>
-					<th>Nombre</th>
+					<th>Fecha</th>
+					<th>Comprador</th>
+					<th>Productos</th>
+					<th>Total</th>
 				</tr>
 			</thead>
 
@@ -44,7 +48,11 @@ function Tabla() {
 				{items && items.docs
 					.map((i) => ({ id: i.id, ...i.data() }))
                 	.map((i) => (				
-						<TablaFila key={i.id} item={i} borrarItem={borrarItem}/>
+						<ListaTablaFila
+							key={i.id}
+							item={i}
+							borrarItem={borrarItem}
+						/>
 					)
 				)}
 			</tbody>
@@ -52,5 +60,3 @@ function Tabla() {
 		</Table>
 	);
 };
-
-export default Tabla;

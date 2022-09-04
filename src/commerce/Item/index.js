@@ -22,7 +22,7 @@ function Item({ id, nombre, precio, stock, categoria, imagen }) {
 	const imagenGH = ImagenDesdeGithub(imagen);
 
 	return (
-		<Card className='p-3 mb-5 rounded strong item-tarjeta'>
+		<Card className='p-3 mb-5 rounded strong item-tarjeta sombra-item'>
 			<div className='titulo-item'>
 				<WidgetCantidad id={id}/>
 				{nombre}

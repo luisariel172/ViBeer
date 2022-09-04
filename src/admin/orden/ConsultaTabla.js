@@ -13,7 +13,7 @@ import '../index.css';
 function ConsultaTabla({ items, total }) {
 
 	return (
-		<Table responsive className='text-white consulta-tabla'>
+		<Table responsive className='text-white'>
 
 			<thead>
 				<tr>
