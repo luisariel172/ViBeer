@@ -1,11 +1,13 @@
 
 .grupo-form {
 	background-color: rgba(180, 180, 180, 0.323);
-	height: 40px;
+	height: auto !important;
+	min-height: 40px !important;
 }
 
 .etiqueta-form, .control-form {
-	height: 30px;
+	height: auto !important;
+	min-height: 30px !important;
 }
 
 .control-form {
@@ -15,13 +17,18 @@
 }
 
 .mensaje-error {
+	color: wheat;
+	line-height: 45px;
+}
+
+[aria-invalid = "true"] {
+	outline: 2px solid rgba(255, 0, 0, 0.321);
+}
+
+[aria-invalid = "false"] ~ .mensaje-error {
 	visibility: hidden;
 }
 
-[aria-invalid='true'] {
-	outline: 2px solid red;
-}
-
-[aria-invalid='true'] ~ .mensaje-error {
+[aria-invalid = "true"] ~ .mensaje-error {
 	visibility: visible;
 }

@@ -11,6 +11,8 @@ import CargaProductos from './producto/Carga';
 import ListaCategorias from './categoria/Lista';
 import CargaCategorias from './categoria/Carga';
 import ConsultaCategoria from './categoria/Consulta';
+import AgregarCategoria from './categoria/Agregar';
+import EdicionCategoria from './categoria/Edicion';
 
 //	Órdenes
 import ListaOrdenes from './orden/Lista';
@@ -23,7 +25,8 @@ import CargaUsuarios from './usuario/Carga';
 
 export {
 	ListaProductos, CargaProductos,
-	ListaCategorias, CargaCategorias, ConsultaCategoria,
+	ListaCategorias, CargaCategorias, ConsultaCategoria, AgregarCategoria,
+		EdicionCategoria,
 	ListaOrdenes, CargaOrdenes, ConsultaOrden,
 	ListaUsuarios, CargaUsuarios
 };

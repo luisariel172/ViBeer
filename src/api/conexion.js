@@ -12,10 +12,10 @@ import {
 	getDoc,
 	addDoc,
 	deleteDoc,
+	updateDoc,
 	query,
 	where,
-	limit,
-	updateDoc
+	limit
 } from 'firebase/firestore';
 
 const config = {
@@ -30,4 +30,4 @@ const config = {
 const app = initializeApp(config);
 const db = getFirestore(app);
 
-export { db, doc, getDocs, getDoc, addDoc, deleteDoc, collection, query, where, limit, updateDoc };
+export { db, doc, getDocs, getDoc, addDoc, deleteDoc, updateDoc, collection, query, where, limit };

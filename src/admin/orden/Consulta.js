@@ -39,7 +39,7 @@ function Consulta() {
 
 	return (
 		<>
-		<div className='div-lista'>
+		<div className='div-admin'>
 		<div className='container'>
 			<div className='my-5'>
 				<h2>Orden</h2>

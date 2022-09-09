@@ -10,6 +10,7 @@ import {
 	getDoc,
 	addDoc,
 	deleteDoc,
+	updateDoc,
 	collection,
 	query,
 	where,
@@ -80,6 +81,17 @@ export async function creaItem(col, item) {
 	return await addDoc(collection(db, col), item);
 };
 
+//	Devuelve referencia
 export function getRefDoc(col, id) {
 	return doc(db, col, id);
+}
+
+
+//	Actualiza un item con colección y id.
+export async function actualizaItem(col, id, item) {
+
+	const docRef = getRefDoc(col, id);
+
+	return await updateDoc(docRef, item);
+
 }

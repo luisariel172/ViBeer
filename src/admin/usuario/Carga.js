@@ -3,17 +3,18 @@
 //	Carga usuarios iniciales
 //
 
+//	Framewiork !!!
 import React, { useEffect } from 'react';
+
+//	Propio !!!
+import { borrarColeccion, creaItem } from '../../api/db';
+import ListaTabla from './ListaTabla';
+
+//	CSS !!!
 import '../index.css';
 
-//	Acceso a DB
-import { db, collection, addDoc } from '../../api/conexion';
-import { borrarColeccion } from '../../api/db';
-
-//	Tabla
-import Tabla from './Tabla';
-
-function Carga() {
+//	Default !!!
+export default function Carga() {
 
 	//	Nombre de colección
 	const coleccion = 'usuarios';
@@ -23,11 +24,6 @@ function Carga() {
 
 	//	Items iniciales
 	useEffect(() => {
-
-		//	Crea una categoría en la colección
-		const creaItem = async (item) => {
-			await addDoc(collection(db, coleccion), item);
-		};
 
 		//	Carga datos JSON desde ./public
 		const getDatosJson = async () => {
@@ -39,14 +35,15 @@ function Carga() {
 		getDatosJson().then(items => {
 			items.forEach(item => {
 				delete item.id;
-				creaItem(item);
+				creaItem(coleccion, item);
 			});
 		});
 
 	}, []);
 
+	//	Render !!!
 	return (
-		<div className='div-lista'>
+		<div className='div-admin'>
 			<div className='container'>
 
 				<div className='row py-3'>
@@ -59,13 +56,11 @@ function Carga() {
 
 				{/*	Tabla con los datos */}
 				<div className='row mx-1'>
-					<Tabla />
+					<ListaTabla />
 				</div>
 
 			</div>
 		</div>
-	)
+	);
 
-}
-
-export default Carga;
+};

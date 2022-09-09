@@ -3,6 +3,7 @@
 //	Renderiza tabla de usuarios
 //
 
+//	Framework !!!
 import React from 'react';
 
 //	Hoock q actualiza la lista desde el servidor
@@ -12,14 +13,17 @@ import { useCollection } from 'react-firebase-hooks/firestore';
 import { db, collection } from '../../api/conexion';
 import { borrarDoc } from '../../api/db'
 
-//	Tabla de bootstrap
+//	Bootstrap !!!
 import Table from 'react-bootstrap/Table';
+
+//	CSS
 import '../index.css';
 
 //  Fila de la tabla
-import TablaFila from './TablaFila';
+import ListaTablaFila from './ListaTablaFila';
 
-function Tabla() {
+//	Default !!!
+export default function ListaTabla() {
 
 	const coleccion = 'usuarios';
 	const query = collection(db, coleccion);
@@ -36,7 +40,8 @@ function Tabla() {
 				<tr>
 					<th>Id</th>
 					<th>Nombre</th>
-					<th>mail</th>
+					<th>E-mail</th>
+					<th>Acciones</th>
 				</tr>
 			</thead>
 
@@ -44,13 +49,15 @@ function Tabla() {
 				{items && items.docs
 					.map((i) => ({ id: i.id, ...i.data() }))
                 	.map((i) => (				
-						<TablaFila key={i.id} item={i} borrarItem={borrarItem}/>
+						<ListaTablaFila
+							key={i.id}
+							item={i}
+							borrarItem={borrarItem}
+						/>
 					)
-				)}
+				)};
 			</tbody>
 
 		</Table>
 	);
 };
-
-export default Tabla;

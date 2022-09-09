@@ -3,14 +3,19 @@
 //	Renderiza formulario
 //
 
+//	Framework !!!
 import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
+
+//	Propio !!!
 import { isNull } from '../../funciones';
 
 //	Bootstrap !!!
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+
+//	CSS
 import './index.css';
 
 //	Objeto-expresión-regular para validar e-mail
@@ -40,8 +45,7 @@ function CompraForm({ ejecutar }) {
 		const { name, value } = evt.target;
 
 		//	Evalúa cada campo
-		let error = false;
-		let msj = '';
+		let error, msj;
 		switch (name) {
 			case 'nombre':
 				error = isNull(value)
@@ -56,6 +60,9 @@ function CompraForm({ ejecutar }) {
 				msj = 'Formato de e-mail inválido.';
 				if (error && isNull(value)) msj = 'Debes ingresar e-mail';
 				break
+			default:
+				error = false;
+				msj = '';
 		};
 		const nuevos = {...valores, [name]: {valor: value, error}};
 		setValores(nuevos);

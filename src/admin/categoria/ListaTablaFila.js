@@ -30,10 +30,11 @@ export default function TablaFila({ item, borrarItem }) {
 					</button>
 				</Link>
 				{' '}
-				<button
-					title = 'Editar'
-					onClick = {() => {}}
-				><i className='fas fa-pen'></i></button>
+				<Link to={'/admin_edicion_categoria/'+ item.id}>
+					<button title = 'Editar'>
+						<i className='fas fa-pen'></i>
+					</button>
+				</Link>
 				{' '}
 				<button
 					title = 'Borrar'

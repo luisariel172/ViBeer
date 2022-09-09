@@ -44,7 +44,7 @@ export default function Carga() {
 	}, []);
 
 	return (
-		<div className='div-lista'>
+		<div className='div-admin'>
 			<div className='container'>
 
 				<div className='row py-3'>

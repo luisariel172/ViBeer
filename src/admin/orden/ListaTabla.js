@@ -41,6 +41,7 @@ export default function ListaTabla() {
 					<th>Comprador</th>
 					<th>Productos</th>
 					<th>Total</th>
+					<th>Acciones</th>
 				</tr>
 			</thead>
 

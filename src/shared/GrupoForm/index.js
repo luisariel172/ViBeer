@@ -4,13 +4,14 @@
 //
 
 //	Framework !!!
-import React, { useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import React, { useEffect, useState } from 'react';
 
 //	Bootstrap !!!
 import Form from 'react-bootstrap/Form';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+
+//	CSS
 import './index.css';
 
 //	Default !!!
@@ -23,14 +24,22 @@ export default function GrupoForm(
 			funSetter = null,
 			funGetter = null,
 			funValid = null,
-			msjError = '*error',
 			clasesControl = '',
-			modo = ''
+			modo = (campo === 'id' ? 'consulta' : ''),
+			setFoco = false
 		}
 	) {
 
-	//	Dato con error del componente
+	//	Error y mensajes del componente
 	const [error, setError] = useState(false);
+	const [msjErrores, setMsjErrores] = useState('');
+	useEffect(() => {
+		if (funValid) {
+			const {error, msjErrores} = funValid(campo, getValor());
+			setError(error);
+			setMsjErrores(msjErrores);
+		}
+	})
 
 	//	Lee valor inicial
 	function getValor() {
@@ -49,21 +58,18 @@ export default function GrupoForm(
 		//	Lee nombre y valor del campo, luego evalúa error
 		const { name, value } = evt.target;
 
-		//	Evalúa error y memoriza
-		setError(funValid ? funValid(name, value) : false);
-		if (error) {
-			toast.error(msjError, {
-				position: 'top-right',
-				autoClose: 2000,
-				pauseOnHover: true
-			});
-		};
+		//	Evalúa y memoriza error y mensaje
+		if (funValid) {
+			const {error, msjErrores} = funValid(name, value);
+			setError(error);
+			setMsjErrores(msjErrores);
+		}
+
 	};
 
 	//	Render !!!
 	return (
-		<Form.Group as={Row} className='my-1 px-1 grupo-form' controlId='email'>
-			<ToastContainer />
+		<Form.Group as={Row} className='my-1 px-1 grupo-form' controlId={campo}>
 			<Form.Label className='my-1 me-2 etiqueta-form' column sm='2'>
 				{etiqueta}
 			</Form.Label>
@@ -71,21 +77,23 @@ export default function GrupoForm(
 				<Form.Control
 					name={campo}
 					type={tipo}
-					className={'my-1 control-form' + clasesControl}
+					className={'my-1 control-form ' + clasesControl}
 					defaultValue={getValor(campo)}
+					onFocusCapture={handleBlur}
 					onChange={handleChange}
 					onBlur={handleBlur}
-					aria-errormessage={'id-error-' + campo }
+					aria-errormessage={'id-error-campo-' + campo }
 					aria-invalid={error}
 					readOnly={modo === 'consulta'}
+					autoFocus={setFoco}
 				/>
 			</Col>
-			<Col sm='7'>
+			<Col>
 				<span
-					id={'id-error-' + campo}
+					id={'id-error-campo-' + campo}
 					className='mensaje-error'
 				>
-					{msjError}
+					{msjErrores}
 				</span>
 			</Col>
 		</Form.Group>

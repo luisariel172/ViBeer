@@ -3,10 +3,14 @@
 //	Renderiza fila de tabla de usuarios
 //
 
+//	Framework !!!
 import React from 'react';
+
+//	CSS
 import '../index.css';
 
-function TablaFila({ item, borrarItem }) {
+//	Default !!!
+export default function ListaTablaFila({ item, borrarItem }) {
 
 	return (
 		<tr className='text-white'>
@@ -35,5 +39,3 @@ function TablaFila({ item, borrarItem }) {
 		</tr>
 	);
 };
-
-export default TablaFila;

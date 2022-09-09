@@ -3,37 +3,62 @@
 //	Renderiza formulario de categoría
 //
 
-//	Framework
-import React from 'react';
-import { Link } from 'react-router-dom';
+//	Framework !!!
+import React, { useEffect, useState } from 'react';
 
-//	Grupo de etiqueta-y-campo
+//	Propio !!!
+import { objFormWithItem, getterForm, setterForm } from '../funAdmin';
 import { GrupoForm } from '../../shared';
+import { isNull } from '../../funciones';
 
 //	Bootstrap !!!
 import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 
-//	CSS
+//	CSS !!!
 import '../index.css';
 
 //	Default !!!
-export default function Formulario({ item, modo }) {
+export default function Formulario({ item = {}, modo = '', Botonera }) {
 
-	//	Lector genéroico
+	//	State de item de formulario
+	const [itemForm, setItemForm] = useState({});
+	useEffect(() => {
+		const inicial = objFormWithItem(item, validator);
+		setItemForm(inicial);
+	}, [item])
+
+	//	Lector de campo
 	const getter = (campo) => {
-		return item[campo];
-	}
+		return getterForm(itemForm, campo);
+	};
+
+	//	Escritor de campo
+	const setter = (campo, valor) => {
+		setterForm(setItemForm, itemForm, campo, valor, validator);
+	};
+
+	//	Validador de campo, devuelve {Boolean, String}
+	const validator = (campo, valor) => {
+		let msjErrores;
+		switch (campo) {
+			case 'nombre':
+				msjErrores = (isNull(valor) ? 'Requerido.' : '');
+				break
+			default:
+				msjErrores = '';
+		};
+		return {error: !isNull(msjErrores), msjErrores: msjErrores};
+	};
 
 	return (
-		<Form className='text-white'>
+		<Form className='text-white' autoComplete='off'>
 
 			<GrupoForm
 				etiqueta='Id'
 				campo='id'
 				tamaño='5'
 				funGetter={getter}
-				modo={modo}
+				funValid={validator}
 			/>
 			
 			<GrupoForm
@@ -41,15 +66,14 @@ export default function Formulario({ item, modo }) {
 				campo='nombre'
 				tamaño='7'
 				funGetter={getter}
+				funSetter={setter}
+				funValid={validator}
 				modo={modo}
+				setFoco={true}
 			/>
 
 			<div className='text-end py-4' >
-				<Link to='/admin_lista_categorias'>
-					<Button size='md' className='w-25'>
-						Aceptar
-					</Button>
-				</Link>
+				<Botonera itemForm={itemForm}/>
 			</div>
 
   		</Form>

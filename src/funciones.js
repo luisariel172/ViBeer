@@ -6,9 +6,21 @@
 //  *****************************************************************
 //
 
-//  Luxon !!!
+//	Framework !!!
 import { DateTime } from 'luxon';
+import { toast } from 'react-toastify';
 
+//	Lanza alerta con Toast
+export function alertaToast(
+		mensaje = 'Mensaje !!!', tipo = 'error', tiempo= 2000) {
+
+	toast[tipo](mensaje, {
+		position: 'top-right',
+		autoClose: tiempo,
+		pauseOnHover: true
+	})
+
+};
 
 //
 //  Devuelve array con claves del objeto de parámetro.
