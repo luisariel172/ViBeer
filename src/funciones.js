@@ -9,6 +9,20 @@
 //	Framework !!!
 import { DateTime } from 'luxon';
 import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
+
+
+//	Confirma con Swal
+export function confirmSwal(texto = 'Confirmar', titulo = '¿ Estás seguro ?') {
+    return Swal.fire({
+        title: titulo,
+        html: texto,
+        icon: 'warning',
+        showDenyButton: true,
+        confirmButtonText: 'Si',
+        denyButtonText: 'No'})
+};
+
 
 //	Lanza alerta con Toast
 export function alertaToast(

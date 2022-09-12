@@ -9,6 +9,8 @@ import React, { useEffect } from 'react';
 //	Propio !!!
 import { borrarColeccion, creaItem } from '../../api/db';
 import ListaTabla from './ListaTabla';
+import { alertaToast } from '../../funciones';
+
 
 //	CSS !!!
 import '../index.css';
@@ -32,11 +34,13 @@ export default function Carga() {
 			let ret = objJson[coleccion];
 			return ret;
 		};
-		getDatosJson().then(items => {
+		getDatosJson()
+		.then(items => {
 			items.forEach(item => {
 				delete item.id;
 				creaItem(coleccion, item);
-			});
+			})
+			alertaToast('Carga inicial completada !!!', 'success');
 		});
 
 	}, []);

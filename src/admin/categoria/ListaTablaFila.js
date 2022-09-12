@@ -3,15 +3,18 @@
 //	Renderiza fila de tabla de categoría
 //
 
-//	Framework
+//	Framework !!!
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-//	CSS
+//	Propio !!!
+import ButtonBorrarItem from '../ButtonBorrarItem';
+
+//	CSS !!!
 import '../index.css';
 
 //	Default !!!
-export default function TablaFila({ item, borrarItem }) {
+export default function ListaTablaFila({ item }) {
 	
 	// Render
 	return (
@@ -25,21 +28,22 @@ export default function TablaFila({ item, borrarItem }) {
 
 			<td className='text-end'>
 				<Link to={'/admin_consulta_categoria/'+ item.id}>
-					<button title = 'Consultar'>
+					<button title='Consultar'>
 						<i className='fas fa-binoculars'></i>
 					</button>
 				</Link>
 				{' '}
 				<Link to={'/admin_edicion_categoria/'+ item.id}>
-					<button title = 'Editar'>
+					<button title='Editar'>
 						<i className='fas fa-pen'></i>
 					</button>
 				</Link>
 				{' '}
-				<button
-					title = 'Borrar'
-					onClick = {() => {borrarItem(item.id)}}
-				><i className='fas fa-trash'></i></button>
+				<ButtonBorrarItem
+					item={item}
+					coleccion='categorias'
+					msjExito='Categoría borrada.'
+				/>
 			</td>
 
 		</tr>

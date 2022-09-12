@@ -1,6 +1,6 @@
 
 //
-//	Wrapper para formulario de administración
+//	Wrapper genérico para formulario de administración
 //
 
 //	Framework !!!

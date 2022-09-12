@@ -3,37 +3,31 @@
 //	Renderiza tabla de categorías
 //
 
-//	Framework
+//	Framework !!!
 import React from 'react';
 
 //	Hoock q actualiza la lista desde el servidor
 import { useCollection } from 'react-firebase-hooks/firestore';
 
-//	Acceso a DB
+//	Propio !!!
 import { db, collection } from '../../api/conexion';
-import { borrarDoc } from '../../api/db'
-
-//	Tabla de bootstrap
-import Table from 'react-bootstrap/Table';
-
-//  Fila de la tabla
 import ListaTablaFila from './ListaTablaFila';
 
-//	CSS
+//	Bootstrap !!!
+import Table from 'react-bootstrap/Table';
+
+//	CSS !!!
 import '../index.css';
 
 //	Default !!!
 export default function ListaTabla() {
 
+	//	Actualiza automáticamente los datos
 	const coleccion = 'categorias';
 	const query = collection(db, coleccion);
 	const [items] = useCollection(query);
 
-	//	Función de borrado
-	const borrarItem = (id) => {
-		borrarDoc(coleccion, id)
-	}
-
+	//	Render !!!
 	return (
 		<Table id='tabla-items' className='text-white'>
 
@@ -47,9 +41,12 @@ export default function ListaTabla() {
 
 			<tbody>
 				{items && items.docs
-					.map((i) => ({ id: i.id, ...i.data() }))
-                	.map((i) => (				
-						<ListaTablaFila key={i.id} item={i} borrarItem={borrarItem}/>
+					.map((doc) => ({ id: doc.id, ...doc.data() }))
+                	.map((item) => (				
+						<ListaTablaFila
+							key={item.id}
+							item={item}
+						/>
 					)
 				)}
 			</tbody>

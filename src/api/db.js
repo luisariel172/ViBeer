@@ -1,8 +1,14 @@
 
 //
-//	Acceso a base de datos
+//  *****************************************************************
+//
+//			A C C E S O    A   B A S E   D E   D A T O S
+//
+//  *****************************************************************
 //
 
+
+//	Framework !!!
 import {
 	db,
 	doc,
@@ -17,6 +23,7 @@ import {
 	limit
 } from './conexion';
 
+
 //	Devuelve array de colección
 export async function getCollection(col) {
 	
@@ -30,7 +37,8 @@ export async function getCollection(col) {
 	});
 }
 
-//	Devuelve colección con query
+
+//	Devuelve array de colección con query
 export async function getCollectionWithQuery(col, q) {
 
 	const queryCollection = query(collection(db, col), where(...q), limit(40));
@@ -48,10 +56,11 @@ export async function getCollectionWithQuery(col, q) {
 	});
 }
 
+
 //	Devuelve documento con colección y id
 export async function getDocument(col, id) {
 
-	const docRef = doc(db, col, id);
+	const docRef = getRefDoc(col, id);
 	const snapshot = await getDoc(docRef);
 
 	if (snapshot.exists()) {
@@ -61,33 +70,44 @@ export async function getDocument(col, id) {
 }
 
 
- //	Borra colección
+//	Borra colección
 export async function borrarColeccion(col) {
 
 	const snapshot = await getDocs(collection(db, col));
 
 	snapshot.docs.forEach((snapshotDoc) => {
-		deleteDoc(doc(db, col, snapshotDoc.id));
+		deleteDoc(getRefDoc(col, snapshotDoc.id));
 	});
 }
 
- //	Borra un documento con colección y id
+
+//	Borra un documento con colección y id
 export async function borrarDoc(col, id) {
-	await deleteDoc(doc(db, col, id));
+
+	const refDoc = getRefDoc(col, id);
+
+	return await deleteDoc(refDoc);
 }
+
 
 //	Crea un item en la colección
 export async function creaItem(col, item) {
-	return await addDoc(collection(db, col), item);
+
+	const refCol = collection(db, col);
+
+	return await addDoc(refCol, item);
 };
 
-//	Devuelve referencia
+
+//	Devuelve referencia a documento con colección y id
 export function getRefDoc(col, id) {
+
 	return doc(db, col, id);
+
 }
 
 
-//	Actualiza un item con colección y id.
+//	Actualiza un item con colección y id
 export async function actualizaItem(col, id, item) {
 
 	const docRef = getRefDoc(col, id);

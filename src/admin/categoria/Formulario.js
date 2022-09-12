@@ -37,7 +37,8 @@ export default function Formulario({ item = {}, modo = '', Botonera }) {
 		setterForm(setItemForm, itemForm, campo, valor, validator);
 	};
 
-	//	Validador de campo, devuelve {Boolean, String}
+	//	Validador de campo del formulario
+	//	Devuelve {error: Boolean, msjErrores: String}
 	const validator = (campo, valor) => {
 		let msjErrores;
 		switch (campo) {
@@ -50,6 +51,7 @@ export default function Formulario({ item = {}, modo = '', Botonera }) {
 		return {error: !isNull(msjErrores), msjErrores: msjErrores};
 	};
 
+	//	Render !!!
 	return (
 		<Form className='text-white' autoComplete='off'>
 
