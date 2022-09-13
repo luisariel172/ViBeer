@@ -1,10 +1,20 @@
 
+/***********************************/
+/*			General
+/***********************************/
+
 .div-admin {
 	margin-top: 100px !important;
 	background-color: black;
 	min-height: 900px;
 }
 
+button:hover, i:hover {
+	color: white !important;
+}
+
+/***********************************/
+/*		Tabla en formulario
 /***********************************/
 
 #tabla-items {
@@ -13,10 +23,6 @@
 
 #tabla-items td {
 	overflow: clip;
-}
-
-button:hover, i:hover {
-	color: white !important;
 }
 
 .formulario-tabla th {

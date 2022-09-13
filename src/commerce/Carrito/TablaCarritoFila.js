@@ -3,16 +3,19 @@
 //	Renderiza fila de tabla de carrito
 //
 
+//	Framework !!!
 import React from 'react';
 
-//	Importa context de carrito e imagen del item
+//	Propio !!!
 import { useContextCarrito } from '..';
 
-function FilaTablaCarrito({ linea }) {
+//	Default !!!
+export default function FilaTablaCarrito({ linea }) {
 
 	//	Acción borrar línea
 	const { borrarLinea } = useContextCarrito();
 
+	//	Render !!!
 	return (
 		<tr className='text-white overflow-hidden'>
 			<td className='text-left'>
@@ -39,5 +42,3 @@ function FilaTablaCarrito({ linea }) {
 		</tr>
 	);
 };
-
-export default FilaTablaCarrito;

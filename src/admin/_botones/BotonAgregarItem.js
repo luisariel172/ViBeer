@@ -7,15 +7,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-//	CSS !!!
-import './index.css';
-
 //	Default !!!
-export default function BotonAgregarItem({ singularCol, caption }) {
+export default function BotonAgregarItem({
+		singularCol, texto
+	}) {
 
 	//	Valida y resuelve parámetros
-	if (!singularCol) return 'BtnLoad: Falta info.';
-	if (!caption) caption = `Agregar ${singularCol}`;
+	if (!singularCol) return 'Falta info.';
+	texto = texto || `Agregar ${singularCol}`;
 
 	//	Ejecuta botón
 	const navegar = useNavigate();
@@ -27,17 +26,9 @@ export default function BotonAgregarItem({ singularCol, caption }) {
 				className='btn'
 				onClick={() => navegar(`/admin_agregar_${singularCol}`)}
 			>
-				{caption}
+				{texto}
 			</button>
 		</div>
 	);
 
 };
-
-/*
-						<Link to={'/admin_agregar_categoria'} className='mx-5'>
-							<button className='btn'>
-								Agregar categoría
-							</button>
-						</Link>
-*/

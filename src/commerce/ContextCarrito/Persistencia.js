@@ -3,9 +3,11 @@
 //  Persistencia de líneas de context de carrito en local storage
 //
 
+//  Framework !!!
 import { useState } from 'react';
 
-function Persistencia() {
+//  Default !!!
+export default function Persistencia() {
 
     //  Crea clave de local storage
     const clave = 'lineas_carrito';
@@ -24,6 +26,5 @@ function Persistencia() {
 
     //  Devuelve lineas y acción de persistencia
     return [lineas, set];
-}
 
-export default Persistencia;
+};

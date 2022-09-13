@@ -3,6 +3,7 @@
 //	Navegación de bootstrap
 //
 
+//	Framework !!!
 import React, { useState, useEffect } from 'react';
 
 //	Bootstrap !!!
@@ -12,19 +13,17 @@ import Form from 'react-bootstrap/Form';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+
+//	CSS !!!
 import './index.css'
 
-//	Acceso a base de datos
+//	Propio !!!
+import logo from './../../assets/img/logo.png';
 import { getCollectionWithQuery } from '../../api/db';
-
-//	Carrito
 import { WidgetCarrito } from '../index';
 
-//	Logo del sitio
-import logo from './../../assets/img/logo.png';
-
-//	Principal
-function NavBar() {
+//	Default !!!
+export default function NavBar() {
 
 	//	Categorías preferidas
 	const [idLager, setIdLager] = useState('');
@@ -48,6 +47,7 @@ function NavBar() {
 
 	});
 
+	//	Render !!!
 	return (
 		<Navbar id='header' expand='lg'>
 			<Container fluid className='sombra'>
@@ -98,6 +98,5 @@ function NavBar() {
 			</Container>
 		</Navbar>
 	);
-}
 
-export default NavBar;
+};

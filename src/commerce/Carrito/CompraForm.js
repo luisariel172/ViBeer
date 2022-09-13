@@ -1,168 +1,109 @@
 
 //
-//	Renderiza formulario
+//	Renderiza formulario de compra
 //
 
 //	Framework !!!
-import React, { useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import React, { useEffect, useState } from 'react';
 
 //	Propio !!!
-import { isNull } from '../../funciones';
+import { itemFormWithItem, getterForm, setterForm }
+	from '../../admin/funAdmin';
+import { GrupoForm } from '../../shared';
+import { validator } from '../../admin/orden/Formulario';
 
 //	Bootstrap !!!
 import Form from 'react-bootstrap/Form';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
-
-//	CSS
-import './index.css';
-
-//	Objeto-expresión-regular para validar e-mail
-const emailRegexp = new RegExp(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/);
 
 //	Default !!!
-function CompraForm({ ejecutar }) {
+export default function CompraForm({
+		item, funEjecutar
+	}) {
 
-	//	Valores
-	const [valores, setValores] = useState({
-		nombre: {valor: '', error: true},
-		telefono: {valor: '', error: true},
-		email: {valor: '', error: true}
-	});
+	//	Item del formulario
+	const [itemForm, setItemForm] = useState({});
+	useEffect(() => {
+		const inicial = itemFormWithItem(item, validator);
+		setItemForm(inicial);
+	}, [item])
 
-	//	Actualiza valores de estados al vuelo
-	function handleChange(evt) {
-    	const { name, value } = evt.target;
-		const nuevos = {...valores, [name]: {valor: value, error: false}};
-	    setValores(nuevos);
+	//	Lector de campo
+	const getter = (campo) => {
+		return getterForm(itemForm, campo);
 	};
 
-	//	Valida inputs
-	function handleBlur(evt) {
-
-    	//	Lee nombre y valor del input
-		const { name, value } = evt.target;
-
-		//	Evalúa cada campo
-		let error, msj;
-		switch (name) {
-			case 'nombre':
-				error = isNull(value)
-				msj = 'Debes ingresar comprador.'
-				break
-			case 'telefono':
-				error = isNull(value)
-				msj = 'Debes ingresar teléfono.'
-				break
-			case 'email':
-				error = !emailRegexp.test(value);
-				msj = 'Formato de e-mail inválido.';
-				if (error && isNull(value)) msj = 'Debes ingresar e-mail';
-				break
-			default:
-				error = false;
-				msj = '';
-		};
-		const nuevos = {...valores, [name]: {valor: value, error}};
-		setValores(nuevos);
-		if (error) {
-			toast.error(msj, {
-				position: 'top-right',
-				autoClose: 2000,
-				pauseOnHover: true
-			});
-		};
+	//	Escritor de campo
+	const setter = (campo, valor) => {
+		setterForm(setItemForm, itemForm, campo, valor, validator);
 	};
 
-	//	Ejecuta formulario
-	function handleSubmit(evt) {
+	//	Run botón !!
+	function runBoton(evt) {
 		evt.preventDefault();
-
-		//	Valida si hay errores
-		let hayErrores = false;
-		for (let campo in valores) {
-            hayErrores = hayErrores || valores[campo]['error'];
-        };
-		
-		//	Decide ejecución
-		if (hayErrores) {
-			toast.error('Información faltante o errónea.', {
-				position: 'top-right',
-				autoClose: 2000,
-				pauseOnHover: true
-			});
-		} else {
-			ejecutar({
-				nombre: valores.nombre.valor,
-				telefono: valores.telefono.valor,
-				email: valores.email.valor
-			});
-		};
+		funEjecutar(itemForm);
 	};
 
 	//	Render !!!
 	return (
-		<Form className='text-white ps-2' onSubmit={handleSubmit}>
+		<Form className='text-white' autoComplete='off'>
 
-			<ToastContainer />
+			<GrupoForm
+				etiqueta='Fecha'
+				campo='fecha'
+				tamaño='4'
+				funGetter={getter}
+				funSetter={setter}
+				funValid={validator}
+				modo={'consulta'}
+			/>
 
-			<Form.Group as={Row} className='my-1 px-1 grupo-form' controlId='nombre'>
-				<Form.Label className='my-1 me-2 etiqueta-form' column sm='2'>
-					Comprador
-				</Form.Label>
-				<Col sm='7'>
-					<Form.Control
-						name='nombre'
-						className='my-1 control-form'
-						defaultValue={valores.nombre.valor}
-        				onChange={handleChange}
-						onBlur={handleBlur}
-					/>
-				</Col>
-			</Form.Group>
+			<GrupoForm
+				etiqueta='Usuario'
+				campo='usuario'
+				tamaño='7'
+				funGetter={getter}
+				funSetter={setter}
+				funValid={validator}
+				setFoco={true}
+			/>
 
-			<Form.Group as={Row} className='my-1 px-1 grupo-form' controlId='telefono'>
-				<Form.Label className='my-1 me-2 etiqueta-form' column sm='2'>
-					Teléfono
-				</Form.Label>
-				<Col sm='5'>
-					<Form.Control
-						name='telefono'
-						className='my-1 control-form'
-						defaultValue={valores.telefono.valor}
-        				onChange={handleChange}
-						onBlur={handleBlur}
-					/>
-				</Col>
-			</Form.Group>
+			<GrupoForm
+				etiqueta='Teléfono'
+				campo='telefono'
+				tamaño='7'
+				funGetter={getter}
+				funSetter={setter}
+				funValid={validator}
+			/>
 
-			<Form.Group as={Row} className='my-1 px-1 grupo-form' controlId='email'>
-				<Form.Label className='my-1 me-2 etiqueta-form' column sm='2'>
-					E-mail
-				</Form.Label>
-				<Col sm='7'>
-					<Form.Control
-						name='email'
-						type='email'
-						className='my-1 control-form'
-						defaultValue={valores.email.valor}
-        				onChange={handleChange}
-						onBlur={handleBlur}
-				        aria-errormessage='emailErrorID'
-        				aria-invalid={valores.email.error}
-					/>
-				</Col>
-			</Form.Group>
+			<GrupoForm
+				etiqueta='E-mail'
+				campo='email'
+				tamaño='7'
+				funGetter={getter}
+				funSetter={setter}
+				funValid={validator}
+			/>
+
+			<GrupoForm
+				etiqueta='Dirección'
+				campo='direccion'
+				tamaño='7'
+				funGetter={getter}
+				funSetter={setter}
+				funValid={validator}
+			/>
 
 			<div className='text-end'>
-				<button type='submit' className='btn mt-4'>
+				<button
+					className='btn mt-4'
+					onClick={runBoton}
+				>
 					Comprar
 				</button>
 			</div>
 
   		</Form>
 	);
-};
 
-export default CompraForm;
+};

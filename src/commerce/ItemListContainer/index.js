@@ -3,20 +3,19 @@
 //	Lee items de la base y lanza el Componente-listador
 //
 
-import React from 'react';
+//	Framework !!!
+import React, { useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
-import { useState, useEffect} from 'react';
 
-//	Acceso a base de datos
+//	Propio !!!
 import { getCollection, getCollectionWithQuery } from '../../api/db'
-
-//	Lista de items
 import { ItemList } from "../index";
 
+//	CSSS !!!
 import './index.css'
 
-//	Principal
-function ItemListContainer() {
+//	Default !!!
+export default function ItemListContainer() {
 
 	//	Captura parámetro categoría
 	const { id_categoria } = useParams();
@@ -28,12 +27,16 @@ function ItemListContainer() {
 
 		//	Lee items
 		const getItems = async () => {
-			let ret;
+			let ret = [];
 			//	Filtro por categoría
 			if (id_categoria) {
 				ret = await getCollectionWithQuery(
 					'productos', ['id_categoria', '==', id_categoria]);
-				setCategoria(ret[0].categoria);
+				if (ret[0]) {
+					setCategoria(ret[0].categoria);
+				} else {
+					setCategoria([]);
+				};
 			} else {
 				ret = await getCollection('productos');
 				setCategoria('Todas');
@@ -44,16 +47,20 @@ function ItemListContainer() {
 
 	}, []);
 
-    return (
+    //	Render !!!
+	return (
 		<div className='div-item-list-container'>
 			<div className='container'>
 				<h2>
+
 					{categoria}
+
 				</h2>
 			</div>
+
 			<ItemList itemList={items} />
+
 		</div>
     );
-}
 
-export default ItemListContainer;
+};

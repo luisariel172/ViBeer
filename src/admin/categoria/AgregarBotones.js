@@ -7,11 +7,8 @@
 import React from 'react';
 
 //	Propio !!!
-import BotonGrabarItem from '../BotonGrabarItem';
-import BotonCancelarForm from '../BotonCancelarForm';
-
-//	CSS !!!
-import '../index.css';
+import BotonGrabarItem from '../_botones/BotonGrabarItem';
+import BotonCancelarForm from '../_botones/BotonCancelarForm';
 
 //	Default !!!
 export default function AgregarBotones({ itemForm }) {
@@ -22,7 +19,7 @@ export default function AgregarBotones({ itemForm }) {
 		<BotonGrabarItem
 			itemForm={itemForm}
 			coleccion='categorias'
-			linkConsulta='/admin_consulta_categoria'
+			linkExito='/admin_consulta_categoria'
 		/>
 		<BotonCancelarForm
 			link='/admin_lista_categorias'

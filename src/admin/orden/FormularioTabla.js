@@ -3,15 +3,29 @@
 //	Renderiza tabla de consulta de orden
 //
 
-import React from 'react';
+//	Framework !!!
+import React, { useEffect, useState } from 'react';
 
 //	Bootstrap !!!
 import Table from 'react-bootstrap/Table';
+
+//	CSS !!!
 import '../index.css';
 
-//  Tabla con items de la orden
-function ConsultaTabla({ items, total }) {
+//  Default !!!
+export default function FormularioTabla({ itemForm }) {
 
+	//	State de Items y total
+	const [items, setItems] = useState([]);
+	const [total, setTotal] = useState(0);
+	useEffect(() => {
+		if (itemForm.items) {
+			setItems(itemForm.items.valor);
+			setTotal(itemForm.total.valor);
+		};
+	}, [itemForm]);
+
+	//	Render !!!
 	return (
 		<Table responsive className='text-white'>
 
@@ -60,5 +74,3 @@ function ConsultaTabla({ items, total }) {
 		</Table>
 	)
 };
-
-export default ConsultaTabla;

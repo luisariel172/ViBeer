@@ -3,16 +3,23 @@
 //	Renderiza contador de un item
 //
 
-import './index.css';
-import React from 'react';
-import { useState, useEffect } from 'react';
+//  Framework !!!
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
 
-//  Botón agregar al carrito
+//  Propio !!!
 import AgregarAlCarrito from './AgregarAlCarrito'
 
-const ItemDetailCounter = ({ item, inicial = 1 }) => {
+//  Bootstrap !!!
+import Button from 'react-bootstrap/Button';
+
+//  CSS !!!
+import './index.css';
+
+//  Default !!!
+export default function ItemDetailCounter ({
+        item, inicial = 1
+    }) {
 
     //  Bandera de agregado al carrito
     const [agregado, setAgregado] = useState(false);
@@ -36,12 +43,12 @@ const ItemDetailCounter = ({ item, inicial = 1 }) => {
         setValor(inicial);
     }, []);
 
-    //  Renderiza
+    //  Render !!!
     return (
         <>
         <div className='col-5 m-3 p-3 div-item-detail-counter'>
-            {!agregado ? (
-                <div>
+            { !agregado
+                ? <div>
                     <button
                         className='boton-accion'
                         title = 'Restar 1'
@@ -62,11 +69,10 @@ const ItemDetailCounter = ({ item, inicial = 1 }) => {
                         <i className='fas fa-arrow-up'></i>
                     </button>
                 </div>
-            ) : (
-                <span className='text-white'>
+                : <span className='text-white'>
                     Se agregaron {valor} unidad(es).
                 </span>
-            )}
+            }
         </div>
 
         <div>
@@ -84,5 +90,3 @@ const ItemDetailCounter = ({ item, inicial = 1 }) => {
         </>
     );
 };
-
-export default ItemDetailCounter;

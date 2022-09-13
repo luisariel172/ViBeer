@@ -8,9 +8,9 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 //	Propio !!!
-import { alertaToast } from '../funciones';
-import { hayErroresForm, itemWithForm } from './funAdmin';
-import { actualizaItem } from '../api/db';
+import { alertaToast } from '../../funciones';
+import { hayErroresForm, itemWithForm } from '../funAdmin';
+import { actualizaItem } from '../../api/db';
 
 //	Bootstrap !!!
 import Button from 'react-bootstrap/Button';
@@ -20,11 +20,11 @@ import '../index.css';
 
 //	Default !!!
 export default function BotonActualizarItem({
-			itemForm, coleccion, linkConsulta
+			itemForm, coleccion, linkExito
 		}) {
 
 	//	Valida parámetros
-	if (!itemForm || !coleccion || !linkConsulta) return 'BtnUpd: Falta info';
+	if (!itemForm || !coleccion || !linkExito) return 'Falta info.';
 
 	//	Navegador para ir a consulta
 	const navegar = useNavigate();
@@ -39,7 +39,7 @@ export default function BotonActualizarItem({
 			actualizaItem(coleccion, itemForm.id.valor, itemWithForm(itemForm))
 			.then(() => {
 				navegar(
-					`${linkConsulta}/${itemForm.id.valor}`,
+					`${linkExito}/${itemForm.id.valor}`,
 					{ state: { msjToast: 'Actualización exitosa !!!' } }
 				);
 			})

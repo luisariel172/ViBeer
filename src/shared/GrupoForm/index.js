@@ -69,16 +69,27 @@ export default function GrupoForm(
 
 	//	Render !!!
 	return (
-		<Form.Group as={Row} className='my-1 px-1 grupo-form' controlId={campo}>
-			<Form.Label className='my-1 me-2 etiqueta-form' column sm='2'>
+		<Form.Group
+			as={Row}
+			className='my-1 px-1 grupo-form'
+			controlId={campo}
+		>
+			<Form.Label
+				className='my-1 me-2 etiqueta-form'
+				column
+				sm='2'
+			>
+
 				{etiqueta}
+
 			</Form.Label>
+
 			<Col sm={tamaño}>
 				<Form.Control
 					name={campo}
 					type={tipo}
 					className={'my-1 control-form ' + clasesControl}
-					defaultValue={getValor(campo)}
+					value={getValor(campo)}
 					onFocusCapture={handleBlur}
 					onChange={handleChange}
 					onBlur={handleBlur}
@@ -88,6 +99,7 @@ export default function GrupoForm(
 					autoFocus={setFoco}
 				/>
 			</Col>
+
 			<Col>
 				<span
 					id={'id-error-campo-' + campo}
@@ -96,6 +108,8 @@ export default function GrupoForm(
 					{msjErrores}
 				</span>
 			</Col>
+
 		</Form.Group>
 	);
+
 };

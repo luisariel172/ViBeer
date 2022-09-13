@@ -1,6 +1,6 @@
 
 //
-//	Renderiza botón genérico cancelar para formulario
+//	Renderiza botón genérico de cancelación en formulario
 //
 
 //	Framework !!!
@@ -10,14 +10,11 @@ import { Link } from 'react-router-dom';
 //	Bootstrap !!!
 import Button from 'react-bootstrap/Button';
 
-//	CSS !!!
-import './index.css';
-
 //	Default !!!
 export default function BotonCancelarForm({ link }) {
 
 	//	Valida prámetro
-	if (!link) return 'BtnCan: Falta info';
+	if (!link) return 'Falta info.';
 
 	//	Render !!!
 	return (

@@ -3,10 +3,13 @@
 //	Rebderiza imagen de carrusel
 //
 
+//	Framework !!!
 import React from 'react';
 
-function ImagenCarrusel({ imagen })	{
+//	Default !!!
+export default function ImagenCarrusel({ imagen })	{
 	
+	//	Render !!!
 	return (
 		<img
 			className='d-block rounded mx-auto my-5'
@@ -16,5 +19,3 @@ function ImagenCarrusel({ imagen })	{
 		/>
 	)
 };
-
-export default ImagenCarrusel;

@@ -1,22 +1,22 @@
 
 //
-//	Wrapper genérico para formulario de administración
+//	Wrapper genérico para renderizar formulario de administración
 //
 
 //	Framework !!!
 import React from 'react';
-import { ToastContainer } from 'react-toastify';
 
 //	CSS !!!
-import './index.css';
+import '../index.css';
 
 //	Default !!!
-export default function DivFormAdmin({ children, titulo, subTitulo }) {
+export default function DivFormAdmin({ 
+		titulo = 'Formulario', subTitulo = 'Datos básicos', children
+	}) {
 
 	//	Render !!!
 	return (
 		<div className='div-admin'>
-			<ToastContainer />
 			<div className='container'>
 				<div className='my-5'>
 

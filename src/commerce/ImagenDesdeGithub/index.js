@@ -3,9 +3,11 @@
 //	Devuelve URL de imagen de producto de repositorio de Github
 //
 
+//	Framework !!!
 import { useState, useEffect } from 'react';
 
-const ImagenDesdeGithub = (url) => {
+//	Default !!!
+export default function ImagenDesdeGithub(url) {
 
 	//	Descarga imagen desde github
 	const [imagen, setImagen] = useState();
@@ -18,7 +20,7 @@ const ImagenDesdeGithub = (url) => {
 		getImagen().then((imagen) => setImagen(imagen));
 	}, [])
 
+	//	Render !!!
 	return imagen;
-}
 
-export default ImagenDesdeGithub;
+};

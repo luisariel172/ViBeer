@@ -7,26 +7,28 @@
 import React from 'react';
 
 //	Propio !!!
-import DivFormAdmin from '../DivFormAdmin';
+import DivFormAdmin from '../_wrappers/DivFormAdmin';
 import Formulario from './Formulario';
 import AgregarBotones from './AgregarBotones';
-
-//	CSS !!!
-import '../index.css';
 
 //	Default !!!
 export default function Agregar() {
 
 	//	Item vacío
-	const itemVacio = {id: '', nombre: ''};
+	const itemVacio = {
+		id: '', nombre: ''
+	};
 
 	//	Render !!!
 	return (
-		<DivFormAdmin titulo='Nueva categoría' subTitulo='Datos básicos'>
+		<DivFormAdmin
+			titulo='Nueva categoría'
+		>
 			<Formulario
 				item={itemVacio}
-				Botonera={AgregarBotones}
-			/>
+			>
+				<AgregarBotones />
+			</Formulario>
 		</DivFormAdmin>
 	)
 

@@ -1,13 +1,19 @@
 
 //
-//	Renderiza pie claseado con bootstrap
+//	Renderiza pie del sitio
 //
 
+//	Framework !!!
 import React from 'react';
 import { ListGroupItem } from 'react-bootstrap';
+
+//	CSS !!!
 import './index.css';
 
-function Footer() {
+//	Default !!!
+export default function Footer() {
+
+	//	Render !!!
 	return (
 		<>
 		<div className='div-footer py-5'>
@@ -59,6 +65,5 @@ function Footer() {
 		</div>
 		</>
 	)
-}
 
-export default Footer;
+};

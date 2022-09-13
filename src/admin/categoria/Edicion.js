@@ -8,13 +8,10 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 //	Propio !!!
+import DivFormAdmin from '../_wrappers/DivFormAdmin';
 import lee from './lee';
-import DivFormAdmin from '../DivFormAdmin';
 import Formulario from './Formulario';
 import EdicionBotones from './EdicionBotones';
-
-//	CSS !!!
-import '../index.css';
 
 //	Default !!!
 export default function Edicion() {
@@ -23,18 +20,21 @@ export default function Edicion() {
 	const { id } = useParams();
 
 	//	Lee categoría
-	const [itemDoc, setItemDoc] = useState({});
+	const [item, setItem] = useState({});
 	useEffect(() => {
-		lee(id).then(item => setItemDoc(item))
+		lee(id).then(item => setItem(item))
 	}, []);
 
 	//	Render !!!
 	return (
-		<DivFormAdmin titulo='Edición de categoría' subTitulo='Datos básicos'>
+		<DivFormAdmin
+			titulo='Edición de categoría'
+		>
 			<Formulario
-				item={itemDoc}
-				Botonera={EdicionBotones}
-			/>
+				item={item}
+			>
+				<EdicionBotones />
+			</Formulario>
 		</DivFormAdmin>
 	);
 

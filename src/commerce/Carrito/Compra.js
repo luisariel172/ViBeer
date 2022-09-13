@@ -3,24 +3,20 @@
 //	Gestiona la compra
 //
 
+//	Framework !!!
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useContextCarrito } from '..';
-
-//	Fecha
-import { fechaAMD } from '../../funciones';
-
-//	Acceso a base de datos
-import { creaItem, getRefDoc } from '../../api/db';
 import { increment, updateDoc } from 'firebase/firestore';
 
-//	Formulario
+//	Propio !!!
+import { hayErroresForm, itemWithForm } from '../../admin/funAdmin';
+import { fechaAMD, alertaToast } from '../../funciones';
+import { creaItem, getRefDoc } from '../../api/db';
+import { useContextCarrito } from '..';
 import CompraForm from './CompraForm';
 
-import './index.css';
-
 //	Default !!!
-function Compra({ lineas }) {
+export default function Compra({ lineas }) {
 
 	//	Obtiene funciones del carrito
 	const { getTotalCarrito, reset } = useContextCarrito();
@@ -28,23 +24,50 @@ function Compra({ lineas }) {
 	//	Navegador para ir a la orden
 	const navegar = useNavigate();
 
-	//	Ejecuta la compra
-	const comprar = (comprador) => {
+	//	Datos iniciales de la orden
+	const item = {
+		fecha: fechaAMD(),
+		id_usuario: '',
+		usuario: '',
+		telefono: '',
+		email: '',
+		direccion: '',
+		total: 0
+	};
 
-		//	Orden a grabar
-		const orden = {
-			fecha: fechaAMD(),
-			comprador: comprador,
-			items: lineas.map(lc => {
+	//	Ejecuta la compra
+	const comprar = ( itemForm ) => {
+
+		//	Decide grabación
+		if (hayErroresForm(itemForm)) {
+
+			alertaToast('Información faltante o errónea.');
+
+		} else {
+
+			//	Orden a grabar
+			const orden = itemWithForm(itemForm);
+			orden['items'] = lineas.map(lc => {
 					return {
 						id: lc.id,
 						nombre: lc.nombre,
 						precio: lc.precio,
 						cantidad: lc.cantidad
 					}
-				}),
-			total: getTotalCarrito()
-		}
+				});
+			orden['total'] = getTotalCarrito();
+
+			//	Graba !!!
+			creaItem('ordenes', orden)
+			.then((item) => {
+				updateStock()
+				reset();
+				navegar(
+					`/admin_consulta_orden/${item.id}/todas`,
+					{ state: { msjToast: 'Compra exitosa !!!' } }
+				)
+			});
+		};
 
 		//	Actualiza stock
 		const updateStock = () => {
@@ -56,24 +79,17 @@ function Compra({ lineas }) {
 			});
 		};
 
-		//	Crea orden, actualiza stock, resetea carrito y dirije a consulta
-		creaItem('ordenes', orden)
-			.then((item) => {
-				updateStock()
-				reset();
-				navegar('/admin_consulta_orden/' + item.id + '/todas');
-			});
-
 	};
 
+	//	Render !!!
 	return (
-
 		<div className='col ms-0'>
 			<h4>Confirme la operación</h4><br/>
-			<CompraForm ejecutar={comprar}/>
+			<CompraForm
+				item={item}
+				funEjecutar={comprar}
+			/>
 		</div>
 	);
 
 };
-
-export default Compra;

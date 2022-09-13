@@ -3,39 +3,31 @@
 //	Renderiza tabla de productos
 //
 
-//	Framework
+//	Framework !!!
 import React from 'react';
 
 //	Hoock q actualiza la lista desde el servidor
 import { useCollection } from 'react-firebase-hooks/firestore';
 
-//	Acceso a DB
+//	Propio !!!
 import { db, collection } from '../../api/conexion';
-import { borrarDoc } from '../../api/db'
-
-//  Fila de la tabla
 import ListaTablaFila from './ListaTablaFila';
 
 //	Bootstrap !!!
 import Table from 'react-bootstrap/Table';
 
-//	CSS
+//	CSS !!!
 import '../index.css';
 
 //	Defaukt !!!
 export default function ListaTabla() {
 
-	//	Nombre de colección
+	//	Actualiza automáticamente los datos
 	const coleccion = 'productos';
+	const query = collection(db, coleccion);
+	const [items] = useCollection(query);
 
-	//	Hoock de actualización
-	const [items] = useCollection(collection(db, coleccion));
-
-	//	Función de borrado
-	const borrarItem = (id) => {
-		borrarDoc(coleccion, id)
-	}
-
+	//	Render !!!
 	return (
 		<Table id='tabla-items' className='text-white'>
 
@@ -54,12 +46,11 @@ export default function ListaTabla() {
 
 			<tbody>
 				{items && items.docs
-					.map((i) => ({ id: i.id, ...i.data() }))
-                	.map((i) => (				
+					.map((doc) => ({ id: doc.id, ...doc.data() }))
+                	.map((item) => (				
 						<ListaTablaFila
-							key={i.id}
-							item={i}
-							borrarItem={borrarItem}
+							key={item.id}
+							item={item}
 						/>
 					)
 				)}
@@ -67,4 +58,5 @@ export default function ListaTabla() {
 
 		</Table>
 	);
+
 };

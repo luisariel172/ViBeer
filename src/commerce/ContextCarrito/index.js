@@ -3,10 +3,10 @@
 //	Devuelve función proveedora customizada de Context de carrito de compra
 //
 
-//	Importa desde react
+//	Framework !!!
 import React, { useContext } from 'react';
 
-//  Importa acceso a persistencia
+//  Propio !!!
 import Persistencia from './Persistencia';
 
 //  Crea objeto-contexto
@@ -15,7 +15,8 @@ const objContextCarrito = React.createContext([]);
 //  Crea función de acceso a contexto
 export const useContextCarrito = () => useContext(objContextCarrito);
 
-function Proveedor({ children }) {
+//	Default !!!
+export default function Proveedor({ children }) {
 
 	//	Líneas del carrito y su setter
 	const [lineasCarrito, setLineasCarrito] = Persistencia();
@@ -66,6 +67,7 @@ function Proveedor({ children }) {
 	//	Acción reset
 	const reset = () => setLineasCarrito([]);
 
+	//	Render !!!
 	return (
         <objContextCarrito.Provider 
             value={{
@@ -78,9 +80,9 @@ function Proveedor({ children }) {
                 reset
             }}
         >
+
 			{children}
+
 		</objContextCarrito.Provider>
 	);
-}
-
-export default Proveedor;
+};

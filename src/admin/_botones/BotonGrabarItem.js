@@ -1,6 +1,6 @@
 
 //
-//	Renderiza botón genérico en formulario para grabar item
+//	Renderiza botón genérico para grabar item en formulario 
 //
 
 //	Framework !!!
@@ -8,9 +8,9 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 //	Propio !!!
-import { alertaToast } from '../funciones';
-import { hayErroresForm, itemWithForm } from './funAdmin';
-import { creaItem } from '../api/db';
+import { alertaToast } from '../../funciones';
+import { hayErroresForm, itemWithForm } from './../funAdmin';
+import { creaItem } from '../../api/db';
 
 //	Bootstrap !!!
 import Button from 'react-bootstrap/Button';
@@ -20,11 +20,11 @@ import '../index.css';
 
 //	Default !!!
 export default function BotonGrabarItem({
-			itemForm, coleccion, linkConsulta
+			itemForm, coleccion, linkExito
 		}) {
 
 	//	Valida parámetros
-	if (!itemForm || !coleccion || !linkConsulta) return 'BtnAdd: Falta info';
+	if (!itemForm || !coleccion || !linkExito) return 'Falta info.';
 
 	//	Navegador para ir a consulta
 	const navegar = useNavigate();
@@ -39,11 +39,12 @@ export default function BotonGrabarItem({
 			creaItem(coleccion, itemWithForm(itemForm))
 			.then((item) => {
 				navegar(
-					`${linkConsulta}/${item.id}`,
+					`${linkExito}/${item.id}`,
 					{ state: { msjToast: 'Grabación exitosa !!!' } }
 				);
 			})
 		};
+
 	};
 
 	//	Render !!!

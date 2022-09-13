@@ -8,16 +8,13 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 //	Propio !!!
-import { confirmSwal } from '../funciones';
-
-//	CSS !!!
-import './index.css';
+import { confirmSwal } from '../../funciones';
 
 //	Default !!!
 export default function BotonCargaInicial({ nombreCol }) {
 
 	//	Valida parámetros
-	if (!nombreCol) return 'BtnLoad: Falta info.';
+	if (!nombreCol) return 'Falta info.';
 
 	//	Navegador para ir a carga inicial
 	const navegar = useNavigate();

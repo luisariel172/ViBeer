@@ -7,11 +7,8 @@
 import React from 'react';
 
 //	Propio !!!
-import BotonActualizarItem from '../BotonActualizarItem';
-import BotonCancelarForm from '../BotonCancelarForm';
-
-//	CSS !!!
-import '../index.css';
+import BotonActualizarItem from '../_botones/BotonActualizarItem';
+import BotonCancelarForm from '../_botones/BotonCancelarForm';
 
 //	Default !!!
 export default function EdicionBotones({ itemForm }) {
@@ -22,7 +19,7 @@ export default function EdicionBotones({ itemForm }) {
 		<BotonActualizarItem
 			itemForm={itemForm}
 			coleccion='categorias'
-			linkConsulta='/admin_consulta_categoria'
+			linkExito='/admin_consulta_categoria'
 		/>
 		<BotonCancelarForm
 			link='/admin_lista_categorias'

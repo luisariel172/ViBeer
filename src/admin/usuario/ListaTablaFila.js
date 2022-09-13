@@ -6,12 +6,15 @@
 //	Framework !!!
 import React from 'react';
 
-//	CSS
-import '../index.css';
+//	Propio !!!
+import BotonConsultarItem from '../_botones/BotonConsultarItem';
+import BotonEditarItem from '../_botones/BotonEditarItem';
+import BotonBorrarItem from '../_botones/BotonBorrarItem';
 
 //	Default !!!
-export default function ListaTablaFila({ item, borrarItem }) {
+export default function ListaTablaFila({ item }) {
 
+	//	Render !!!
 	return (
 		<tr className='text-white'>
 			<td title={item.id}>
@@ -21,19 +24,32 @@ export default function ListaTablaFila({ item, borrarItem }) {
 				{item.nombre}
 			</td>
 			<td>
-				{item.mail}
+				{item.telefono}
+			</td>
+			<td>
+				{item.email}
+			</td>
+			<td>
+				{item.direccion}
+			</td>
+			<td>
+				****************
 			</td>
 
 			<td className='text-end'>
-				<button
-					title = 'Editar'
-					onClick = {() => {}}
-				><i className='fas fa-pen'></i></button>
+				<BotonConsultarItem
+					linkWithId={`/admin_consulta_usuario/${item.id}`}
+				/>
 				{' '}
-				<button
-					title = 'Borrar'
-					onClick = {() => {borrarItem(item.id)}}
-				><i className='fas fa-trash'></i></button>
+				<BotonEditarItem
+					linkWithId={`/admin_edicion_usuario/${item.id}`}
+				/>
+				{' '}
+				<BotonBorrarItem
+					item={item}
+					coleccion='usuarios'
+					msjExito='Usuario borrado.'
+				/>
 			</td>
 
 		</tr>

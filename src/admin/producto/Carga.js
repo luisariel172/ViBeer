@@ -3,18 +3,13 @@
 //	Carga productos iniciales
 //
 
-//	Framework
+//	Framework !!!
 import React, { useEffect } from 'react';
 
-//	Acceso a DB
-import { db, collection, addDoc } from '../../api/conexion';
-import { borrarColeccion, getCollectionWithQuery } from '../../api/db';
-
-//	Tabla
+//	Propio !!!
+import { creaItem, borrarColeccion, getCollectionWithQuery } from '../../api/db';
+import { getDatosJson } from '../funAdmin';
 import ListaTabla from './ListaTabla';
-
-//	CSS
-import '../index.css';
 
 //	Default !!!
 export default function Carga() {
@@ -28,6 +23,9 @@ export default function Carga() {
 	//	Items iniciales
 	useEffect(() => {
 
+		//	Colección
+		const coleccion = 'productos';
+
 		//	Devuelve el id de una categoría con nombre
 		const getIdCategoriaByName = async (nombre) => {
 			const ret = await getCollectionWithQuery(
@@ -35,51 +33,40 @@ export default function Carga() {
 			return ret[0] ? ret[0].id : '';
 		}
 
-		//	Crea un producto en la colección
-		const creaItem = async (item) => {
-			await addDoc(collection(db, coleccion), item);
-		};
-
 		//	Carga datos JSON desde ./public
-		const getDatosJson = async () => {
-			const respuesta = await fetch(`/datos.json`,)
-			const objJson = await respuesta.json();
-			let ret = objJson[coleccion];
-			return ret;
-		};
-		getDatosJson().then(items => {
+		getDatosJson(coleccion).then(items => {
 			items.forEach(item => {
-				item['imagen'] =
+				item.imagen =
 					'https://raw.githubusercontent.com/jorge751/' +
 					`ViBeer/master/public/img/imagen${item.id}.png`
 				delete item.id;
 				getIdCategoriaByName(item.categoria)
 					.then((id_categoria) => {
 						item.id_categoria = id_categoria;
-						creaItem(item);
+						creaItem(coleccion, item);
 					});
 			});
 		});
 
 	}, []);
 
+	//	Render !!!
 	return (
 		<div className='div-admin'>
 			<div className='container'>
-
 				<div className='row py-3'>
-					{/*	Título */}
 					<div className='col'>
+
 						<h2>Carga de {coleccion} iniciales</h2>
+
 						<br />
 					</div>
 				</div>
-
-				{/*	Tabla con los datos */}
 				<div className='row mx-1'>
-					<ListaTabla />
-				</div>
 
+					<ListaTabla />
+
+				</div>
 			</div>
 		</div>
 	);

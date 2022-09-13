@@ -1,25 +1,22 @@
 
 //
-//	Renderiza botón genérico de borrado de item en lista
+//	Renderiza botón genérico de borrado de item en fila de lista
 //
 
 //	Framework !!!
 import React from 'react';
 
 //	Propio !!!
-import { borrarDoc } from '../api/db';
-import { alertaToast, confirmSwal } from '../funciones';
-
-//	CSS !!!
-import './index.css';
+import { borrarDoc } from '../../api/db';
+import { alertaToast, confirmSwal } from '../../funciones';
 
 //	Default !!!
-export default function ButtonBorrarItem({
+export default function BotonBorrarItem({
 			item, coleccion, msjExito = 'Item borrado.'
 		}) {
 
 	//	Valida parámetros
-	if (!item || !item.id || !coleccion) return 'BtnDel: Falta info';
+	if (!item || !item.id || !coleccion) return 'Falta info.';
 
 	//	Nombre de item a borrar
 	const nombreItem = item.nombre || item.id || 'item';

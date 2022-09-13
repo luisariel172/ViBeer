@@ -3,13 +3,11 @@
 		{
 			"id": "1",
 			"fecha": "2022-08-26",
-			"comprador": 
-				{
-					"nombre": "Fabricio Pereyra",
-					"telefono": "3815123456",
-					"email": "fabry@server.com"
-				}
-			,
+			"id_usuario": "",
+			"usuario": "Fabricio Pereyra",
+			"telefono": "3815123456",
+			"email": "fabry@server.com",
+			"direccion": "Colón 1090",
 			"items":
 				[
 					{"id": "15", "nombre": "Cerveza Limpios", "precio": 150, "cantidad": 2},
@@ -21,13 +19,11 @@
 		{
 			"id": "2",
 			"fecha": "2022-08-27",
-			"comprador": 
-				{
-					"nombre": "Ramiro Pereyra",
-					"telefono": "3815654321",
-					"email": "Ramiro@server.com"
-				}
-			,
+			"id_usuario": "",
+			"usuario": "Ramiro Pereyra",
+			"telefono": "3815654321",
+			"email": "Ramiro@server.com",
+			"direccion": "Lincoln 93",
 			"items":
 				[
 					{"id": "20", "nombre": "Cerveza Acelerado", "precio": 150, "cantidad": 1},
@@ -39,9 +35,32 @@
 	],
 
 	"usuarios": [
-		{"id": "1", "nombre": "Jorge", "mail": "jorge@server.com", "passw": ""},
-		{"id": "2", "nombre": "Ramiro", "mail": "ramiro@server.com", "passw": ""},
-		{"id": "3", "nombre": "Guadalupe", "mail": "guadalupe@server.com", "passw": ""}
+		{
+			"id": "1",
+			"nombre": "Jorge",
+			"telefono": "3815123456",
+			"email": "jorge@server.com",
+			"direccion": "Colón 1090",
+			"passw": ""
+		},
+		
+		{
+			"id": "2",
+			"nombre": "Ramiro",
+			"telefono": "3815123456",
+			"email": "ramiro@server.com",
+			"direccion": "Lincoln 93",
+			"passw": ""
+		},
+		
+		{
+			"id": "3",
+			"nombre": "Guadalupe",
+			"telefono": "3815123456",
+			"email": "guadalupe@server.com",
+			"direccion": "Maipú 50",
+			"passw": ""
+		}
 	],
 
 	"categorias": [
@@ -57,7 +76,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Lager"
+			"categoria": "Lager",
+			"imagen": ""
 		},
 
 		{
@@ -66,7 +86,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Negras"
+			"categoria": "Negras",
+			"imagen": ""
 		},
 
 		{
@@ -75,7 +96,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Pale Ale"
+			"categoria": "Pale Ale",
+			"imagen": ""
 		},
 
 		{
@@ -84,7 +106,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Pale Ale"
+			"categoria": "Pale Ale",
+			"imagen": ""
 		},
 
 		{
@@ -93,7 +116,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Negras"
+			"categoria": "Negras",
+			"imagen": ""
 		},
 
 		{
@@ -102,7 +126,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Lager"
+			"categoria": "Lager",
+			"imagen": ""
 		},
 
 		{
@@ -111,7 +136,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Negras"
+			"categoria": "Negras",
+			"imagen": ""
 		},
 
 		{
@@ -120,7 +146,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Pale Ale"
+			"categoria": "Pale Ale",
+			"imagen": ""
 		},
 
 		{
@@ -129,7 +156,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Lager"
+			"categoria": "Lager",
+			"imagen": ""
 		},
 
 		{
@@ -138,7 +166,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Lager"
+			"categoria": "Lager",
+			"imagen": ""
 		},
 
 		{
@@ -147,7 +176,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Pale Ale"
+			"categoria": "Pale Ale",
+			"imagen": ""
 		},
 
 		{
@@ -156,7 +186,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Lager"
+			"categoria": "Lager",
+			"imagen": ""
 		},
 
 		{
@@ -165,7 +196,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Negras"
+			"categoria": "Negras",
+			"imagen": ""
 		},
 
 		{
@@ -174,7 +206,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Negras"
+			"categoria": "Negras",
+			"imagen": ""
 		},
 
 		{
@@ -183,7 +216,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Lager"
+			"categoria": "Lager",
+			"imagen": ""
 		},
 
 		{
@@ -192,7 +226,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Negras"
+			"categoria": "Negras",
+			"imagen": ""
 		},
 
 		{
@@ -201,7 +236,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Pale Ale"
+			"categoria": "Pale Ale",
+			"imagen": ""
 		},
 
 		{
@@ -210,7 +246,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Pale Ale"
+			"categoria": "Pale Ale",
+			"imagen": ""
 		},
 
 		{
@@ -219,7 +256,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Pale Ale"
+			"categoria": "Pale Ale",
+			"imagen": ""
 		},
 
 		{
@@ -228,7 +266,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Pale Ale"
+			"categoria": "Pale Ale",
+			"imagen": ""
 		},
 
 		{
@@ -237,7 +276,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Pale Ale"
+			"categoria": "Pale Ale",
+			"imagen": ""
 		},
 
 		{
@@ -246,7 +286,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Pale Ale"
+			"categoria": "Pale Ale",
+			"imagen": ""
 		},
 
 		{
@@ -255,7 +296,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Negras"
+			"categoria": "Negras",
+			"imagen": ""
 		},
 
 		{
@@ -264,7 +306,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Negras"
+			"categoria": "Negras",
+			"imagen": ""
 		},
 
 		{
@@ -273,7 +316,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Negras"
+			"categoria": "Negras",
+			"imagen": ""
 		},
 
 		{
@@ -282,7 +326,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Lager"
+			"categoria": "Lager",
+			"imagen": ""
 		},
 
 		{
@@ -291,7 +336,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Negras"
+			"categoria": "Negras",
+			"imagen": ""
 		},
 
 		{
@@ -300,7 +346,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Pale Ale"
+			"categoria": "Pale Ale",
+			"imagen": ""
 		},
 
 		{
@@ -309,7 +356,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Lager"
+			"categoria": "Lager",
+			"imagen": ""
 		},
 
 		{
@@ -318,7 +366,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Pale Ale"
+			"categoria": "Pale Ale",
+			"imagen": ""
 		},
 
 		{
@@ -327,7 +376,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Negras"
+			"categoria": "Negras",
+			"imagen": ""
 		},
 
 		{
@@ -336,7 +386,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Lager"
+			"categoria": "Lager",
+			"imagen": ""
 		},
 
 		{
@@ -345,7 +396,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Lager"
+			"categoria": "Lager",
+			"imagen": ""
 		},
 
 		{
@@ -354,7 +406,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Negras"
+			"categoria": "Negras",
+			"imagen": ""
 		},
 
 		{
@@ -363,7 +416,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Negras"
+			"categoria": "Negras",
+			"imagen": ""
 		},
 
 		{
@@ -372,7 +426,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Negras"
+			"categoria": "Negras",
+			"imagen": ""
 		},
 
 		{
@@ -381,7 +436,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Negras"
+			"categoria": "Negras",
+			"imagen": ""
 		},
 
 		{
@@ -390,7 +446,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Negras"
+			"categoria": "Negras",
+			"imagen": ""
 		},
 
 		{
@@ -399,7 +456,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Pale Ale"
+			"categoria": "Pale Ale",
+			"imagen": ""
 		},
 
 		{
@@ -408,7 +466,8 @@
 			"precio": 150,
 			"stock": 100,
 			"id_categoria": "",
-			"categoria": "Pale Ale"
+			"categoria": "Pale Ale",
+			"imagen": ""
 		}
 	]
 }

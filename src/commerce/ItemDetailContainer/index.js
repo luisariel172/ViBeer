@@ -3,21 +3,23 @@
 //	Renderiza los detalles de un producto
 //
 
+//	Framework !!!
 import React from 'react';
-
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+
+//	Propio !!!
+import { getDocument } from '../../api/db'
 import { ItemDetailCounter } from '..';
 
-//	Acceso a base de datos
-import { getDocument } from '../../api/db'
-
-//	Tarjeta bootstrap
+//	Bootstrap !!!
 import Card from 'react-bootstrap/Card';
+
+//	CSS !!
 import './index.css'
 
 //	Principal
-function ItemDetailContainer() {
+export default function ItemDetailContainer() {
 
 	//	Lee parámetro
 	const { itemId } = useParams();
@@ -32,7 +34,8 @@ function ItemDetailContainer() {
 		getItem().then(item => setItem(item));
 	}, []);
 
-    return (
+    //	Render !!!
+	return (
 		<div className='row div-item-detail-container'>
 			<Card
 				id={item.id}
@@ -65,6 +68,5 @@ function ItemDetailContainer() {
 			</Card>
 		</div>
     );
-}
 
-export default ItemDetailContainer;
+};

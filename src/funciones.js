@@ -12,15 +12,23 @@ import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
 
 
+//	Objeto-expresión-regular para validar e-mail
+export const emailRegexp = new RegExp(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/);
+
 //	Confirma con Swal
-export function confirmSwal(texto = 'Confirmar', titulo = '¿ Estás seguro ?') {
-    return Swal.fire({
+export function confirmSwal(
+        texto = 'Confirmar', titulo = '¿ Estás seguro ?'
+    ) {
+
+    return (Swal.fire({
         title: titulo,
         html: texto,
         icon: 'warning',
         showDenyButton: true,
         confirmButtonText: 'Si',
         denyButtonText: 'No'})
+    );
+
 };
 
 

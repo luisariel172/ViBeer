@@ -3,24 +3,29 @@
 //	Renderiza item de galería
 //
 
+//	Framework !!!
 import React from 'react';
-
 import { Link } from 'react-router-dom';
 
-//	Imagen
+//	Propio !!!
 import { ImagenDesdeGithub } from '..';
-
-//	Tarjeta bootstrap
-import Card from 'react-bootstrap/Card';
-import './index.css'
-
-//	Widget de catidad en carrito
 import WidgetCantidad from './WidgetCantidad';
 
-function Item({ id, nombre, precio, stock, categoria, imagen }) {
+//	Bootstrap !!!
+import Card from 'react-bootstrap/Card';
 
+//	CSS !!!
+import './index.css'
+
+//	Default !!!
+export default function Item({
+		id, nombre, precio, stock, categoria, imagen
+	}) {
+
+	//	Imagen
 	const imagenGH = ImagenDesdeGithub(imagen);
 
+	//	Render !!!
 	return (
 		<Card className='p-3 mb-5 rounded strong item-tarjeta sombra-item'>
 			<div className='titulo-item'>
@@ -44,6 +49,5 @@ function Item({ id, nombre, precio, stock, categoria, imagen }) {
 			</Card.Body>
 		</Card>
 	);
-}
 
-export default Item;
+};

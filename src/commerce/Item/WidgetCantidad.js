@@ -3,18 +3,23 @@
 //	Widget de cantidad de articulos del item en galería
 //
 
+//	Framework !!!
 import React from 'react';
-import './index.css'
 
 //	Contexto del carrito
 import { useContextCarrito } from '..';
 
-function WidgetCantidad({ id }) {
+//	CSS !!!
+import './index.css'
+
+//	Default !!!
+export default function WidgetCantidad({ id }) {
 
 	//	Cantidad del item en el carrito de compra
 	const { getCantidadById } = useContextCarrito()
 	const cantidad = getCantidadById(id);
 
+	//	Render !!!
 	return (
 		cantidad ? 
 			<div
@@ -27,6 +32,4 @@ function WidgetCantidad({ id }) {
 			</div>
 		: ''
 	);
-}
-
-export default WidgetCantidad;
+};

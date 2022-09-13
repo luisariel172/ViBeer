@@ -3,15 +3,17 @@
 //	Renderiza fila de tabla de orden
 //
 
-//	Framework
+//	Framework !!!
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-//	CSS
-import '../index.css';
+//	Propio !!!
+import BotonConsultarItem from '../_botones/BotonConsultarItem';
+import BotonBorrarItem from '../_botones/BotonBorrarItem';
 
-function TablaFila({ item, borrarItem }) {
+//	Default !!!
+export default function TablaFila({ item, borrarItem }) {
 
+	//	Render !!!
 	return (
 		<tr className='text-white'>
 			<td title={item.id}>
@@ -21,35 +23,34 @@ function TablaFila({ item, borrarItem }) {
 				{item.fecha}
 			</td>
 			<td>
-				{item.comprador.nombre}
+				{item.usuario}
+			</td>
+			<td>
+				{item.telefono}
+			</td>
+			<td>
+				{item.email}
 			</td>
 			<td>
 				{item.items[0].nombre + '...'}
 			</td>
 			<td className='text-end'>
-				{item.total}
+				${item.total}
 			</td>
 
 			<td className='text-end'>
-				<Link to={'/admin_consulta_orden/'+ item.id}>
-					<button title = 'Consultar'>
-						<i className='fas fa-binoculars'></i>
-					</button>
-				</Link>
+				<BotonConsultarItem
+					linkWithId={`/admin_consulta_orden/${item.id}`}
+				/>
 				{' '}
-				<button
-					title = 'Editar'
-					onClick = {() => {}}
-				><i className='fas fa-pen'></i></button>
-				{' '}
-				<button
-					title = 'Borrar'
-					onClick = {() => {borrarItem(item.id)}}
-				><i className='fas fa-trash'></i></button>
+				<BotonBorrarItem
+					item={item}
+					coleccion='ordenes'
+					msjExito='Orden borrada.'
+				/>
 			</td>
 
 		</tr>
 	);
-};
 
-export default TablaFila;
+};

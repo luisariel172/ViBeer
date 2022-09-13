@@ -7,25 +7,32 @@
 import React, { useEffect, useState } from 'react';
 
 //	Propio !!!
-import { objFormWithItem, getterForm, setterForm } from '../funAdmin';
+import { itemFormWithItem, getterForm, setterForm, childrenWithItemForm }
+	from '../funAdmin';
 import { GrupoForm } from '../../shared';
 import { isNull } from '../../funciones';
 
 //	Bootstrap !!!
 import Form from 'react-bootstrap/Form';
 
-//	CSS !!!
-import '../index.css';
-
 //	Default !!!
-export default function Formulario({ item = {}, modo = '', Botonera }) {
+export default function Formulario({
+		item, modo, children
+	}) {
 
-	//	State de item de formulario
+	//	Item del formulario
 	const [itemForm, setItemForm] = useState({});
 	useEffect(() => {
-		const inicial = objFormWithItem(item, validator);
+		const inicial = itemFormWithItem(item, validator);
 		setItemForm(inicial);
 	}, [item])
+
+	//	Botones del formulario
+	const [BotonesForm, setBotonesForm] = useState();
+	useEffect(() => {
+    	const botones = childrenWithItemForm(children, itemForm);
+		setBotonesForm(botones);
+	}, [itemForm])
 
 	//	Lector de campo
 	const getter = (campo) => {
@@ -75,7 +82,7 @@ export default function Formulario({ item = {}, modo = '', Botonera }) {
 			/>
 
 			<div className='text-end py-4' >
-				<Botonera itemForm={itemForm}/>
+				{BotonesForm}
 			</div>
 
   		</Form>

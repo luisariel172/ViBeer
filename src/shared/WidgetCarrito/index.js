@@ -3,20 +3,20 @@
 //	Widget de carrito de compra
 //
 
+//	Framework !!!
 import React from 'react';
-
-import carritoVacio from '../../../src/assets/cart-empty.svg';
-import carritoLleno from '../../../src/assets/cart-fill.svg';
-
-import './index.css'
-
-//	Contexto del carrito
-import { useContextCarrito } from '../../commerce';
-
-//	Navegación al carrito
 import { useNavigate } from 'react-router-dom';
 
-function WidgetCarrito() {
+//	Propio !!!
+import carritoVacio from '../../../src/assets/cart-empty.svg';
+import carritoLleno from '../../../src/assets/cart-fill.svg';
+import { useContextCarrito } from '../../commerce';
+
+//	CSS !!!
+import './index.css'
+
+//	Default !!!
+export default function WidgetCarrito() {
 
 	//	Ir al carrito
 	const navegar = useNavigate();
@@ -25,6 +25,7 @@ function WidgetCarrito() {
 	const { getCantidadTotal } = useContextCarrito();
 	const articulos = getCantidadTotal();
 
+	//	Render !!!
 	return (
 		<div
 			className='btn button1 div-widget-carrito'
@@ -41,6 +42,5 @@ function WidgetCarrito() {
 			</span>
 		</div>
 	);
-}
 
-export default WidgetCarrito;
+};

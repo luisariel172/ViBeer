@@ -7,14 +7,35 @@
 //*****************************************************************
 //
 
+//	Framework !!!
+import React from 'react';
+
 //	Propio !!!
 import { isNull } from "../funciones";
 
 
+//	Carga colección de datos desde JSON de ./public
+export async function getDatosJson(coleccion) {
+	const respuesta = await fetch(`/datos.json`)
+	const objJson = await respuesta.json();
+	let ret = objJson[coleccion];
+	return ret;
+};
+
+
+//	Devuelve componentes hijos con agrgegado de objeto-form
+export function childrenWithItemForm(hijos, itemForm) {
+	return React.Children.map(hijos, (hijo) => {
+		return React.cloneElement(
+			hijo, {itemForm: itemForm}
+		);
+	});
+};
+
 //	Devuelve objeto para formulario
-//	Construye con "item" y valida
-//	Estructura para cada campo: "campo": {"valor", "errores"}
-export function objFormWithItem(item, funValidator) {
+//	Construye con item de dato y valida
+//	Construye objeto para cada campo: "campo": {"valor", "errores"}
+export function itemFormWithItem(item, funValidator) {
 
 	//	Valida parámetros
 	if (!item) return {};
@@ -76,7 +97,10 @@ export function setterForm(
 export function hayErroresForm(itemForm) {
 
 	//	Valida parámetro
-	if (!itemForm) return 'hayErroresForm: Falta info.';
+	if (isNull(itemForm)) {
+		alert('hayErroresForm: Falta info.');
+		return true;
+	}
 
 	let ret = false;
 	for (let campo in itemForm) {
