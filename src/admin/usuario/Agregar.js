@@ -11,13 +11,13 @@ import DivFormAdmin from '../_wrappers/DivFormAdmin';
 import Formulario from './Formulario';
 import AgregarBotones from './AgregarBotones';
 
+//	Usuario con datos iniciales
+export const usuarioInicial = {
+	id: '', nombre: '', telefono: '', email: '', direccion: '', passw: ''
+};
+
 //	Default !!!
 export default function Agregar() {
-
-	//	Item vacío
-	const itemVacio = {
-		id: '', nombre: '', telefono: '', email: '', direccion: '', passw: ''
-	};
 
 	//	Render !!!
 	return (
@@ -25,7 +25,7 @@ export default function Agregar() {
 			titulo='Nueva usuario'
 		>
 			<Formulario
-				item={itemVacio}
+				item={usuarioInicial}
 			>
 				<AgregarBotones />
 			</Formulario>

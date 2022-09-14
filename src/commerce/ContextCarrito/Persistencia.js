@@ -7,7 +7,7 @@
 import { useState } from 'react';
 
 //  Default !!!
-export default function Persistencia() {
+export default function persistencia() {
 
     //  Crea clave de local storage
     const clave = 'lineas_carrito';

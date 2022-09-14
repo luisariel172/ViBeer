@@ -9,10 +9,12 @@ import { useNavigate } from 'react-router-dom';
 import { increment, updateDoc } from 'firebase/firestore';
 
 //	Propio !!!
-import { hayErroresForm, itemWithForm } from '../../admin/funAdmin';
-import { fechaAMD, alertaToast } from '../../funciones';
-import { creaItem, getRefDoc } from '../../api/db';
-import { useContextCarrito } from '..';
+import { getRefDoc } from '../../api/db';
+import { hayErroresForm } from '../../admin/funAdmin';
+import { alertaToast } from '../../funciones';
+import { useContextCarrito } from '../';
+import { grabaUsuario } from './funUsuario';
+import { getOrdenInicial, grabaOrden } from './funOrden';
 import CompraForm from './CompraForm';
 
 //	Default !!!
@@ -25,47 +27,33 @@ export default function Compra({ lineas }) {
 	const navegar = useNavigate();
 
 	//	Datos iniciales de la orden
-	const item = {
-		fecha: fechaAMD(),
-		id_usuario: '',
-		usuario: '',
-		telefono: '',
-		email: '',
-		direccion: '',
-		total: 0
-	};
+	const item = getOrdenInicial();
 
 	//	Ejecuta la compra
 	const comprar = ( itemForm ) => {
 
 		//	Decide grabación
 		if (hayErroresForm(itemForm)) {
-
 			alertaToast('Información faltante o errónea.');
-
 		} else {
 
-			//	Orden a grabar
-			const orden = itemWithForm(itemForm);
-			orden['items'] = lineas.map(lc => {
-					return {
-						id: lc.id,
-						nombre: lc.nombre,
-						precio: lc.precio,
-						cantidad: lc.cantidad
-					}
-				});
-			orden['total'] = getTotalCarrito();
+			//	Actualiza usuario !!!
+			grabaUsuario(itemForm)
+			.then((usuario) => {
 
-			//	Graba !!!
-			creaItem('ordenes', orden)
-			.then((item) => {
-				updateStock()
-				reset();
-				navegar(
-					`/admin_consulta_orden/${item.id}/todas`,
-					{ state: { msjToast: 'Compra exitosa !!!' } }
-				)
+				//	id de usuario
+				itemForm.id_usuario.valor = usuario.id;
+
+				//	Graba orden !!!
+				grabaOrden(itemForm, lineas, getTotalCarrito())
+				.then((orden) => {
+					updateStock()
+					reset();
+					navegar(
+						`/admin_consulta_orden/${orden.id}/todas`,
+						{ state: { msjToast: 'Compra exitosa !!!' } }
+					)
+				});
 			});
 		};
 
@@ -84,11 +72,13 @@ export default function Compra({ lineas }) {
 	//	Render !!!
 	return (
 		<div className='col ms-0'>
-			<h4>Confirme la operación</h4><br/>
+			<h4>Confirmá la operación</h4><br/>
+
 			<CompraForm
 				item={item}
 				funEjecutar={comprar}
 			/>
+
 		</div>
 	);
 

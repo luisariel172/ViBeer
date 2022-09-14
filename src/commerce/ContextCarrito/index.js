@@ -7,7 +7,7 @@
 import React, { useContext } from 'react';
 
 //  Propio !!!
-import Persistencia from './Persistencia';
+import persistencia from './persistencia';
 
 //  Crea objeto-contexto
 const objContextCarrito = React.createContext([]);
@@ -19,7 +19,7 @@ export const useContextCarrito = () => useContext(objContextCarrito);
 export default function Proveedor({ children }) {
 
 	//	Líneas del carrito y su setter
-	const [lineasCarrito, setLineasCarrito] = Persistencia();
+	const [lineasCarrito, setLineasCarrito] = persistencia();
 
 	//	Devuelve true si el id de item ya existe en líneas
 	const yaExiste = (id) =>
