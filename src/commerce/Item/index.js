@@ -8,7 +8,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 //	Propio !!!
-import { ImagenDesdeGithub } from '..';
+//	import { ImagenDesdeGithub } from '..';
 import WidgetCantidad from './WidgetCantidad';
 
 //	Bootstrap !!!
@@ -23,7 +23,7 @@ export default function Item({
 	}) {
 
 	//	Imagen
-	const imagenGH = ImagenDesdeGithub(imagen);
+	//	const imagenGH = ImagenDesdeGithub(imagen);
 
 	//	Render !!!
 	return (
@@ -35,7 +35,7 @@ export default function Item({
 			<Card.Img
 				className='shadow-lg p-3 mb-2 bg-white rounded strong'
 				variant='top'
-				src={imagenGH}
+				src={imagen}
 			/>
 			<Card.Body>
 				<Card.Text className='texto-item'>{'Precio: $' + precio}</Card.Text>
