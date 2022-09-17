@@ -47,6 +47,10 @@ export default function NavBar() {
 
 	});
 
+	//	Botón buscar producto
+	const buscarProducto = () => {
+	};
+
 	//	Render !!!
 	return (
 		<Navbar id='header' expand='lg'>
@@ -71,7 +75,12 @@ export default function NavBar() {
 								className='me-2'
 								aria-label='Search'
 							/>
-							<Button variant='outline-success'>Buscar</Button>
+							<Button
+								variant='outline-success'
+								onClick={buscarProducto}
+							>
+								Buscar
+							</Button>
 						</Form>
 					</Nav>
 					<Nav className='px-3'>

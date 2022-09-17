@@ -10,6 +10,7 @@ import { useParams } from 'react-router-dom';
 
 //	Propio !!!
 import { getDocument } from '../../api/db'
+import { isNull } from '../../funciones';
 import { ItemDetailCounter } from '..';
 
 //	Bootstrap !!!
@@ -47,7 +48,11 @@ export default function ItemDetailContainer() {
 						<Card.Img
 							className='shadow-lg p-3 mb-2 bg-white rounded strong'
 							variant='top'
-							src={item.imagen}
+							src={
+								isNull(item.imagen)
+								? '/img/producto_sin_imagen.png'
+								: item.imagen
+							}
 						/>
 					</div>
 					<div className='col-6 mt-5 m-5'>
