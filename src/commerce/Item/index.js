@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 
 //	Propio !!!
 //	import { ImagenDesdeGithub } from '..';
+import { isNull } from '../../funciones';
 import WidgetCantidad from './WidgetCantidad';
 
 //	Bootstrap !!!
@@ -35,7 +36,7 @@ export default function Item({
 			<Card.Img
 				className='shadow-lg p-3 mb-2 bg-white rounded strong'
 				variant='top'
-				src={imagen}
+				src={isNull(imagen) ? '/img/producto_sin_imagen.png' : imagen}
 			/>
 			<Card.Body>
 				<Card.Text className='texto-item'>{'Precio: $' + precio}</Card.Text>
