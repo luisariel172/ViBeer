@@ -1,10 +1,13 @@
 
 //
-//	Renderiza grupo etiqueta-y-campo de un formulario
+//	Renderiza grupo etiqueta-y-campo genérico de un formulario
 //
 
 //	Framework !!!
 import React, { useEffect, useState } from 'react';
+
+//	Propio !!!
+import Control from './Control';
 
 //	Bootstrap !!!
 import Form from 'react-bootstrap/Form';
@@ -15,20 +18,19 @@ import Row from 'react-bootstrap/Row';
 import './index.css';
 
 //	Default !!!
-export default function GrupoForm(
-		{
-			etiqueta = '*etiqueta',
-			campo = '*campo',
-			tamaño = 7,
-			tipo = 'input',
-			funSetter = null,
-			funGetter = null,
-			funValid = null,
-			clasesControl = '',
-			modo = (campo === 'id' ? 'consulta' : ''),
-			setFoco = false
-		}
-	) {
+export default function GrupoForm({
+		etiqueta = '*etiqueta',
+		campo = '*campo',
+		tamaño = 7,
+		tipo = 'input',
+		funSetter = null,
+		funGetter = null,
+		funValid = null,
+		clasesControl = '',
+		modo = (campo === 'id' ? 'consulta' : ''),
+		setFoco = false,
+		seleccion = {coleccion: '', campo: ''}
+	}) {
 
 	//	Error y mensajes del componente
 	const [error, setError] = useState(false);
@@ -41,7 +43,7 @@ export default function GrupoForm(
 		}
 	})
 
-	//	Lee valor inicial
+	//	Lee valor
 	function getValor() {
 	    return funGetter ? funGetter(campo) : '';
 	};
@@ -70,6 +72,7 @@ export default function GrupoForm(
 	//	Render !!!
 	return (
 		<Form.Group
+			key={campo}
 			as={Row}
 			className='my-1 px-1 grupo-form'
 			controlId={campo}
@@ -85,7 +88,8 @@ export default function GrupoForm(
 			</Form.Label>
 
 			<Col sm={tamaño}>
-				<Form.Control
+				<Control
+					key={campo}
 					name={campo}
 					type={tipo}
 					className={'my-1 control-form ' + clasesControl}
@@ -97,6 +101,7 @@ export default function GrupoForm(
 					aria-invalid={error}
 					readOnly={modo === 'consulta'}
 					autoFocus={setFoco}
+					seleccion={seleccion}
 				/>
 			</Col>
 

@@ -7,10 +7,11 @@
 import React, { useEffect, useState } from 'react';
 
 //	Propio !!!
-import { itemFormWithItem, getterForm, setterForm, childrenWithItemForm }
-	from '../funAdmin';
+import { getCollection } from '../../api/db';
 import { GrupoForm } from '../../shared';
 import { isNull } from '../../funciones';
+import { itemFormWithItem, getterForm, setterForm, childrenWithItemForm }
+	from '../funAdmin';
 
 //	Bootstrap !!!
 import Form from 'react-bootstrap/Form';
@@ -20,7 +21,20 @@ export default function Formulario({
 		item, modo, children
 	}) {
 
-	//	Item del formulario
+	//	Array de categorías con nombre y id para resolver id_categoria
+	const [arrCategorias, setArrCategorias] = useState([]);
+	useEffect(() => {
+		async function getItems() {
+			await getCollection('categorias')
+			.then(items => items.map(item => {
+				return {nombre: item.nombre, id: item.id}
+			}))
+			.then(items => setArrCategorias(items));
+		}
+		getItems()
+	}, []);
+
+	//	Item-objeto del formulario
 	const [itemForm, setItemForm] = useState({});
 	useEffect(() => {
 		const inicial = itemFormWithItem(item, validator);
@@ -41,6 +55,18 @@ export default function Formulario({
 
 	//	Escritor de campo
 	const setter = (campo, valor) => {
+		//	Resuleve id de categoría
+		if (campo === 'categoria') {
+			const cat = arrCategorias.find((cat) => {
+				return cat.nombre === valor}
+			);
+			if (cat) {
+				itemForm.id_categoria.valor = cat.id;
+				itemForm.id_categoria.errores = '';
+			} else {
+				itemForm.id_categoria.valor = '';
+			};
+		}
 		setterForm(setItemForm, itemForm, campo, valor, validator);
 	};
 
@@ -53,6 +79,12 @@ export default function Formulario({
 				msjErrores = (isNull(valor) ? 'Requerido.' : '');
 				break
 			case 'precio':
+				msjErrores = (isNull(valor) ? 'Requerido.' : '');
+				break
+			case 'id_categoria':
+				msjErrores = (isNull(valor) ? 'Requerido.' : '');
+				break
+			case 'categoria':
 				msjErrores = (isNull(valor) ? 'Requerido.' : '');
 				break
 			default:
@@ -111,7 +143,6 @@ export default function Formulario({
 				campo='id_categoria'
 				tamaño='5'
 				funGetter={getter}
-				funSetter={setter}
 				funValid={validator}
 				modo='consulta'
 			/>
@@ -119,7 +150,10 @@ export default function Formulario({
 			<GrupoForm
 				etiqueta='Categoría'
 				campo='categoria'
-				tamaño='7'
+				tamaño='8'
+				tipo='select'
+				seleccion={{coleccion: 'categorias', campo: 'nombre'}}
+				clasesControl='background-seleccion'
 				funGetter={getter}
 				funSetter={setter}
 				funValid={validator}
