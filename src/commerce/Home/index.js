@@ -23,7 +23,7 @@ export default function Home() {
 				<div className='row'>
 					<div className='col-7'>
 						<h1>
-							Delivery de cervezas para todos los gustos y para Maxi también.
+							Delivery de cervezas para todos los gustos.
 						</h1>
 						<br/><br/>
 						<p>
