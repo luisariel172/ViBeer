@@ -8,7 +8,9 @@ import React, { useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 
 //	Propio !!!
-import { getCollection, getCollectionWithQuery } from '../../api/db'
+import { getCollection, getCollectionWithQuery, getCollectionWithContent }
+	from '../../api/db'
+import { isNull } from '../../funciones';
 import { ItemList } from "../index";
 
 //	CSSS !!!
@@ -18,49 +20,52 @@ import './index.css'
 export default function ItemListContainer() {
 
 	//	Captura parámetro categoría
-	const { id_categoria } = useParams();
+	const { id_categoria, buscar } = useParams();
 
-	//	Productos y nombre de categoría
+	//	Productos y título de galería
 	const [items, setItems] = useState([]);
-	const [categoria, setCategoria] = useState('');
+	const [titulo, setTitulo] = useState('');
 	useEffect(() => {
 
-		//	Lee items
+		//	Lee items por categoría, con cadena de búsqueda o todas
 		const getItems = async () => {
-			let ret = [];
-			//	Filtro por categoría
+			let items = [];
 			if (id_categoria) {
-				ret = await getCollectionWithQuery(
+				items = await getCollectionWithQuery(
 					'productos', ['id_categoria', '==', id_categoria]);
-				if (ret[0]) {
-					setCategoria(ret[0].categoria);
-				} else {
-					setCategoria([]);
-				};
+			} else if (buscar) {
+				items = await getCollectionWithContent('productos', buscar);
 			} else {
-				ret = await getCollection('productos');
-				setCategoria('Todas');
-			}
-			return ret;
+				items = await getCollection('productos');
+			};
+			return items;
 		};
-		getItems().then(items => setItems(items));
+		getItems().then(items => {
+			setItems(items);
+			let titulo = 'Todas';
+			if (id_categoria) {
+				titulo = isNull(items[0]) ? 'No hay categoría.' : items[0].categoria;
+			} else if (buscar) {
+				titulo = `${isNull(items[0]) ? 'No hay c' : 'C'}ervezas "${buscar}".`;
+			};
+			setTitulo(titulo);
+		});
 
-	}, []);
+	}, [id_categoria, buscar]);
 
     //	Render !!!
 	return (
 		<div className='div-item-list-container'>
 			<div className='container'>
-				<h2>
-
-					{categoria}
-
-				</h2>
+				<div className='row'>
+					<h2>
+						{titulo}
+					</h2>
+				</div>
+				<div className='row'>
+					<ItemList itemList={items} />
+				</div>
 			</div>
-
-			<ItemList itemList={items} />
-
 		</div>
     );
-
 };

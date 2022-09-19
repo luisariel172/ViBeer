@@ -7,6 +7,7 @@
 import React from 'react';
 
 //	Propio !!!
+import { isNull } from '../../funciones';
 import { useContextCarrito } from '..';
 
 //	Default !!!
@@ -22,7 +23,15 @@ export default function FilaTablaCarrito({ linea }) {
 				{linea.nombre}
 			</td>
 			<td>
-				<img src={linea.imagen} width={'70px'} alt={'xxx'}/>
+				<img
+					src={
+						isNull(linea.imagen)
+						? '/img/producto_sin_imagen.png'
+						: linea.imagen
+					}
+					width={'70px'}
+					alt={'xxx'}
+				/>
 			</td>
 			<td className='text-end'>
 				{linea.cantidad}

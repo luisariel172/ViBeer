@@ -9,8 +9,11 @@ import { Routes, Route } from 'react-router-dom';
 //	Comercio !!!
 import { Navbar, Footer } from './shared';
 import { Home, ContextCarrito, Carrito } from './commerce';
-import { ItemListContainer as Categoria, ItemDetailContainer as Detalle }
-	from './commerce';
+import {
+		ItemListContainer as Categoria,
+		ItemDetailContainer as Detalle
+	}
+from './commerce';
 
 //	Administración !!!
 import {
@@ -38,6 +41,7 @@ export default function App() {
 
 					<Route path='/' element = {<Home />} />
 					<Route path='/todas' element = {<Categoria />} />
+					<Route path='/todas/:buscar' element = {<Categoria />} />
 					<Route path='/categoria/:id_categoria' element = {<Categoria />} />
 					<Route path='/item_detalle/:itemId' element = {<Detalle />} />
 					<Route path='/carrito' element = {<Carrito />} />

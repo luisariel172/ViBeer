@@ -18,7 +18,7 @@ export default function ItemList({ itemList }) {
 	//	Render !!!
 	return (
 		<div className='div-item-list'>
-			{itemList.map((objItem) => {
+			{itemList && itemList.map((objItem) => {
 				return <Item key={objItem.id} {...objItem} />;
 			})};
 		</div>

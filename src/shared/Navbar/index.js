@@ -5,6 +5,7 @@
 
 //	Framework !!!
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 //	Bootstrap !!!
 import Button from 'react-bootstrap/Button';
@@ -47,8 +48,13 @@ export default function NavBar() {
 
 	});
 
+	//	Navegador para ejecutar búsqueda
+	const navegar = useNavigate();
+	
 	//	Botón buscar producto
-	const buscarProducto = () => {
+	const buscarProducto = (evt) => {
+		evt.preventDefault();
+		navegar(`/todas/${evt.target.buscar.value}`);
 	};
 
 	//	Render !!!
@@ -68,16 +74,21 @@ export default function NavBar() {
 						<Nav.Link href={'/categoria/' + idLager}>Lager</Nav.Link>
 						<Nav.Link href={'/categoria/' + idNegras}>Negras</Nav.Link>
 						<Nav.Link href={'/categoria/' + idPaleAle}>Pale Ale</Nav.Link>
-						<Form className='d-flex'>
+						<Form
+							className='d-flex'
+							onSubmit={buscarProducto}
+							autoComplete='off'
+						>
 							<Form.Control
+								name='buscar'
 								type='search'
-								placeholder='Buscar'
+								placeholder='Buscar por nombre'
 								className='me-2'
 								aria-label='Search'
 							/>
 							<Button
 								variant='outline-success'
-								onClick={buscarProducto}
+								type='submit'
 							>
 								Buscar
 							</Button>

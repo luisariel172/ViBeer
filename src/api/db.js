@@ -38,10 +38,26 @@ export async function getCollection(col) {
 }
 
 
+//	Devuelve array de colección filtrado por contenido en campo
+export async function getCollectionWithContent(
+		col, contenido, campo = 'nombre'
+	) {
+	return (
+		getCollection(col)
+		.then(items =>
+			items.filter(doc =>
+				doc[campo].toUpperCase().includes(contenido.toUpperCase())
+			)
+		)
+	);
+};
+
+
 //	Devuelve array de colección con query
 export async function getCollectionWithQuery(col, q) {
 
-	const queryCollection = query(collection(db, col), where(...q), limit(40));
+	const refCol = collection(db, col);
+	const queryCollection = query(refCol, where(...q), limit(40));
 	const snapshot = await getDocs(queryCollection);
 
 	if (snapshot.size === 0) {
