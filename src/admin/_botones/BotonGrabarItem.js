@@ -8,7 +8,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 //	Propio !!!
-import { alertaToast } from '../../funciones';
+import { isNull, alertaToast } from '../../funciones';
 import { hayErroresForm, itemWithForm } from './../funAdmin';
 import { creaItem } from '../../api/db';
 
@@ -20,17 +20,21 @@ import '../index.css';
 
 //	Default !!!
 export default function BotonGrabarItem({
-			itemForm, coleccion, linkExito
-		}) {
-
-	//	Valida parámetros
-	if (!itemForm || !coleccion || !linkExito) return 'Falta info.';
+		itemForm, coleccion, linkExito,
+		texto = 'Grabar',
+		msjExito = 'Grabación exitosa !!!'
+	}) {
 
 	//	Navegador para ir a consulta
 	const navegar = useNavigate();
 
+	//	Valida parámetros
+	if (isNull(itemForm) || isNull(coleccion) || isNull(linkExito))
+		return 'Falta info.';
+
 	//	Ejecuta grabación
-	const runGrabar = () => {
+	const runGrabar = (evt) => {
+		evt.preventDefault();
 
 		//	Decide ejecución
 		if (hayErroresForm(itemForm)) {
@@ -40,7 +44,7 @@ export default function BotonGrabarItem({
 			.then((item) => {
 				navegar(
 					`${linkExito}/${item.id}`,
-					{ state: { msjToast: 'Grabación exitosa !!!' } }
+					{ state: { msjToast: msjExito } }
 				);
 			})
 		};
@@ -49,8 +53,8 @@ export default function BotonGrabarItem({
 
 	//	Render !!!
 	return (
-		<Button size='md' className='w-25 me-5' onClick={runGrabar}>
-			Grabar
+		<Button type='submit' size='md' className='w-25 me-5' onClick={runGrabar}>
+			{texto}
 		</Button>
 	);
 

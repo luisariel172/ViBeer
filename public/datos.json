@@ -41,7 +41,7 @@
 			"telefono": "3815123456",
 			"email": "jorge@server.com",
 			"direccion": "Colón 1090",
-			"passw": ""
+			"passw": "1111"
 		},
 		
 		{
@@ -50,7 +50,7 @@
 			"telefono": "3815123456",
 			"email": "ramiro@server.com",
 			"direccion": "Lincoln 93",
-			"passw": ""
+			"passw": "2222"
 		},
 		
 		{
@@ -59,7 +59,7 @@
 			"telefono": "3815123456",
 			"email": "guadalupe@server.com",
 			"direccion": "Maipú 50",
-			"passw": ""
+			"passw": "3333"
 		}
 	],
 

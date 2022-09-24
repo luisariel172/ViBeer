@@ -4,8 +4,14 @@
 //
 
 //	Framework !!!
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+//	Propio !!!
+import logo from './../../assets/img/logo.png';
+import { getCollectionWithQuery } from '../../api/db';
+import { WidgetCarrito } from '../index';
+import WidgetSesion from './WidgetSesion';
 
 //	Bootstrap !!!
 import Button from 'react-bootstrap/Button';
@@ -17,11 +23,6 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 //	CSS !!!
 import './index.css'
-
-//	Propio !!!
-import logo from './../../assets/img/logo.png';
-import { getCollectionWithQuery } from '../../api/db';
-import { WidgetCarrito } from '../index';
 
 //	Default !!!
 export default function NavBar() {
@@ -48,7 +49,7 @@ export default function NavBar() {
 
 	});
 
-	//	Navegador para ejecutar búsqueda
+	//	Navegador para moverse
 	const navegar = useNavigate();
 	
 	//	Botón buscar producto
@@ -95,10 +96,9 @@ export default function NavBar() {
 						</Form>
 					</Nav>
 					<Nav className='px-3'>
-						<Nav.Link href='/login'>
-							<i className='fa fa-user px-2' aria-hidden='true'></i>
-							Ingresá
-						</Nav.Link>
+
+						<WidgetSesion/>
+
 					</Nav>
 					<Nav>
 						<NavDropdown title='Administración' id='navbarScrollingDropdown'>

@@ -29,7 +29,8 @@ export default function GrupoForm({
 		clasesControl = '',
 		modo = (campo === 'id' ? 'consulta' : ''),
 		setFoco = false,
-		seleccion = {coleccion: '', campo: ''}
+		seleccion = {coleccion: '', campo: ''},
+		tooltip = ''
 	}) {
 
 	//	Error y mensajes del componente
@@ -102,6 +103,7 @@ export default function GrupoForm({
 					readOnly={modo === 'consulta'}
 					autoFocus={setFoco}
 					seleccion={seleccion}
+					title={tooltip}
 				/>
 			</Col>
 

@@ -8,11 +8,11 @@
 .etiqueta-form, .control-form {
 	height: auto !important;
 	min-height: 30px !important;
+	color: white !important;
 }
 
 .control-form {
 	background-color: black !important;
-	color: white !important;
 	border: 0 !important;
 }
 

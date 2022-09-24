@@ -20,9 +20,16 @@ import ImagenDesdeGithub from './ImagenDesdeGithub';
 import ContextCarrito, { useContextCarrito } from './ContextCarrito';
 import Carrito from './Carrito';
 
+//	Sesión de usuario
+import SesionContext, { useSesionContext} from './SesionContext';
+import Login from './Sesion';
+import Registrarse from './Sesion/Registro';
+import SesionConUsuario from './Sesion/SesionConUsuario';
+
 export {
 	Home,
 	ItemListContainer, ItemList, Item, ItemDetailContainer,ItemDetailCounter,
 	ImagenDesdeGithub,
 	ContextCarrito, useContextCarrito, Carrito,
+	SesionContext, useSesionContext, Login, Registrarse, SesionConUsuario
 };

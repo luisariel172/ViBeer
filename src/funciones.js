@@ -104,15 +104,20 @@ export function isObject(objecto) {
 //  Devuelve true si el parámtero es inútil.
 //
 export function isNull(value) {
-    return (value === null ||
-        value === undefined ||
-            String(value).trim() === '' ||
-                Number(value) === 0 ||
-                    (Array.isArray(value) && value.length === 0))
+	return (
+		value === null ||
+		value === undefined ||
+		String(value).trim() === '' ||
+		Number(value) === 0 ||
+		(Array.isArray(value) && value.length === 0) ||
+		(isObject(value) && Object.entries(value).length === 0)
+	)
 };
 
 
-
+//
+//	Produce una demora en segundos
+//
 export function delay(segundos = 0) {
     return new Promise((resolve) => {
         setTimeout(resolve, segundos * 1000);

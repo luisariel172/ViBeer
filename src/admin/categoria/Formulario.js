@@ -60,7 +60,7 @@ export default function Formulario({
 
 	//	Render !!!
 	return (
-		<Form className='text-white' autoComplete='off'>
+		<Form className='text-white px-2' autoComplete='off'>
 
 			<GrupoForm
 				etiqueta='Id'

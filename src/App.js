@@ -8,10 +8,11 @@ import { Routes, Route } from 'react-router-dom';
 
 //	Comercio !!!
 import { Navbar, Footer } from './shared';
-import { Home, ContextCarrito, Carrito } from './commerce';
+import { Home, SesionContext, ContextCarrito, Carrito } from './commerce';
 import {
 		ItemListContainer as Categoria,
-		ItemDetailContainer as Detalle
+		ItemDetailContainer as Detalle,
+		Login, Registrarse, SesionConUsuario
 	}
 from './commerce';
 
@@ -35,6 +36,7 @@ export default function App() {
 	//	Render !!!
 	return (
 		<div className='App'>
+			<SesionContext>
 			<ContextCarrito>
 				<Navbar />
 				<Routes>
@@ -44,7 +46,10 @@ export default function App() {
 					<Route path='/todas/:buscar' element = {<Categoria />} />
 					<Route path='/categoria/:id_categoria' element = {<Categoria />} />
 					<Route path='/item_detalle/:itemId' element = {<Detalle />} />
-					<Route path='/carrito' element = {<Carrito />} />
+
+					<Route path='/login' element = {<Login />} />
+					<Route path='/registrarse' element = {<Registrarse />} />
+					<Route path='/sesion_con_usuario/:id' element = {<SesionConUsuario />} />
 
 					<Route path='/admin_lista_productos' element = {<ListaProductos />} />
 					<Route path='/admin_agregar_producto' element = {<AgregarProducto />} />
@@ -69,8 +74,11 @@ export default function App() {
 					<Route path='/admin_consulta_usuario/:id' element = {<ConsultaUsuario />} />
 					<Route path='/admin_edicion_usuario/:id' element = {<EdicionUsuario />} />
 
+					<Route path='/carrito' element = {<Carrito />} />
+
 				</Routes>
 			</ContextCarrito>
+			</SesionContext>
 			<Footer />
 		</div>
 	);

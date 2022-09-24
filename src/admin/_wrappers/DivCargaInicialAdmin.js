@@ -19,18 +19,16 @@ export default function DivCargaInicialAdmin({
 		coleccion, children, titulo
 	}) {
 
-	//	Valida y resuleve parámetros
+	//	Valida y resuelve parámetros
 	if (!coleccion || !children) return 'Falta info.';
 	titulo = titulo || `Carga de ${coleccion} iniciales.`;
-
-	//	Borra colección
-	borrarColeccion(coleccion);
 
 	//	Items iniciales
 	useEffect(() => {
 
-		//	Carga colección desde datos JSON
-		getDatosJson(coleccion)
+		//	Borra colección y carga nuevos datos desde JSON
+		borrarColeccion(coleccion)
+		.then(() => getDatosJson(coleccion))
 		.then(items => {
 			items.forEach(item => {
 				delete item.id;

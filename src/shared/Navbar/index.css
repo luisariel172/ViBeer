@@ -1,19 +1,17 @@
 
 div .nav-link {
-	color: white;
-}
-
-button {
-	background-color: white !important;
+	color: white !important;
 }
 
 div .nav-link:hover {
-	color: rgb(192,140,57);
+	color: rgb(192,140,57) !important;
 }
 
-div .NavBar{
-	margin-bottom: 0px !important;
+/*
+div .nav-bar{
+	margin-bottom: 100px !important;
 }
+*/
 
 #navbarScrollingDropdown {
     color: white;

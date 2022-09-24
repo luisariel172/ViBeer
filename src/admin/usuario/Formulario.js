@@ -61,6 +61,9 @@ export default function Formulario({
 					msjErrores = '';
 				};
 				break
+			case 'passw':
+				msjErrores = (isNull(valor) ? 'Requerido.' : '');
+				break
 			default:
 				msjErrores = '';
 		};
@@ -69,7 +72,7 @@ export default function Formulario({
 
 	//	Render !!!
 	return (
-		<Form className='text-white' autoComplete='off'>
+		<Form className='text-white px-2' autoComplete='off'>
 
 			<GrupoForm
 				etiqueta='Id'

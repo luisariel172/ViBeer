@@ -17,25 +17,24 @@ export default function DivFormAdmin({
 	//	Render !!!
 	return (
 		<div className='div-admin'>
-			<div className='container'>
-				<div className='my-5'>
+		<div className='container'>
 
-					<h2>{titulo}</h2>
+		<div className='my-5'>
+			<h2>{titulo}</h2>
+		</div>
 
-				</div>
-				<div className='row align-items-center justify-content-center'>
-					<div className='col-8 px-5 border rounded'>
-						<h5 className='text-white py-3 text-start'>
+		<div className='row align-items-center justify-content-center'>
+		<div className='col-8 px-5 border rounded'>
 
-							{subTitulo}
+		<h5 className='text-white py-3 text-start'>
+			{subTitulo}
+		</h5>
 
-						</h5>
+		{children}
 
-						{children}
-
-					</div>
-				</div>
-			</div>
+		</div>
+		</div>
+		</div>
 		</div>
 	);
 

@@ -58,8 +58,8 @@ export default function Formulario({
 		//	Resuleve id de categoría
 		if (campo === 'categoria') {
 			const cat = arrCategorias.find((cat) => {
-				return cat.nombre === valor}
-			);
+				return cat.nombre === valor
+			});
 			if (cat) {
 				itemForm.id_categoria.valor = cat.id;
 				itemForm.id_categoria.errores = '';
@@ -95,7 +95,7 @@ export default function Formulario({
 
 	//	Render !!!
 	return (
-		<Form className='text-white' autoComplete='off'>
+		<Form className='text-white px-2' autoComplete='off'>
 
 			<GrupoForm
 				etiqueta='Id'
