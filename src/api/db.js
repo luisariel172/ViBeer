@@ -126,8 +126,8 @@ export function getRefDoc(col, id) {
 //	Actualiza un item con colección y id
 export async function actualizaItem(col, id, item) {
 
-	const docRef = getRefDoc(col, id);
+	const refDoc = getRefDoc(col, id);
 
-	return await updateDoc(docRef, item);
+	return await updateDoc(refDoc, item);
 
 }

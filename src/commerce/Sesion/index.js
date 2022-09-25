@@ -46,7 +46,10 @@ export default function Login() {
 			await getCollection('usuarios')
 			.then(items => items.map(item => {
 				return {
-					email: item.email, nombre: item.nombre, passw: item.passw
+					id: item.id,
+					nombre: item.nombre,
+					email: item.email,
+					passw: item.passw
 				}
 			}))
 			.then(items => setArrUsuarios(items));
@@ -109,6 +112,7 @@ export default function Login() {
 					const usr = getUsuarioByEmail(valor);
 					if (itemForm && itemForm.usuario)
 						itemForm.usuario.valor = (usr ? usr.nombre : '');
+						itemForm.id_usuario.valor = (usr ? usr.id : '');
 				};
 				break
 			case 'usuario':

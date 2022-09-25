@@ -1,6 +1,6 @@
 
 //
-//	Renderiza link de sesión
+//	Renderiza widget de sesión
 //
 
 //	Framework !!!
@@ -8,17 +8,14 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 //	Propio !!!
-import { alertaToast, confirmSwal } from '../../funciones';
+import { alertaToast, confirmaSwal } from '../../funciones';
 import { useSesionContext } from '../../commerce';
 
 //	Bootstrap !!!
 import { Nav } from 'react-bootstrap';
 
-//	CSS !!!
-import './index.css'
-
 //	Default !!!
-export default function WidgetSesion({ funActualizar }) {
+export default function WidgetSesion() {
 
 	//	Navegador para moverse
 	const navegar = useNavigate();
@@ -35,11 +32,12 @@ export default function WidgetSesion({ funActualizar }) {
 		evt.preventDefault();
 
 		if (haySesion) {
-			confirmSwal('¿ Deseas cerrar sesión ?', 'Logout')
+			confirmaSwal('¿ Deseas cerrar sesión ?', 'Logout')
 			.then(respuesta => {
 				if (respuesta.isConfirmed) {
 					accionLogout();
 					alertaToast('Logout !!!', 'success');
+					navegar('/todas');
 				};
 			});
 		} else {

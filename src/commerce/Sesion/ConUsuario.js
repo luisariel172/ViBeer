@@ -13,7 +13,7 @@ import { getDocument } from '../../api/db';
 import { useSesionContext, ItemListContainer } from '../index';
 
 //	Default !!!
-export default function SesionConUsuario() {
+export default function ConUsuario() {
 
 	//	Captura id de URL
 	const { id } = useParams();
@@ -31,7 +31,10 @@ export default function SesionConUsuario() {
 	//	Registra login
 	useEffect(() => {
 		if (!isNull(usuario)) {
-			const sesion = {email: usuario.email, usuario: usuario.nombre, passw: usuario.passw, id_usuario: usuario.id}
+			const sesion = {
+				email: usuario.email, usuario: usuario.nombre,
+				passw: usuario.passw, id_usuario: usuario.id
+			};
 			accionLogin(sesion);
 			alertaToast(`Hola ${sesion.usuario} !!!`, 'success');
 		};

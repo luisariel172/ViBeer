@@ -8,7 +8,7 @@ import React from 'react';
 
 //	Propio !!!
 import { borrarDoc } from '../../api/db';
-import { alertaToast, confirmSwal } from '../../funciones';
+import { alertaToast, confirmaSwal } from '../../funciones';
 
 //	Default !!!
 export default function BotonBorrarItem({
@@ -25,7 +25,7 @@ export default function BotonBorrarItem({
 	const borrarItem = () => {
 
 		//	Confirma
-		confirmSwal(`¿ Deseás borrar '${nombreItem}' ?`)
+		confirmaSwal(`¿ Deseás borrar '${nombreItem}' ?`)
 		.then((resultado) => {
 			if (resultado.isConfirmed) {
 				borrarDoc(coleccion, item.id)

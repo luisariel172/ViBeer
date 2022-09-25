@@ -16,7 +16,7 @@ import Swal from 'sweetalert2';
 export const emailRegexp = new RegExp(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/);
 
 //	Confirma con Swal
-export function confirmSwal(
+export function confirmaSwal(
         texto = 'Confirmar', titulo = '¿ Estás seguro ?'
     ) {
 

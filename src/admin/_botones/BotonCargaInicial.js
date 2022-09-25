@@ -8,7 +8,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 //	Propio !!!
-import { confirmSwal } from '../../funciones';
+import { confirmaSwal } from '../../funciones';
 
 //	Default !!!
 export default function BotonCargaInicial({ nombreCol }) {
@@ -23,7 +23,7 @@ export default function BotonCargaInicial({ nombreCol }) {
 	const runBoton = () => {
 
 		//	Confirma
-		confirmSwal(
+		confirmaSwal(
 			`Esto borrará TODOS los datos de ${nombreCol}.<br/>` +
 			'¿ Está seguro  ?', 'Carga de datos iniciales')
 		.then((resultado) => {

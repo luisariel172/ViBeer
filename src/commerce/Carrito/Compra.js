@@ -11,8 +11,8 @@ import { increment, updateDoc } from 'firebase/firestore';
 //	Propio !!!
 import { getRefDoc } from '../../api/db';
 import { hayErroresForm } from '../../admin/funAdmin';
-import { alertaToast } from '../../funciones';
-import { useContextCarrito } from '../';
+import { alertaToast, confirmaSwal } from '../../funciones';
+import { useCarritoContext } from '../';
 import { grabaUsuario } from './funUsuario';
 import { getOrdenInicial, grabaOrden } from './funOrden';
 import CompraForm from './CompraForm';
@@ -21,7 +21,7 @@ import CompraForm from './CompraForm';
 export default function Compra({ lineas }) {
 
 	//	Obtiene funciones del carrito
-	const { getTotalCarrito, reset } = useContextCarrito();
+	const { getTotalCarrito, reset } = useCarritoContext();
 
 	//	Navegador para ir a la orden
 	const navegar = useNavigate();
@@ -37,24 +37,32 @@ export default function Compra({ lineas }) {
 			alertaToast('Información faltante o errónea.');
 		} else {
 
-			//	Actualiza usuario !!!
-			grabaUsuario(itemForm)
-			.then((usuario) => {
+			//	Confirma
+			confirmaSwal('¿ estás seguro ?')
+			.then((resultado) => {
+				if (resultado.isConfirmed) {
 
-				//	id de usuario
-				itemForm.id_usuario.valor = usuario.id;
+					//	Actualiza usuario !!!
+					grabaUsuario(itemForm)
+					.then((usuario) => {
 
-				//	Graba orden !!!
-				grabaOrden(itemForm, lineas, getTotalCarrito())
-				.then((orden) => {
-					updateStock()
-					reset();
-					navegar(
-						`/admin_consulta_orden/${orden.id}/todas`,
-						{ state: { msjToast: 'Compra exitosa !!!' } }
-					)
-				});
+						//	id de usuario
+						if (usuario) itemForm.id_usuario.valor = usuario.id;
+
+						//	Graba orden !!!
+						grabaOrden(itemForm, lineas, getTotalCarrito())
+						.then((orden) => {
+							updateStock()
+							reset();
+							navegar(
+								`/admin_consulta_orden/${orden.id}/todas`,
+								{ state: { msjToast: 'Compra exitosa !!!' } }
+							)
+						});
+					});
+				}
 			});
+
 		};
 
 		//	Actualiza stock

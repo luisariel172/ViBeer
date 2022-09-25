@@ -5,7 +5,7 @@
 
 //	Framework !!!
 import React from 'react';
-import { useContextCarrito } from '../ContextCarrito';
+import { useCarritoContext } from '../CarritoContext';
 
 //  Propio !!!
 import TablaCarritoFila from './TablaCarritoFila';
@@ -17,7 +17,7 @@ import Table from 'react-bootstrap/Table';
 export default function TablaCarrito({ lineas }) {
 
 	//	Obtiene funciones del carrito
-	const { getCantidadTotal, getTotalCarrito } = useContextCarrito();
+	const { getCantidadTotal, getTotalCarrito } = useCarritoContext();
 
 	//	Render !!!
 	return (

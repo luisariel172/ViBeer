@@ -8,7 +8,7 @@ import { Routes, Route } from 'react-router-dom';
 
 //	Comercio !!!
 import { Navbar, Footer } from './shared';
-import { Home, SesionContext, ContextCarrito, Carrito } from './commerce';
+import { Home, SesionContext, CarritoContext, Carrito } from './commerce';
 import {
 		ItemListContainer as Categoria,
 		ItemDetailContainer as Detalle,
@@ -37,7 +37,7 @@ export default function App() {
 	return (
 		<div className='App'>
 			<SesionContext>
-			<ContextCarrito>
+			<CarritoContext>
 				<Navbar />
 				<Routes>
 
@@ -77,7 +77,7 @@ export default function App() {
 					<Route path='/carrito' element = {<Carrito />} />
 
 				</Routes>
-			</ContextCarrito>
+			</CarritoContext>
 			</SesionContext>
 			<Footer />
 		</div>

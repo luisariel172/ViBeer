@@ -10,8 +10,7 @@ import { useNavigate } from 'react-router-dom';
 //	Propio !!!
 import logo from './../../assets/img/logo.png';
 import { getCollectionWithQuery } from '../../api/db';
-import { WidgetCarrito } from '../index';
-import WidgetSesion from './WidgetSesion';
+import { WidgetSesion, WidgetCarrito } from '../index';
 
 //	Bootstrap !!!
 import Button from 'react-bootstrap/Button';

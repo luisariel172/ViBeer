@@ -8,13 +8,13 @@ import React from 'react';
 
 //	Propio !!!
 import { isNull } from '../../funciones';
-import { useContextCarrito } from '..';
+import { useCarritoContext } from '..';
 
 //	Default !!!
 export default function FilaTablaCarrito({ linea }) {
 
 	//	Acción borrar línea
-	const { borrarLinea } = useContextCarrito();
+	const { borrarLinea } = useCarritoContext();
 
 	//	Render !!!
 	return (

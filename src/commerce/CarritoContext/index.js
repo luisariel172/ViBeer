@@ -10,10 +10,10 @@ import React, { useContext } from 'react';
 import persistencia from './persistencia';
 
 //  Crea objeto-contexto
-const objContextCarrito = React.createContext([]);
+const objCarritoContext = React.createContext([]);
 
 //  Crea función de acceso a contexto
-export const useContextCarrito = () => useContext(objContextCarrito);
+export const useCarritoContext = () => useContext(objCarritoContext);
 
 //	Default !!!
 export default function Proveedor({ children }) {
@@ -69,7 +69,7 @@ export default function Proveedor({ children }) {
 
 	//	Render !!!
 	return (
-        <objContextCarrito.Provider 
+        <objCarritoContext.Provider 
             value={{
 				lineasCarrito,
 				agregarLinea,
@@ -83,6 +83,6 @@ export default function Proveedor({ children }) {
 
 			{children}
 
-		</objContextCarrito.Provider>
+		</objCarritoContext.Provider>
 	);
 };

@@ -6,7 +6,7 @@
 //	Framework !!!
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useContextCarrito } from '../';
+import { useCarritoContext } from '../';
 
 //	Propio !!!
 import TablaCarrito from './TablaCarrito';
@@ -19,7 +19,7 @@ import './index.css';
 export default function Carrito() {
 
     //	Acceso a contexto de carrito
-	const { lineasCarrito } = useContextCarrito();
+	const { lineasCarrito } = useCarritoContext();
 
     if (lineasCarrito.length === 0) {
 

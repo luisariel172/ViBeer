@@ -17,19 +17,19 @@ import ItemDetailCounter from './ItemDetailCounter';
 import ImagenDesdeGithub from './ImagenDesdeGithub';
 
 //	Carrito de compra
-import ContextCarrito, { useContextCarrito } from './ContextCarrito';
+import CarritoContext, { useCarritoContext } from './CarritoContext';
 import Carrito from './Carrito';
 
 //	Sesión de usuario
 import SesionContext, { useSesionContext} from './SesionContext';
 import Login from './Sesion';
 import Registrarse from './Sesion/Registro';
-import SesionConUsuario from './Sesion/SesionConUsuario';
+import SesionConUsuario from './Sesion/ConUsuario';
 
 export {
 	Home,
 	ItemListContainer, ItemList, Item, ItemDetailContainer,ItemDetailCounter,
 	ImagenDesdeGithub,
-	ContextCarrito, useContextCarrito, Carrito,
+	CarritoContext, useCarritoContext, Carrito,
 	SesionContext, useSesionContext, Login, Registrarse, SesionConUsuario
 };

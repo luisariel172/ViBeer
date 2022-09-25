@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 //	Propio !!!
 import carritoVacio from '../../../src/assets/cart-empty.svg';
 import carritoLleno from '../../../src/assets/cart-fill.svg';
-import { useContextCarrito } from '../../commerce';
+import { useCarritoContext } from '../../commerce';
 
 //	CSS !!!
 import './index.css'
@@ -22,7 +22,7 @@ export default function WidgetCarrito() {
 	const navegar = useNavigate();
 
 	//	Cantidad total de artículos del carrito
-	const { getCantidadTotal } = useContextCarrito();
+	const { getCantidadTotal } = useCarritoContext();
 	const articulos = getCantidadTotal();
 
 	//	Render !!!

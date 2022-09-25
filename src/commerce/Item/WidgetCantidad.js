@@ -7,7 +7,7 @@
 import React from 'react';
 
 //	Contexto del carrito
-import { useContextCarrito } from '..';
+import { useCarritoContext } from '..';
 
 //	CSS !!!
 import './index.css'
@@ -16,7 +16,7 @@ import './index.css'
 export default function WidgetCantidad({ id }) {
 
 	//	Cantidad del item en el carrito de compra
-	const { getCantidadById } = useContextCarrito()
+	const { getCantidadById } = useCarritoContext()
 	const cantidad = getCantidadById(id);
 
 	//	Render !!!

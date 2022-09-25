@@ -9,7 +9,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 //	Context de carrito
-import { useContextCarrito } from '..';
+import { useCarritoContext } from '..';
 
 //	Bootstrap !!!
 import Button from 'react-bootstrap/Button';
@@ -27,7 +27,7 @@ export default function AgregarAlCarrito({
     const [agregado, setAgregado] = useState(false);
 
 	//	Acción de agregar línea al carrito
-	const { agregarLinea } = useContextCarrito();
+	const { agregarLinea } = useCarritoContext();
 
 	//	Ejecuta botón
 	const runBoton = (evt) => {
