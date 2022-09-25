@@ -53,7 +53,12 @@ export default function BotonGrabarItem({
 
 	//	Render !!!
 	return (
-		<Button type='submit' size='md' className='w-25 me-5' onClick={runGrabar}>
+		<Button
+			type='submit'
+			size='md'
+			className='w-25 me-5'
+			onClick={runGrabar}
+		>
 			{texto}
 		</Button>
 	);

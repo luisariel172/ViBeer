@@ -30,7 +30,8 @@ export default function BotonActualizarItem({
 	const navegar = useNavigate();
 
 	//	Ejecuta actualización
-	const runActualizar = () => {
+	const runActualizar = (evt) => {
+		evt.preventDefault();
 
 		//	Decide ejecución
 		if (hayErroresForm(itemForm)) {
@@ -49,7 +50,12 @@ export default function BotonActualizarItem({
 
 	//	Render !!!
 	return (
-		<Button size='md' className='w-25 me-5' onClick={runActualizar}>
+		<Button
+			type='submit'
+			size='md'
+			className='w-25 me-5'
+			onClick={runActualizar}
+		>
 			Actualizar
 		</Button>
 	);
